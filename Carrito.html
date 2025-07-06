@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Carrito de Compras</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #fff8f0;
+      font-family: 'Segoe UI', sans-serif;
+      color: #212121;
+    }
+
+    .container {
+      max-width: 700px;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: linear-gradient(to right, #ef6c00, #fb8c00, #ffb300);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      color: #fff !important;
+    }
+
+    .btn-outline-light:hover {
+      background-color: #fff;
+      color: #ef6c00;
+    }
+
+    /* Lista del carrito */
+    .list-group-item {
+      background-color: #fff3e0;
+      border: 1px solid #ffe0b2;
+    }
+
+    /* Botones */
+    .btn-danger {
+      background: linear-gradient(to right, #e53935, #f44336);
+      border: none;
+      font-weight: bold;
+    }
+
+    .btn-danger:hover {
+      background: linear-gradient(to right, #f44336, #ef5350);
+    }
+
+    .btn-remove {
+      float: right;
+    }
+
+    .btn-primary {
+      background: linear-gradient(to right, #e65100, #fb8c00);
+      border: none;
+      font-weight: bold;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(to right, #fb8c00, #ffca28);
+    }
+  </style>
+</head>
+<body class="container py-5">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" href="Ferreteria.html">
+        <img src="imagenes pagina ferreteria/Imagen de fondo inicio y logo/Logo.jpeg" alt="Logo" width="40" height="40" class="d-inline-block align-text-top me-2 rounded">
+        FerrePro
+      </a>
+      <div class="d-flex">
+        <a href="carrito.html" class="btn btn-outline-light">🛒 Carrito</a>
+      </div>
+    </div>
+  </nav>
+
+  <h2 class="mb-4">Carrito de Compras</h2>
+
+  <ul id="lista-carrito" class="list-group mb-3"></ul>
+
+  <div class="d-flex justify-content-between align-items-center mb-4">
+  <h4>Total: <span id="total">$0</span></h4>
+  <div class="d-flex gap-2">
+    <button class="btn btn-danger" onclick="vaciarCarrito()">Vaciar Carrito</button>
+    <button class="btn btn-primary" onclick="pagarCarrito()">Pagar</button>
+  </div>
+</div>
+
+  <script>
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    const lista = document.getElementById('lista-carrito');
+    const totalSpan = document.getElementById('total');
+
+    function mostrarCarrito() {
+      lista.innerHTML = '';
+      let total = 0;
+
+      carrito.forEach((item, index) => {
+        const li = document.createElement('li');
+        li.className = 'list-group-item d-flex justify-content-between align-items-center';
+        li.innerHTML = `
+          ${item.nombre} - $${item.precio.toLocaleString()}
+          <button class="btn btn-sm btn-outline-danger btn-remove" onclick="eliminarProducto(${index})">Eliminar</button>
+        `;
+        lista.appendChild(li);
+        total += item.precio;
+      });
+
+      totalSpan.textContent = '$' + total.toLocaleString();
+    }
+
+    function eliminarProducto(index) {
+      carrito.splice(index, 1);
+      localStorage.setItem('carrito', JSON.stringify(carrito));
+      mostrarCarrito();
+    }
+
+    function vaciarCarrito() {
+      if (confirm("¿Estás seguro de que deseas vaciar el carrito?")) {
+        carrito = [];
+        localStorage.removeItem('carrito');
+        mostrarCarrito();
+      }
+    }
+
+    function pagarCarrito() {
+  if (carrito.length === 0) {
+    alert("Tu carrito está vacío.");
+    return;
+  }
+  alert("✅ ¡Gracias por tu compra!");
+  localStorage.removeItem('carrito');
+  carrito = [];
+  mostrarCarrito();
+}
+
+
+    mostrarCarrito();
+  </script>
+</body>
+</html>
