@@ -288,16 +288,18 @@ select {
   overflow-x: auto;
   scroll-behavior: smooth;
   padding-bottom: 10px;
+
+  &::-webkit-scrollbar {
+    height: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #ff6f00;
+    border-radius: 5px;
+  }
+
 }
 
-.scroll-linea::-webkit-scrollbar {
-  height: 10px;
-}
-
-.scroll-linea::-webkit-scrollbar-thumb {
-  background: #ff6f00;
-  border-radius: 5px;
-}
 
 .producto {
   flex: 0 0 auto;

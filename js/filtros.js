@@ -1,23 +1,29 @@
-const filtro = document.querySelector('#filtro-herramientas')
-const mensaje = document.querySelector('#filter-selected-value')
-const productos = document.querySelectorAll('.articulo')//
+// Seleccionamos todos los filtros (los tres <select>)
+const filtros = document.querySelectorAll('.btn-filtro');
+const mensaje = document.querySelector('#filter-selected-value');
+const productos = document.querySelectorAll('.articulo');
 
-filtro.addEventListener('change', function () {
-    const selectedValue = filtro.value//
+// Recorremos cada filtro para escuchar los cambios
+filtros.forEach(filtro => {
+  filtro.addEventListener('change', function () {
+    const selectedValue = filtro.value;
 
+    // Mostrar el valor seleccionado
     if (selectedValue) {
-        mensaje.textContent = `Has seleccionado: ${selectedValue}`
+      mensaje.textContent = `Has seleccionado: ${selectedValue}`;
     } else {
-        mensaje.textContent = ''
+      mensaje.textContent = '';
     }
 
+    // Filtrar productos según la modalidad (atributo data-modalidad)
     productos.forEach(insumo => {
-        const modalidad = insumo.dataset.modalidad//
+      const modalidad = insumo.dataset.modalidad;
 
-        if (selectedValue === '' || modalidad === selectedValue) {
-            insumo.style.display = 'block'
-        } else {
-            insumo.style.display = 'none'
-        }
-    })
-})
+      if (selectedValue === '' || modalidad === selectedValue) {
+        insumo.style.display = 'block';
+      } else {
+        insumo.style.display = 'none';
+      }
+    });
+  });
+});
