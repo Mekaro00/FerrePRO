@@ -2,7 +2,7 @@
   {
     "id": 1,
     "nombre": "Lijadora de banda",
-    "categoria": "",
+    "categoria": "Herramientas electricas",
     "descripcion": "Producto de ferretería: Lijadora de banda.",
     "precio": 8000000,
     "imagen": "imagenes pagina ferreteria/Herramientas electricas/Lijadora_de_banda.jpg",
@@ -14,7 +14,7 @@
   {
     "id": 2,
     "nombre": "Lijadora orbital",
-    "categoria": "",
+    "categoria": "Herramientas electricas",
     "descripcion": "Producto de ferretería: Lijadora orbital.",
     "precio": 7200000,
     "imagen": "imagenes pagina ferreteria/Herramientas electricas/Lijadora_orbital.webp",
@@ -26,7 +26,7 @@
   {
     "id": 3,
     "nombre": "Martillo demoledor",
-    "categoria": "",
+    "categoria": "Herramientas electricas",
     "descripcion": "Producto de ferretería: Martillo demoledor.",
     "precio": 2500000,
     "imagen": "imagenes pagina ferreteria/Herramientas electricas/Martillo_demoledor.jpg",
@@ -38,7 +38,7 @@
   {
     "id": 4,
     "nombre": "Pistola de calor",
-    "categoria": "",
+    "categoria": "Herramientas electricas",
     "descripcion": "Producto de ferretería: Pistola de calor.",
     "precio": 6000000,
     "imagen": "imagenes pagina ferreteria/Herramientas electricas/Pistola_de_calor.jpg",
@@ -50,7 +50,7 @@
   {
     "id": 5,
     "nombre": "Sierra circular",
-    "categoria": "",
+    "categoria": "Herramientas electricas",
     "descripcion": "Producto de ferretería: Sierra circular.",
     "precio": 6800000,
     "imagen": "imagenes pagina ferreteria/Herramientas electricas/Sierra-circular.jpg",
@@ -62,7 +62,7 @@
   {
     "id": 6,
     "nombre": "Sierra caladora",
-    "categoria": "",
+    "categoria": "Herramientas electricas",
     "descripcion": "Producto de ferretería: Sierra caladora.",
     "precio": 6000000,
     "imagen": "imagenes pagina ferreteria/Herramientas electricas/Sierra_caladora.webp",
@@ -74,7 +74,7 @@
   {
     "id": 7,
     "nombre": "Sierra de mesa",
-    "categoria": "",
+    "categoria": "Herramientas electricas",
     "descripcion": "Producto de ferretería: Sierra de mesa.",
     "precio": 13000000,
     "imagen": "imagenes pagina ferreteria/Herramientas electricas/Sierra_de_mesa.jpg",
@@ -86,7 +86,7 @@
   {
     "id": 8,
     "nombre": "Soldadora electrica",
-    "categoria": "",
+    "categoria": "Herramientas electricas",
     "descripcion": "Producto de ferretería: Soldadora electrica.",
     "precio": 9000000,
     "imagen": "imagenes pagina ferreteria/Herramientas electricas/Soldadora_electrica.webp",
@@ -98,7 +98,7 @@
   {
     "id": 9,
     "nombre": "Taladro inalambrico",
-    "categoria": "",
+    "categoria": "Herramientas electricas",
     "descripcion": "Producto de ferretería: Taladro inalambrico.",
     "precio": 7000000,
     "imagen": "imagenes pagina ferreteria/Herramientas electricas/Taladro_inalambrico.jpg",
@@ -110,7 +110,7 @@
   {
     "id": 10,
     "nombre": "Taladro de percusión",
-    "categoria": "",
+    "categoria": "Herramientas electricas",
     "descripcion": "Producto de ferretería: Taladro de percusión.",
     "precio": 8000000,
     "imagen": "imagenes pagina ferreteria/Herramientas electricas/Taladro_percusion.jpg",
@@ -122,7 +122,7 @@
   {
     "id": 11,
     "nombre": "Alicates de presión",
-    "categoria": "",
+    "categoria": "Herramientas manuales",
     "descripcion": "Producto de ferretería: Alicates de presión.",
     "precio": 3000000,
     "imagen": "imagenes pagina ferreteria/Herramientas manuales/Alicates_de_presion.jpg",
@@ -134,7 +134,7 @@
   {
     "id": 12,
     "nombre": "Alicates punta fina",
-    "categoria": "",
+    "categoria": "Herramientas manuales",
     "descripcion": "Producto de ferretería: Alicates punta fina.",
     "precio": 2000000,
     "imagen": "imagenes pagina ferreteria/Herramientas manuales/Alicates_punta_fina.jpg",
@@ -146,7 +146,7 @@
   {
     "id": 13,
     "nombre": "Cutter",
-    "categoria": "",
+    "categoria": "Herramientas manuales",
     "descripcion": "Producto de ferretería: Cutter.",
     "precio": 1000000,
     "imagen": "imagenes pagina ferreteria/Herramientas manuales/Cutter.jpg",
@@ -158,7 +158,7 @@
   {
     "id": 14,
     "nombre": "Destornilladores de precisión",
-    "categoria": "",
+    "categoria": "Herramientas manuales",
     "descripcion": "Producto de ferretería: Destornilladores de precisión.",
     "precio": 4500000,
     "imagen": "imagenes pagina ferreteria/Herramientas manuales/Destornilladores_de_precision.jpg",
@@ -170,7 +170,7 @@
   {
     "id": 15,
     "nombre": "Destornillador de estrella",
-    "categoria": "",
+    "categoria": "Herramientas manuales",
     "descripcion": "Producto de ferretería: Destornillador de estrella.",
     "precio": 1200000,
     "imagen": "imagenes pagina ferreteria/Herramientas manuales/Destornillador_de_estrella.webp",
@@ -182,7 +182,7 @@
   {
     "id": 16,
     "nombre": "Destornillador de pala",
-    "categoria": "",
+    "categoria": "Herramientas manuales",
     "descripcion": "Producto de ferretería: Destornillador de pala.",
     "precio": 1200000,
     "imagen": "imagenes pagina ferreteria/Herramientas manuales/Destornillador_de_pala.webp",
@@ -194,7 +194,7 @@
   {
     "id": 17,
     "nombre": "Juego de herramientas manuales",
-    "categoria": "",
+    "categoria": "Herramientas manuales",
     "descripcion": "Producto de ferretería: Juego de herramientas manuales.",
     "precio": 5800000,
     "imagen": "imagenes pagina ferreteria/Herramientas manuales/Juego_de_herramientas_manuales.jpg",
@@ -206,7 +206,7 @@
   {
     "id": 18,
     "nombre": "Llave de tubo",
-    "categoria": "",
+    "categoria": "Herramientas manuales",
     "descripcion": "Producto de ferretería: Llave de tubo.",
     "precio": 3000000,
     "imagen": "imagenes pagina ferreteria/Herramientas manuales/Llave_de_tubo.jpg",
@@ -218,7 +218,7 @@
   {
     "id": 19,
     "nombre": "Llave hexagonal",
-    "categoria": "",
+    "categoria": "Herramientas manuales",
     "descripcion": "Producto de ferretería: Llave hexagonal.",
     "precio": 1500000,
     "imagen": "imagenes pagina ferreteria/Herramientas manuales/Llave_hexagonal.jpg",
@@ -230,7 +230,7 @@
   {
     "id": 20,
     "nombre": "Llave stilson",
-    "categoria": "",
+    "categoria": "Herramientas manuales",
     "descripcion": "Producto de ferretería: Llave stilson.",
     "precio": 3500000,
     "imagen": "imagenes pagina ferreteria/Herramientas manuales/Llave_stilson.webp",
@@ -242,7 +242,7 @@
   {
     "id": 21,
     "nombre": "Martillo de bola",
-    "categoria": "",
+    "categoria": "Herramientas manuales",
     "descripcion": "Producto de ferretería: Martillo de bola.",
     "precio": 2500000,
     "imagen": "imagenes pagina ferreteria/Herramientas manuales/Martillo_de_bola.jpg",
@@ -254,7 +254,7 @@
   {
     "id": 22,
     "nombre": "Martillo de goma",
-    "categoria": "",
+    "categoria": "Herramientas manuales",
     "descripcion": "Producto de ferretería: Martillo de goma.",
     "precio": 2000000,
     "imagen": "imagenes pagina ferreteria/Herramientas manuales/Martillo_de_goma.webp",
@@ -266,7 +266,7 @@
   {
     "id": 23,
     "nombre": "Martillo de uña",
-    "categoria": "",
+    "categoria": "Herramientas manuales",
     "descripcion": "Producto de ferretería: Martillo de uña.",
     "precio": 3000000,
     "imagen": "imagenes pagina ferreteria/Herramientas manuales/Martillo_de_uña.jpg",
@@ -278,7 +278,7 @@
   {
     "id": 24,
     "nombre": "Navaja",
-    "categoria": "",
+    "categoria": "Herramientas manuales",
     "descripcion": "Producto de ferretería: Navaja.",
     "precio": 2000000,
     "imagen": "imagenes pagina ferreteria/Herramientas manuales/Navaja.webp",
@@ -290,7 +290,7 @@
   {
     "id": 25,
     "nombre": "Segueta",
-    "categoria": "",
+    "categoria": "Herramientas manuales",
     "descripcion": "Producto de ferretería: Segueta.",
     "precio": 1800000,
     "imagen": "imagenes pagina ferreteria/Herramientas manuales/Segueta.jpg",
@@ -302,7 +302,7 @@
   {
     "id": 26,
     "nombre": "Adhesivo epoxico",
-    "categoria": "",
+    "categoria": "Adhesivos",
     "descripcion": "Producto de ferretería: Adhesivo epoxico.",
     "precio": 1500000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Adhesivos/Adhesivo_epoxico.jpg",
@@ -314,7 +314,7 @@
   {
     "id": 27,
     "nombre": "Pegantes para ceramica",
-    "categoria": "",
+    "categoria": "Adhesivos",
     "descripcion": "Producto de ferretería: Pegantes para ceramica.",
     "precio": 2500000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Adhesivos/Pegantes_para_ceramica.jpg",
@@ -326,7 +326,7 @@
   {
     "id": 28,
     "nombre": "Pegante para madera",
-    "categoria": "",
+    "categoria": "Adhesivos",
     "descripcion": "Producto de ferretería: Pegante para madera.",
     "precio": 1500000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Adhesivos/Pegante_para_madera.webp",
@@ -338,7 +338,7 @@
   {
     "id": 29,
     "nombre": "Pegante para metal",
-    "categoria": "",
+    "categoria": "Adhesivos",
     "descripcion": "Producto de ferretería: Pegante para metal.",
     "precio": 1500000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Adhesivos/Pegante_para_metal.jpg",
@@ -350,7 +350,7 @@
   {
     "id": 30,
     "nombre": "Pegante para plasticos",
-    "categoria": "",
+    "categoria": "Adhesivos",
     "descripcion": "Producto de ferretería: Pegante para plasticos.",
     "precio": 2000000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Adhesivos/Pegante_para_plasticos.jpg",
@@ -362,7 +362,7 @@
   {
     "id": 31,
     "nombre": "Pegante para cuero",
-    "categoria": "",
+    "categoria": "Adhesivos",
     "descripcion": "Producto de ferretería: Pegante para cuero.",
     "precio": 1800000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Adhesivos/Pegante_para_cuero.jpg",
@@ -374,7 +374,7 @@
   {
     "id": 32,
     "nombre": "Silicona liquida",
-    "categoria": "",
+    "categoria": "Adhesivos",
     "descripcion": "Producto de ferretería: Silicona liquida.",
     "precio": 800000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Adhesivos/Silicona_liquida.webp",
@@ -386,7 +386,7 @@
   {
     "id": 33,
     "nombre": "Bisagra de libro",
-    "categoria": "",
+    "categoria": "Bisagras y pasadores",
     "descripcion": "Producto de ferretería: Bisagra de libro.",
     "precio": 1800000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Bisagras y pasadores/Bisagra_de_libro.webp",
@@ -398,7 +398,7 @@
   {
     "id": 34,
     "nombre": "Bisagra de pernio",
-    "categoria": "",
+    "categoria": "Bisagras y pasadores",
     "descripcion": "Producto de ferretería: Bisagra de pernio.",
     "precio": 1200000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Bisagras y pasadores/Bisagra_de_pernio.jpg",
@@ -410,7 +410,7 @@
   {
     "id": 35,
     "nombre": "Bisagra de resorte",
-    "categoria": "",
+    "categoria": "Bisagras y pasadores",
     "descripcion": "Producto de ferretería: Bisagra de resorte.",
     "precio": 2000000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Bisagras y pasadores/Bisagra_de_resorte.webp",
@@ -422,7 +422,7 @@
   {
     "id": 36,
     "nombre": "Bisagra doble accion",
-    "categoria": "",
+    "categoria": "Bisagras y pasadores",
     "descripcion": "Producto de ferretería: Bisagra doble accion.",
     "precio": 1800000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Bisagras y pasadores/Bisagra_doble_accion.jpg",
@@ -434,7 +434,7 @@
   {
     "id": 37,
     "nombre": "Bisagra invisible",
-    "categoria": "",
+    "categoria": "Bisagras y pasadores",
     "descripcion": "Producto de ferretería: Bisagra invisible.",
     "precio": 2200000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Bisagras y pasadores/Bisagra_invisible.jpg",
@@ -446,7 +446,7 @@
   {
     "id": 38,
     "nombre": "Bisagra para vidrio",
-    "categoria": "",
+    "categoria": "Bisagras y pasadores",
     "descripcion": "Producto de ferretería: Bisagra para vidrio.",
     "precio": 2500000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Bisagras y pasadores/Bisagra_para_vidrio.jpg",
@@ -458,7 +458,7 @@
   {
     "id": 39,
     "nombre": "Bisagra piano",
-    "categoria": "",
+    "categoria": "Bisagras y pasadores",
     "descripcion": "Producto de ferretería: Bisagra piano.",
     "precio": 2000000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Bisagras y pasadores/Bisagra_piano.webp",
@@ -470,7 +470,7 @@
   {
     "id": 40,
     "nombre": "Bisagra rustica",
-    "categoria": "",
+    "categoria": "Bisagras y pasadores",
     "descripcion": "Producto de ferretería: Bisagra rustica.",
     "precio": 2500000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Bisagras y pasadores/Bisagra_rustica.jpg",
@@ -482,7 +482,7 @@
   {
     "id": 41,
     "nombre": "Pasador automatico",
-    "categoria": "",
+    "categoria": "Bisagras y pasadores",
     "descripcion": "Producto de ferretería: Pasador automatico.",
     "precio": 2000000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Bisagras y pasadores/Pasador_automatico.jpg",
@@ -494,7 +494,7 @@
   {
     "id": 42,
     "nombre": "Pasador clip",
-    "categoria": "",
+    "categoria": "Bisagras y pasadores",
     "descripcion": "Producto de ferretería: Pasador clip.",
     "precio": 2200000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Bisagras y pasadores/Pasador_clip.jpg",
@@ -506,7 +506,7 @@
   {
     "id": 43,
     "nombre": "Pasador de aldaba",
-    "categoria": "",
+    "categoria": "Bisagras y pasadores",
     "descripcion": "Producto de ferretería: Pasador de aldaba.",
     "precio": 1800000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Bisagras y pasadores/Pasador_de_aldaba.webp",
@@ -518,7 +518,7 @@
   {
     "id": 44,
     "nombre": "Pasador embutido",
-    "categoria": "",
+    "categoria": "Bisagras y pasadores",
     "descripcion": "Producto de ferretería: Pasador embutido.",
     "precio": 2500000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Bisagras y pasadores/Pasador_embutido.jpeg",
@@ -530,7 +530,7 @@
   {
     "id": 45,
     "nombre": "Pasador magnetico",
-    "categoria": "",
+    "categoria": "Bisagras y pasadores",
     "descripcion": "Producto de ferretería: Pasador magnetico.",
     "precio": 2200000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Bisagras y pasadores/Pasador_magnetico.webp",
@@ -542,7 +542,7 @@
   {
     "id": 46,
     "nombre": "Pasador para reja",
-    "categoria": "",
+    "categoria": "Bisagras y pasadores",
     "descripcion": "Producto de ferretería: Pasador para reja.",
     "precio": 2400000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Bisagras y pasadores/Pasador_para_reja.jpg",
@@ -554,7 +554,7 @@
   {
     "id": 47,
     "nombre": "Pasador recto",
-    "categoria": "",
+    "categoria": "Bisagras y pasadores",
     "descripcion": "Producto de ferretería: Pasador recto.",
     "precio": 1800000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Bisagras y pasadores/Pasador_recto.jpg",
@@ -566,7 +566,7 @@
   {
     "id": 48,
     "nombre": "Cerradura con cerrojo",
-    "categoria": "",
+    "categoria": "Manijas y cerraduras",
     "descripcion": "Producto de ferretería: Cerradura con cerrojo.",
     "precio": 2800000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Manijas y cerraduras/Cerradura_con_cerrojo.webp",
@@ -578,7 +578,7 @@
   {
     "id": 49,
     "nombre": "Cerradura de sobreponer",
-    "categoria": "",
+    "categoria": "Manijas y cerraduras",
     "descripcion": "Producto de ferretería: Cerradura de sobreponer.",
     "precio": 2500000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Manijas y cerraduras/Cerradura_de_sobreponer.webp",
@@ -590,7 +590,7 @@
   {
     "id": 50,
     "nombre": "Cerradura electronica",
-    "categoria": "",
+    "categoria": "Manijas y cerraduras",
     "descripcion": "Producto de ferretería: Cerradura electronica.",
     "precio": 5500000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Manijas y cerraduras/Cerradura_electronica.jpg",
@@ -602,7 +602,7 @@
   {
     "id": 51,
     "nombre": "Cerradura embutida",
-    "categoria": "",
+    "categoria": "Manijas y cerraduras",
     "descripcion": "Producto de ferretería: Cerradura embutida.",
     "precio": 3500000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Manijas y cerraduras/Cerradura_embutida.webp",
@@ -614,7 +614,7 @@
   {
     "id": 52,
     "nombre": "Cerradura multipunto",
-    "categoria": "",
+    "categoria": "Manijas y cerraduras",
     "descripcion": "Producto de ferretería: Cerradura multipunto.",
     "precio": 4000000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Manijas y cerraduras/Cerradura_multipunto.webp",
@@ -626,7 +626,7 @@
   {
     "id": 53,
     "nombre": "Cerradura para muebles",
-    "categoria": "",
+    "categoria": "Manijas y cerraduras",
     "descripcion": "Producto de ferretería: Cerradura para muebles.",
     "precio": 2800000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Manijas y cerraduras/Cerradura_para_muebles.webp",
@@ -638,7 +638,7 @@
   {
     "id": 54,
     "nombre": "Cerradura para vidrio templado",
-    "categoria": "",
+    "categoria": "Manijas y cerraduras",
     "descripcion": "Producto de ferretería: Cerradura para vidrio templado.",
     "precio": 5000000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Manijas y cerraduras/Cerradura_para_vidrio_templado.png",
@@ -650,7 +650,7 @@
   {
     "id": 55,
     "nombre": "Cerrojo pasador con llave",
-    "categoria": "",
+    "categoria": "Manijas y cerraduras",
     "descripcion": "Producto de ferretería: Cerrojo pasador con llave.",
     "precio": 3200000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Manijas y cerraduras/Cerrojo_pasador_con_llave.webp",
@@ -662,7 +662,7 @@
   {
     "id": 56,
     "nombre": "Manija de bola",
-    "categoria": "",
+    "categoria": "Manijas y cerraduras",
     "descripcion": "Producto de ferretería: Manija de bola.",
     "precio": 2200000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Manijas y cerraduras/Manija_de_bola.webp",
@@ -674,7 +674,7 @@
   {
     "id": 57,
     "nombre": "Manija embutida",
-    "categoria": "",
+    "categoria": "Manijas y cerraduras",
     "descripcion": "Producto de ferretería: Manija embutida.",
     "precio": 3000000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Manijas y cerraduras/Manija_embutida.jpg",
@@ -686,7 +686,7 @@
   {
     "id": 58,
     "nombre": "Manija tipo barra",
-    "categoria": "",
+    "categoria": "Manijas y cerraduras",
     "descripcion": "Producto de ferretería: Manija tipo barra.",
     "precio": 2500000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Manijas y cerraduras/Manija_tipo_barra.webp",
@@ -698,7 +698,7 @@
   {
     "id": 59,
     "nombre": "Manija tipo industrial",
-    "categoria": "",
+    "categoria": "Manijas y cerraduras",
     "descripcion": "Producto de ferretería: Manija tipo industrial.",
     "precio": 5000000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Manijas y cerraduras/Manija_tipo_industrial.jpg",
@@ -710,7 +710,7 @@
   {
     "id": 60,
     "nombre": "Manija tipo palanca",
-    "categoria": "",
+    "categoria": "Manijas y cerraduras",
     "descripcion": "Producto de ferretería: Manija tipo palanca.",
     "precio": 2500000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Manijas y cerraduras/Manija_tipo_palanca.webp",
@@ -722,7 +722,7 @@
   {
     "id": 61,
     "nombre": "Rodachin doble",
-    "categoria": "",
+    "categoria": "Rodachines y ruedas",
     "descripcion": "Producto de ferretería: Rodachin doble.",
     "precio": 4500000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Rodachines y ruedas/Rodachin_doble.webp",
@@ -734,7 +734,7 @@
   {
     "id": 62,
     "nombre": "Rodachin fijo",
-    "categoria": "",
+    "categoria": "Rodachines y ruedas",
     "descripcion": "Producto de ferretería: Rodachin fijo.",
     "precio": 3800000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Rodachines y ruedas/Rodachin_fijo.webp",
@@ -746,7 +746,7 @@
   {
     "id": 63,
     "nombre": "Rodachin giratorio",
-    "categoria": "",
+    "categoria": "Rodachines y ruedas",
     "descripcion": "Producto de ferretería: Rodachin giratorio.",
     "precio": 4200000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Rodachines y ruedas/Rodachin_giratorio.jpg",
@@ -758,7 +758,7 @@
   {
     "id": 64,
     "nombre": "Ruedas agricolas",
-    "categoria": "",
+    "categoria": "Rodachines y ruedas",
     "descripcion": "Producto de ferretería: Ruedas agricolas.",
     "precio": 6000000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Rodachines y ruedas/Ruedas_agricolas.jpg",
@@ -770,7 +770,7 @@
   {
     "id": 65,
     "nombre": "Ruedas industriales",
-    "categoria": "",
+    "categoria": "Rodachines y ruedas",
     "descripcion": "Producto de ferretería: Ruedas industriales.",
     "precio": 5200000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Rodachines y ruedas/Ruedas_industriales.jpg",
@@ -782,7 +782,7 @@
   {
     "id": 66,
     "nombre": "Ruedas macizas",
-    "categoria": "",
+    "categoria": "Rodachines y ruedas",
     "descripcion": "Producto de ferretería: Ruedas macizas.",
     "precio": 5500000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Rodachines y ruedas/Ruedas_macizas.jpg",
@@ -794,7 +794,7 @@
   {
     "id": 67,
     "nombre": "Ruedas neumaticas",
-    "categoria": "",
+    "categoria": "Rodachines y ruedas",
     "descripcion": "Producto de ferretería: Ruedas neumaticas.",
     "precio": 5000000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Rodachines y ruedas/Ruedas_neumaticas.jpg",
@@ -806,7 +806,7 @@
   {
     "id": 68,
     "nombre": "Ruedas para carretilla",
-    "categoria": "",
+    "categoria": "Rodachines y ruedas",
     "descripcion": "Producto de ferretería: Ruedas para carretilla.",
     "precio": 5800000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Rodachines y ruedas/Ruedas_para_carretilla.jpeg",
@@ -818,7 +818,7 @@
   {
     "id": 69,
     "nombre": "Ruedas para muebles",
-    "categoria": "",
+    "categoria": "Rodachines y ruedas",
     "descripcion": "Producto de ferretería: Ruedas para muebles.",
     "precio": 2000000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Rodachines y ruedas/Ruedas_para_muebles.webp",
@@ -830,7 +830,7 @@
   {
     "id": 70,
     "nombre": "Ruedas para portones",
-    "categoria": "",
+    "categoria": "Rodachines y ruedas",
     "descripcion": "Producto de ferretería: Ruedas para portones.",
     "precio": 2200000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Rodachines y ruedas/Ruedas_para_portones.jpg",
@@ -842,7 +842,7 @@
   {
     "id": 71,
     "nombre": "Ruedas para transportadores",
-    "categoria": "",
+    "categoria": "Rodachines y ruedas",
     "descripcion": "Producto de ferretería: Ruedas para transportadores.",
     "precio": 4000000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Rodachines y ruedas/Ruedas_para_transportadores.webp",
@@ -854,7 +854,7 @@
   {
     "id": 72,
     "nombre": "tornillo aglomerado",
-    "categoria": "",
+    "categoria": "Tornilleria",
     "descripcion": "Producto de ferretería: tornillo aglomerado.",
     "precio": 150000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Tornilleria/tornillo_aglomerado.jpg",
@@ -866,7 +866,7 @@
   {
     "id": 73,
     "nombre": "Tornillo anclaje expansivo",
-    "categoria": "",
+    "categoria": "Tornilleria",
     "descripcion": "Producto de ferretería: Tornillo anclaje expansivo.",
     "precio": 180000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Tornilleria/Tornillo_anclaje_expansivo.webp",
@@ -878,7 +878,7 @@
   {
     "id": 74,
     "nombre": "Tornillo autoperforante para metal",
-    "categoria": "",
+    "categoria": "Tornilleria",
     "descripcion": "Producto de ferretería: Tornillo autoperforante para metal.",
     "precio": 120000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Tornilleria/Tornillo_autoperforante_para_metal.jpg",
@@ -890,7 +890,7 @@
   {
     "id": 75,
     "nombre": "Tornillo autoperformante",
-    "categoria": "",
+    "categoria": "Tornilleria",
     "descripcion": "Producto de ferretería: Tornillo autoperformante.",
     "precio": 100000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Tornilleria/Tornillo_autoperformante.jpg",
@@ -902,7 +902,7 @@
   {
     "id": 76,
     "nombre": "Tornillo carroceria",
-    "categoria": "",
+    "categoria": "Tornilleria",
     "descripcion": "Producto de ferretería: Tornillo carroceria.",
     "precio": 200000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Tornilleria/Tornillo_carroceria.jpeg",
@@ -914,7 +914,7 @@
   {
     "id": 77,
     "nombre": "Tornillo con taco de fijación",
-    "categoria": "",
+    "categoria": "Tornilleria",
     "descripcion": "Producto de ferretería: Tornillo con taco de fijación.",
     "precio": 180000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Tornilleria/Tornillo_con_taco_de_fijacion.webp",
@@ -926,7 +926,7 @@
   {
     "id": 78,
     "nombre": "Tornillo de precisión para electronicos",
-    "categoria": "",
+    "categoria": "Tornilleria",
     "descripcion": "Producto de ferretería: Tornillo de precisión para electronicos.",
     "precio": 50000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Tornilleria/Tornillo_de_precision_para_electronicos.webp",
@@ -938,7 +938,7 @@
   {
     "id": 79,
     "nombre": "Tornillo drywall",
-    "categoria": "",
+    "categoria": "Tornilleria",
     "descripcion": "Producto de ferretería: Tornillo drywall.",
     "precio": 80000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Tornilleria/Tornillo_drywall.jpg",
@@ -950,7 +950,7 @@
   {
     "id": 80,
     "nombre": "Tornillo multiproposito",
-    "categoria": "",
+    "categoria": "Tornilleria",
     "descripcion": "Producto de ferretería: Tornillo multiproposito.",
     "precio": 7000000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Tornilleria/Tornillo_multiproposito.webp",
@@ -962,7 +962,7 @@
   {
     "id": 81,
     "nombre": "Tornillo para bateria",
-    "categoria": "",
+    "categoria": "Tornilleria",
     "descripcion": "Producto de ferretería: Tornillo para bateria.",
     "precio": 150000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Tornilleria/Tornillo_para_bateria.jpg",
@@ -974,7 +974,7 @@
   {
     "id": 82,
     "nombre": "Tornillo rosca madera",
-    "categoria": "",
+    "categoria": "Tornilleria",
     "descripcion": "Producto de ferretería: Tornillo rosca madera.",
     "precio": 90000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Tornilleria/Tornillo_rosca_madera.webp",
@@ -986,7 +986,7 @@
   {
     "id": 83,
     "nombre": "Tornillo rosca maquina",
-    "categoria": "",
+    "categoria": "Tornilleria",
     "descripcion": "Producto de ferretería: Tornillo rosca maquina.",
     "precio": 200000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Tornilleria/Tornillo_rosca_maquina.webp",
@@ -998,7 +998,7 @@
   {
     "id": 84,
     "nombre": "Tornillo tapcon",
-    "categoria": "",
+    "categoria": "Tornilleria",
     "descripcion": "Producto de ferretería: Tornillo tapcon.",
     "precio": 100000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Tornilleria/Tornillo_tapcon.webp",
@@ -1010,7 +1010,7 @@
   {
     "id": 85,
     "nombre": "Tornillo tipo phillips",
-    "categoria": "",
+    "categoria": "Tornilleria",
     "descripcion": "Producto de ferretería: Tornillo tipo phillips.",
     "precio": 120000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Tornilleria/Tornillo_tipo_phillips.webp",
@@ -1022,7 +1022,7 @@
   {
     "id": 86,
     "nombre": "Tornillo tirafondo",
-    "categoria": "",
+    "categoria": "Tornilleria",
     "descripcion": "Producto de ferretería: Tornillo tirafondo.",
     "precio": 100000,
     "imagen": "imagenes pagina ferreteria/Ferreteria general/Tornilleria/Tornillo_tirafondo.jpeg",
@@ -1034,7 +1034,7 @@
   {
     "id": 87,
     "nombre": "Caja de paso",
-    "categoria": "",
+    "categoria": "Cajas electricas",
     "descripcion": "Producto de ferretería: Caja de paso.",
     "precio": 3000000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Cajas electricas/Caja_de_paso.jpg",
@@ -1046,7 +1046,7 @@
   {
     "id": 88,
     "nombre": "Caja metalica",
-    "categoria": "",
+    "categoria": "Cajas electricas",
     "descripcion": "Producto de ferretería: Caja metalica.",
     "precio": 3500000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Cajas electricas/Caja_metalica.jpg",
@@ -1058,7 +1058,7 @@
   {
     "id": 89,
     "nombre": "Caja octagonal",
-    "categoria": "",
+    "categoria": "Cajas electricas",
     "descripcion": "Producto de ferretería: Caja octagonal.",
     "precio": 3000000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Cajas electricas/Caja_octagonal.webp",
@@ -1070,7 +1070,7 @@
   {
     "id": 90,
     "nombre": "Caja de policarbonato",
-    "categoria": "",
+    "categoria": "Cajas electricas",
     "descripcion": "Producto de ferretería: Caja de policarbonato.",
     "precio": 5000000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Cajas electricas/Caja_policarbonato.jpg",
@@ -1082,7 +1082,7 @@
   {
     "id": 91,
     "nombre": "Caja rectangular",
-    "categoria": "",
+    "categoria": "Cajas electricas",
     "descripcion": "Producto de ferretería: Caja rectangular.",
     "precio": 3200000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Cajas electricas/Caja_rectangular.jpg",
@@ -1094,7 +1094,7 @@
   {
     "id": 92,
     "nombre": "Canaleta de piso",
-    "categoria": "",
+    "categoria": "Canaletas y tubos conduit",
     "descripcion": "Producto de ferretería: Canaleta de piso.",
     "precio": 3000000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Canaletas y tubos conduit/Canaleta_de_piso.webp",
@@ -1106,7 +1106,7 @@
   {
     "id": 93,
     "nombre": "Canaleta rectangular",
-    "categoria": "",
+    "categoria": "Canaletas y tubos conduit",
     "descripcion": "Producto de ferretería: Canaleta rectangular.",
     "precio": 3200000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Canaletas y tubos conduit/Canaleta_rectangular.webp",
@@ -1118,7 +1118,7 @@
   {
     "id": 94,
     "nombre": "Canaleta tipo escalera",
-    "categoria": "",
+    "categoria": "Canaletas y tubos conduit",
     "descripcion": "Producto de ferretería: Canaleta tipo escalera.",
     "precio": 5000000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Canaletas y tubos conduit/Canaleta_tipo_escalera.jpg",
@@ -1130,7 +1130,7 @@
   {
     "id": 95,
     "nombre": "Tubo conduit IMC",
-    "categoria": "",
+    "categoria": "Canaletas y tubos conduit",
     "descripcion": "Producto de ferretería: Tubo conduit IMC.",
     "precio": 2000000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Canaletas y tubos conduit/Tubo_conduit_IMC.webp",
@@ -1142,7 +1142,7 @@
   {
     "id": 96,
     "nombre": "Tubo conduit metalico",
-    "categoria": "",
+    "categoria": "Canaletas y tubos conduit",
     "descripcion": "Producto de ferretería: Tubo conduit metalico.",
     "precio": 3000000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Canaletas y tubos conduit/Tubo_conduit_metalico.jpg",
@@ -1154,7 +1154,7 @@
   {
     "id": 97,
     "nombre": "Tubo conduit metalico flexible",
-    "categoria": "",
+    "categoria": "Canaletas y tubos conduit",
     "descripcion": "Producto de ferretería: Tubo conduit metalico flexible.",
     "precio": 3500000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Canaletas y tubos conduit/Tubo_conduit_metalico_flexible.jpeg",
@@ -1166,7 +1166,7 @@
   {
     "id": 98,
     "nombre": "Tubo conduit PVC",
-    "categoria": "",
+    "categoria": "Canaletas y tubos conduit",
     "descripcion": "Producto de ferretería: Tubo conduit PVC.",
     "precio": 2000000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Canaletas y tubos conduit/Tubo_conduit_PVC.jpg",
@@ -1178,7 +1178,7 @@
   {
     "id": 99,
     "nombre": "Tubo conduit PVC flexible",
-    "categoria": "",
+    "categoria": "Canaletas y tubos conduit",
     "descripcion": "Producto de ferretería: Tubo conduit PVC flexible.",
     "precio": 2500000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Canaletas y tubos conduit/Tubo_conduit_PVC_flexible.jpg",
@@ -1190,7 +1190,7 @@
   {
     "id": 100,
     "nombre": "Cable coaxial",
-    "categoria": "",
+    "categoria": "Conductores",
     "descripcion": "Producto de ferretería: Cable coaxial.",
     "precio": 2000000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Conductores/Cable_coaxial.jpg",
@@ -1202,7 +1202,7 @@
   {
     "id": 101,
     "nombre": "Cable cobre desnudo",
-    "categoria": "",
+    "categoria": "Conductores",
     "descripcion": "Producto de ferretería: Cable cobre desnudo.",
     "precio": 1500000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Conductores/Cable_cobre_desnudo.jpg",
@@ -1214,7 +1214,7 @@
   {
     "id": 102,
     "nombre": "Cable de control",
-    "categoria": "",
+    "categoria": "Conductores",
     "descripcion": "Producto de ferretería: Cable de control.",
     "precio": 2000000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Conductores/Cable_de_control.jpg",
@@ -1226,7 +1226,7 @@
   {
     "id": 103,
     "nombre": "Cable NMWU",
-    "categoria": "",
+    "categoria": "Conductores",
     "descripcion": "Producto de ferretería: Cable NMWU.",
     "precio": 2000000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Conductores/Cable_NMWU.jpg",
@@ -1238,7 +1238,7 @@
   {
     "id": 104,
     "nombre": "Cable paralelo",
-    "categoria": "",
+    "categoria": "Conductores",
     "descripcion": "Producto de ferretería: Cable paralelo.",
     "precio": 1500000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Conductores/Cable_paralelo.webp",
@@ -1250,7 +1250,7 @@
   {
     "id": 105,
     "nombre": "Cable TFFN",
-    "categoria": "",
+    "categoria": "Conductores",
     "descripcion": "Producto de ferretería: Cable TFFN.",
     "precio": 1800000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Conductores/Cable_TFFN.jpg",
@@ -1262,7 +1262,7 @@
   {
     "id": 106,
     "nombre": "Cable THHN",
-    "categoria": "",
+    "categoria": "Conductores",
     "descripcion": "Producto de ferretería: Cable THHN.",
     "precio": 2200000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Conductores/Cable_THHN.png",
@@ -1274,7 +1274,7 @@
   {
     "id": 107,
     "nombre": "Cable tipo USE",
-    "categoria": "",
+    "categoria": "Conductores",
     "descripcion": "Producto de ferretería: Cable tipo USE.",
     "precio": 2800000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Conductores/Cable_tipo_USE.jpg",
@@ -1286,7 +1286,7 @@
   {
     "id": 108,
     "nombre": "Cable UTP",
-    "categoria": "",
+    "categoria": "Conductores",
     "descripcion": "Producto de ferretería: Cable UTP.",
     "precio": 2300000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Conductores/Cable_UTP.jpg",
@@ -1298,7 +1298,7 @@
   {
     "id": 109,
     "nombre": "Conductor de acometida",
-    "categoria": "",
+    "categoria": "Conductores",
     "descripcion": "Producto de ferretería: Conductor de acometida.",
     "precio": 1500000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Conductores/Conductor_de_acometida.jpg",
@@ -1310,7 +1310,7 @@
   {
     "id": 110,
     "nombre": "Conductor multifilar",
-    "categoria": "",
+    "categoria": "Conductores",
     "descripcion": "Producto de ferretería: Conductor multifilar.",
     "precio": 2000000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Conductores/Conductor_multifilar.jpg",
@@ -1322,7 +1322,7 @@
   {
     "id": 111,
     "nombre": "Conductor solido",
-    "categoria": "",
+    "categoria": "Conductores",
     "descripcion": "Producto de ferretería: Conductor solido.",
     "precio": 2500000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Conductores/Conductor_solido.jpg",
@@ -1334,7 +1334,7 @@
   {
     "id": 112,
     "nombre": "Interruptor con sensor de movimiento",
-    "categoria": "",
+    "categoria": "Interruptores y tomacorrientes",
     "descripcion": "Producto de ferretería: Interruptor con sensor de movimiento.",
     "precio": 1800000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Interruptores y tomacorrientes/Interruptor_con_sensor_de_movimiento.webp",
@@ -1346,7 +1346,7 @@
   {
     "id": 113,
     "nombre": "Interruptor doble",
-    "categoria": "",
+    "categoria": "Interruptores y tomacorrientes",
     "descripcion": "Producto de ferretería: Interruptor doble.",
     "precio": 1200000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Interruptores y tomacorrientes/Interruptor_doble.jpg",
@@ -1358,7 +1358,7 @@
   {
     "id": 114,
     "nombre": "Interruptor regulador",
-    "categoria": "",
+    "categoria": "Interruptores y tomacorrientes",
     "descripcion": "Producto de ferretería: Interruptor regulador.",
     "precio": 2000000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Interruptores y tomacorrientes/Interruptor_regulador.jpg",
@@ -1370,7 +1370,7 @@
   {
     "id": 115,
     "nombre": "Interruptor sencillo",
-    "categoria": "",
+    "categoria": "Interruptores y tomacorrientes",
     "descripcion": "Producto de ferretería: Interruptor sencillo.",
     "precio": 1500000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Interruptores y tomacorrientes/Interruptor_sencillo.webp",
@@ -1382,7 +1382,7 @@
   {
     "id": 116,
     "nombre": "Interruptor temporizador",
-    "categoria": "",
+    "categoria": "Interruptores y tomacorrientes",
     "descripcion": "Producto de ferretería: Interruptor temporizador.",
     "precio": 3000000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Interruptores y tomacorrientes/Interruptor_temporizador.webp",
@@ -1394,7 +1394,7 @@
   {
     "id": 117,
     "nombre": "Interruptor triple",
-    "categoria": "",
+    "categoria": "Interruptores y tomacorrientes",
     "descripcion": "Producto de ferretería: Interruptor triple.",
     "precio": 2200000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Interruptores y tomacorrientes/Interruptor_triple.jpg",
@@ -1406,7 +1406,7 @@
   {
     "id": 118,
     "nombre": "Tomacorriente con protección",
-    "categoria": "",
+    "categoria": "Interruptores y tomacorrientes",
     "descripcion": "Producto de ferretería: Tomacorriente con protección.",
     "precio": 2000000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Interruptores y tomacorrientes/Tomacorriente_con_proteccion.jpg",
@@ -1418,7 +1418,7 @@
   {
     "id": 119,
     "nombre": "Tomacorriente doble",
-    "categoria": "",
+    "categoria": "Interruptores y tomacorrientes",
     "descripcion": "Producto de ferretería: Tomacorriente doble.",
     "precio": 1500000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Interruptores y tomacorrientes/Tomacorriente_doble.webp",
@@ -1430,7 +1430,7 @@
   {
     "id": 120,
     "nombre": "Tomacorriente industrial",
-    "categoria": "",
+    "categoria": "Interruptores y tomacorrientes",
     "descripcion": "Producto de ferretería: Tomacorriente industrial.",
     "precio": 2500000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Interruptores y tomacorrientes/Tomacorriente_industrial.jpg",
@@ -1442,7 +1442,7 @@
   {
     "id": 121,
     "nombre": "Tomacorriente triple",
-    "categoria": "",
+    "categoria": "Interruptores y tomacorrientes",
     "descripcion": "Producto de ferretería: Tomacorriente triple.",
     "precio": 2000000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Interruptores y tomacorrientes/Tomacorriente_triple.png",
@@ -1454,7 +1454,7 @@
   {
     "id": 122,
     "nombre": "Toma corriente extensión",
-    "categoria": "",
+    "categoria": "Interruptores y tomacorrientes",
     "descripcion": "Producto de ferretería: Toma corriente extensión.",
     "precio": 2500000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Interruptores y tomacorrientes/Toma_corriente_extension.webp",
@@ -1466,7 +1466,7 @@
   {
     "id": 123,
     "nombre": "Toma corriente sencillo",
-    "categoria": "",
+    "categoria": "Interruptores y tomacorrientes",
     "descripcion": "Producto de ferretería: Toma corriente sencillo.",
     "precio": 1000000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Interruptores y tomacorrientes/Toma_corriente_sencillo.jpg",
@@ -1478,7 +1478,7 @@
   {
     "id": 124,
     "nombre": "Toma corriente sencillo +USB",
-    "categoria": "",
+    "categoria": "Interruptores y tomacorrientes",
     "descripcion": "Producto de ferretería: Toma corriente sencillo +USB.",
     "precio": 1500000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Interruptores y tomacorrientes/Toma_corriente_sencillo_+USB.webp",
@@ -1490,7 +1490,7 @@
   {
     "id": 125,
     "nombre": "Lampara de emergencia",
-    "categoria": "",
+    "categoria": "Luminarias y reflectores",
     "descripcion": "Producto de ferretería: Lampara de emergencia.",
     "precio": 4500000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Luminarias y reflectores/Lampara_de_emergencia.jpeg",
@@ -1502,7 +1502,7 @@
   {
     "id": 126,
     "nombre": "Lampara de pared",
-    "categoria": "",
+    "categoria": "Luminarias y reflectores",
     "descripcion": "Producto de ferretería: Lampara de pared.",
     "precio": 4000000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Luminarias y reflectores/Lampara_de_pared.jpg",
@@ -1514,7 +1514,7 @@
   {
     "id": 127,
     "nombre": "Lampara de techo",
-    "categoria": "",
+    "categoria": "Luminarias y reflectores",
     "descripcion": "Producto de ferretería: Lampara de techo.",
     "precio": 3000000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Luminarias y reflectores/Lampara_de_techo.jpg",
@@ -1526,7 +1526,7 @@
   {
     "id": 128,
     "nombre": "Lampara solar",
-    "categoria": "",
+    "categoria": "Luminarias y reflectores",
     "descripcion": "Producto de ferretería: Lampara solar.",
     "precio": 6000000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Luminarias y reflectores/Lampara_solar.webp",
@@ -1538,7 +1538,7 @@
   {
     "id": 129,
     "nombre": "Lampara tipo tubo",
-    "categoria": "",
+    "categoria": "Luminarias y reflectores",
     "descripcion": "Producto de ferretería: Lampara tipo tubo.",
     "precio": 4800000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Luminarias y reflectores/Lampara_tipo_tubo.jpg",
@@ -1550,7 +1550,7 @@
   {
     "id": 130,
     "nombre": "Reflector con sensor de movimiento",
-    "categoria": "",
+    "categoria": "Luminarias y reflectores",
     "descripcion": "Producto de ferretería: Reflector con sensor de movimiento.",
     "precio": 5000000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Luminarias y reflectores/Reflector_con_sensor_de_movimiento.jpg",
@@ -1562,7 +1562,7 @@
   {
     "id": 131,
     "nombre": "Reflector industrial",
-    "categoria": "",
+    "categoria": "Luminarias y reflectores",
     "descripcion": "Producto de ferretería: Reflector industrial.",
     "precio": 4800000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Luminarias y reflectores/Reflector_industrial.webp",
@@ -1574,7 +1574,7 @@
   {
     "id": 132,
     "nombre": "Reflector led",
-    "categoria": "",
+    "categoria": "Luminarias y reflectores",
     "descripcion": "Producto de ferretería: Reflector led.",
     "precio": 4800000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Luminarias y reflectores/Reflector_led.jpg",
@@ -1586,7 +1586,7 @@
   {
     "id": 133,
     "nombre": "Reflector portatil",
-    "categoria": "",
+    "categoria": "Luminarias y reflectores",
     "descripcion": "Producto de ferretería: Reflector portatil.",
     "precio": 4500000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Luminarias y reflectores/Reflector_portatil.webp",
@@ -1598,7 +1598,7 @@
   {
     "id": 134,
     "nombre": "Reflector solar",
-    "categoria": "",
+    "categoria": "Luminarias y reflectores",
     "descripcion": "Producto de ferretería: Reflector solar.",
     "precio": 7000000,
     "imagen": "imagenes pagina ferreteria/Electricidad/Luminarias y reflectores/Reflector_solar.jpg",
@@ -1610,7 +1610,7 @@
   {
     "id": 135,
     "nombre": "Brocha",
-    "categoria": "",
+    "categoria": "Pinturas y revestimientos",
     "descripcion": "Producto de ferretería: Brocha.",
     "precio": 800000,
     "imagen": "imagenes pagina ferreteria/Pinturas y revestimientos/Brocha.jpg",
@@ -1622,7 +1622,7 @@
   {
     "id": 136,
     "nombre": "Cinta de enmascarar",
-    "categoria": "",
+    "categoria": "Pinturas y revestimientos",
     "descripcion": "Producto de ferretería: Cinta de enmascarar.",
     "precio": 600000,
     "imagen": "imagenes pagina ferreteria/Pinturas y revestimientos/Cinta_de_enmascarar.jpg",
@@ -1634,7 +1634,7 @@
   {
     "id": 137,
     "nombre": "Diluyente sintetico",
-    "categoria": "",
+    "categoria": "Pinturas y revestimientos",
     "descripcion": "Producto de ferretería: Diluyente sintetico.",
     "precio": 4000000,
     "imagen": "imagenes pagina ferreteria/Pinturas y revestimientos/Diluyente sintetico.webp",
@@ -1646,7 +1646,7 @@
   {
     "id": 138,
     "nombre": "Esmalte para madera",
-    "categoria": "",
+    "categoria": "Pinturas y revestimientos",
     "descripcion": "Producto de ferretería: Esmalte para madera.",
     "precio": 4500000,
     "imagen": "imagenes pagina ferreteria/Pinturas y revestimientos/Esmalte_para_madera.jpg",
@@ -1658,7 +1658,7 @@
   {
     "id": 139,
     "nombre": "Esmalte para metal",
-    "categoria": "",
+    "categoria": "Pinturas y revestimientos",
     "descripcion": "Producto de ferretería: Esmalte para metal.",
     "precio": 4800000,
     "imagen": "imagenes pagina ferreteria/Pinturas y revestimientos/Esmalte_para_metal.webp",
@@ -1670,7 +1670,7 @@
   {
     "id": 140,
     "nombre": "Esmalte sintetico",
-    "categoria": "",
+    "categoria": "Pinturas y revestimientos",
     "descripcion": "Producto de ferretería: Esmalte sintetico.",
     "precio": 4200000,
     "imagen": "imagenes pagina ferreteria/Pinturas y revestimientos/Esmalte_sintetico.webp",
@@ -1682,7 +1682,7 @@
   {
     "id": 141,
     "nombre": "Pintura epoxica",
-    "categoria": "",
+    "categoria": "Pinturas y revestimientos",
     "descripcion": "Producto de ferretería: Pintura epoxica.",
     "precio": 5500000,
     "imagen": "imagenes pagina ferreteria/Pinturas y revestimientos/Pintura_epoxica.jpg",
@@ -1694,7 +1694,7 @@
   {
     "id": 142,
     "nombre": "Pintura impermeabilizante",
-    "categoria": "",
+    "categoria": "Pinturas y revestimientos",
     "descripcion": "Producto de ferretería: Pintura impermeabilizante.",
     "precio": 6200000,
     "imagen": "imagenes pagina ferreteria/Pinturas y revestimientos/Pintura_impermeabilizante.jpg",
@@ -1706,7 +1706,7 @@
   {
     "id": 143,
     "nombre": "Pintura vinilica",
-    "categoria": "",
+    "categoria": "Pinturas y revestimientos",
     "descripcion": "Producto de ferretería: Pintura vinilica.",
     "precio": 4000000,
     "imagen": "imagenes pagina ferreteria/Pinturas y revestimientos/Pintura_vinilica.jpg",
@@ -1718,7 +1718,7 @@
   {
     "id": 144,
     "nombre": "Removedor de pintura",
-    "categoria": "",
+    "categoria": "Pinturas y revestimientos",
     "descripcion": "Producto de ferretería: Removedor de pintura.",
     "precio": 3800000,
     "imagen": "imagenes pagina ferreteria/Pinturas y revestimientos/Removedor_de_pintura.jpg",
@@ -1730,7 +1730,7 @@
   {
     "id": 145,
     "nombre": "Rodillo",
-    "categoria": "",
+    "categoria": "Pinturas y revestimientos",
     "descripcion": "Producto de ferretería: Rodillo.",
     "precio": 2000000,
     "imagen": "imagenes pagina ferreteria/Pinturas y revestimientos/Rodillo.webp",
@@ -1742,7 +1742,7 @@
   {
     "id": 146,
     "nombre": "Sellador",
-    "categoria": "",
+    "categoria": "Pinturas y revestimientos",
     "descripcion": "Producto de ferretería: Sellador.",
     "precio": 3500000,
     "imagen": "imagenes pagina ferreteria/Pinturas y revestimientos/Sellador.jpg",
@@ -1754,7 +1754,7 @@
   {
     "id": 147,
     "nombre": "Cinta metrica",
-    "categoria": "",
+    "categoria": "Medicion y nivelacion",
     "descripcion": "Producto de ferretería: Cinta metrica.",
     "precio": 1000000,
     "imagen": "imagenes pagina ferreteria/Medicion y nivelacion/Cinta_metrica.jpg",
@@ -1766,7 +1766,7 @@
   {
     "id": 148,
     "nombre": "Escuadra Metalica",
-    "categoria": "",
+    "categoria": "Medicion y nivelacion",
     "descripcion": "Producto de ferretería: Escuadra Metalica.",
     "precio": 1300000,
     "imagen": "imagenes pagina ferreteria/Medicion y nivelacion/Escuadra_Metalica.png",
@@ -1778,7 +1778,7 @@
   {
     "id": 149,
     "nombre": "Flexometro",
-    "categoria": "",
+    "categoria": "Medicion y nivelacion",
     "descripcion": "Producto de ferretería: Flexometro.",
     "precio": 1500000,
     "imagen": "imagenes pagina ferreteria/Medicion y nivelacion/Flexometro.jpg",
@@ -1790,7 +1790,7 @@
   {
     "id": 150,
     "nombre": "Medidor de distancia láser",
-    "categoria": "",
+    "categoria": "Medicion y nivelacion",
     "descripcion": "Producto de ferretería: Medidor de distancia láser.",
     "precio": 4200000,
     "imagen": "imagenes pagina ferreteria/Medicion y nivelacion/Medidor_de_distancia_laser.webp",
@@ -1802,7 +1802,7 @@
   {
     "id": 151,
     "nombre": "nivel de burbuja",
-    "categoria": "",
+    "categoria": "Medicion y nivelacion",
     "descripcion": "Producto de ferretería: nivel de burbuja.",
     "precio": 2200000,
     "imagen": "imagenes pagina ferreteria/Medicion y nivelacion/nivel_de_burbuja.jpg",
@@ -1814,7 +1814,7 @@
   {
     "id": 152,
     "nombre": "Nivel láser",
-    "categoria": "",
+    "categoria": "Medicion y nivelacion",
     "descripcion": "Producto de ferretería: Nivel láser.",
     "precio": 5500000,
     "imagen": "imagenes pagina ferreteria/Medicion y nivelacion/Nivel_laser.jpg",
@@ -1826,7 +1826,7 @@
   {
     "id": 153,
     "nombre": "Regla metalica",
-    "categoria": "",
+    "categoria": "Medicion y nivelacion",
     "descripcion": "Producto de ferretería: Regla metalica.",
     "precio": 800000,
     "imagen": "imagenes pagina ferreteria/Medicion y nivelacion/Regla_metalica.gif",
@@ -1838,7 +1838,7 @@
   {
     "id": 154,
     "nombre": "Cal hidratada",
-    "categoria": "",
+    "categoria": "Construcción y obra",
     "descripcion": "Producto de ferretería: Cal hidratada.",
     "precio": 9900000,
     "imagen": "imagenes pagina ferreteria/Construccion y obra/Cal_hidratada.webp",
@@ -1850,7 +1850,7 @@
   {
     "id": 155,
     "nombre": "Bulto de cemento",
-    "categoria": "",
+    "categoria": "Construcción y obra",
     "descripcion": "Producto de ferretería: Bulto de cemento.",
     "precio": 8000000,
     "imagen": "imagenes pagina ferreteria/Construccion y obra/Cemento.jpg",
@@ -1862,7 +1862,7 @@
   {
     "id": 156,
     "nombre": "Cincel",
-    "categoria": "",
+    "categoria": "Construcción y obra",
     "descripcion": "Producto de ferretería: Cincel.",
     "precio": 2500000,
     "imagen": "imagenes pagina ferreteria/Construccion y obra/Cincel.jpg",
@@ -1874,7 +1874,7 @@
   {
     "id": 157,
     "nombre": "Cincel con protector de mano",
-    "categoria": "",
+    "categoria": "Construcción y obra",
     "descripcion": "Producto de ferretería: Cincel con protector de mano.",
     "precio": 3500000,
     "imagen": "imagenes pagina ferreteria/Construccion y obra/Cincel_con_protector_de_mano.webp",
@@ -1886,7 +1886,7 @@
   {
     "id": 158,
     "nombre": "Cuchara de punta",
-    "categoria": "",
+    "categoria": "Construcción y obra",
     "descripcion": "Producto de ferretería: Cuchara de punta.",
     "precio": 4300000,
     "imagen": "imagenes pagina ferreteria/Construccion y obra/Cuchara_de_punta.webp",
@@ -1898,7 +1898,7 @@
   {
     "id": 159,
     "nombre": "Escalera de tijera",
-    "categoria": "",
+    "categoria": "Construcción y obra",
     "descripcion": "Producto de ferretería: Escalera de tijera.",
     "precio": 7000000,
     "imagen": "imagenes pagina ferreteria/Construccion y obra/Escalera_de_tijera.jpg",
@@ -1910,7 +1910,7 @@
   {
     "id": 160,
     "nombre": "Escalera extensible",
-    "categoria": "",
+    "categoria": "Construcción y obra",
     "descripcion": "Producto de ferretería: Escalera extensible.",
     "precio": 9000000,
     "imagen": "imagenes pagina ferreteria/Construccion y obra/Escalera_extensible.jpg",
@@ -1922,7 +1922,7 @@
   {
     "id": 161,
     "nombre": "Ladrillo común por unidad",
-    "categoria": "",
+    "categoria": "Construcción y obra",
     "descripcion": "Producto de ferretería: Ladrillo común por unidad.",
     "precio": 500000,
     "imagen": "imagenes pagina ferreteria/Construccion y obra/Ladrillo_comun.jpg",
@@ -1934,7 +1934,7 @@
   {
     "id": 162,
     "nombre": "Ladrillo hueco por unidad",
-    "categoria": "",
+    "categoria": "Construcción y obra",
     "descripcion": "Producto de ferretería: Ladrillo hueco por unidad.",
     "precio": 900000,
     "imagen": "imagenes pagina ferreteria/Construccion y obra/Ladrillo_hueco.webp",
@@ -1946,7 +1946,7 @@
   {
     "id": 163,
     "nombre": "Llana dentada",
-    "categoria": "",
+    "categoria": "Construcción y obra",
     "descripcion": "Producto de ferretería: Llana dentada.",
     "precio": 1500000,
     "imagen": "imagenes pagina ferreteria/Construccion y obra/Llana_dentada.jpg",
@@ -1958,7 +1958,7 @@
   {
     "id": 164,
     "nombre": "Llana lisa",
-    "categoria": "",
+    "categoria": "Construcción y obra",
     "descripcion": "Producto de ferretería: Llana lisa.",
     "precio": 12000,
     "imagen": "imagenes pagina ferreteria/Construccion y obra/Llana_lisa.jpg",
@@ -1970,7 +1970,7 @@
   {
     "id": 165,
     "nombre": "Malla de construcción por metro",
-    "categoria": "",
+    "categoria": "Construcción y obra",
     "descripcion": "Producto de ferretería: Malla de construcción por metro.",
     "precio": 2000000,
     "imagen": "imagenes pagina ferreteria/Construccion y obra/Malla_construccion.jpg",
@@ -1982,7 +1982,7 @@
   {
     "id": 166,
     "nombre": "Paleta de albañil",
-    "categoria": "",
+    "categoria": "Construcción y obra",
     "descripcion": "Producto de ferretería: Paleta de albañil.",
     "precio": 1500000,
     "imagen": "imagenes pagina ferreteria/Construccion y obra/Paleta_de_albañil.png",
@@ -1994,7 +1994,7 @@
   {
     "id": 167,
     "nombre": "Plomada",
-    "categoria": "",
+    "categoria": "Construcción y obra",
     "descripcion": "Producto de ferretería: Plomada.",
     "precio": 4100000,
     "imagen": "imagenes pagina ferreteria/Construccion y obra/Plomada.webp",
@@ -2006,7 +2006,7 @@
   {
     "id": 168,
     "nombre": "Varilla corrugada",
-    "categoria": "",
+    "categoria": "Construcción y obra",
     "descripcion": "Producto de ferretería: Varilla corrugada.",
     "precio": 10000,
     "imagen": "imagenes pagina ferreteria/Construccion y obra/Varilla_corrugada.webp",
@@ -2018,7 +2018,7 @@
   {
     "id": 169,
     "nombre": "Yeso",
-    "categoria": "",
+    "categoria": "Construcción y obra",
     "descripcion": "Producto de ferretería: Yeso.",
     "precio": 3000000,
     "imagen": "imagenes pagina ferreteria/Construccion y obra/Yeso.jpg",
@@ -2030,7 +2030,7 @@
   {
     "id": 170,
     "nombre": "Cinta teflon",
-    "categoria": "",
+    "categoria": "Fontaneria y plomeria",
     "descripcion": "Producto de ferretería: Cinta teflon.",
     "precio": 200000,
     "imagen": "imagenes pagina ferreteria/Fontaneria y plomeria/Cinta_teflon.jpg",
@@ -2042,7 +2042,7 @@
   {
     "id": 171,
     "nombre": "Codo 90",
-    "categoria": "",
+    "categoria": "Fontaneria y plomeria",
     "descripcion": "Producto de ferretería: Codo 90.",
     "precio": 400000,
     "imagen": "imagenes pagina ferreteria/Fontaneria y plomeria/Codo_90.webp",
@@ -2054,7 +2054,7 @@
   {
     "id": 172,
     "nombre": "Grifo para lavamanos",
-    "categoria": "",
+    "categoria": "Fontaneria y plomeria",
     "descripcion": "Producto de ferretería: Grifo para lavamanos.",
     "precio": 2000000,
     "imagen": "imagenes pagina ferreteria/Fontaneria y plomeria/Grifo_para_lavamanos.webp",
@@ -2066,7 +2066,7 @@
   {
     "id": 173,
     "nombre": "Llave de paso",
-    "categoria": "",
+    "categoria": "Fontaneria y plomeria",
     "descripcion": "Producto de ferretería: Llave de paso.",
     "precio": 800000,
     "imagen": "imagenes pagina ferreteria/Fontaneria y plomeria/Llave de paso.webp",
@@ -2078,7 +2078,7 @@
   {
     "id": 174,
     "nombre": "Tee pvc",
-    "categoria": "",
+    "categoria": "Fontaneria y plomeria",
     "descripcion": "Producto de ferretería: Tee pvc.",
     "precio": 1500000,
     "imagen": "imagenes pagina ferreteria/Fontaneria y plomeria/Tee pvc.webp",
@@ -2090,7 +2090,7 @@
   {
     "id": 175,
     "nombre": "Tubo cpvc",
-    "categoria": "",
+    "categoria": "Fontaneria y plomeria",
     "descripcion": "Producto de ferretería: Tubo cpvc.",
     "precio": 1800000,
     "imagen": "imagenes pagina ferreteria/Fontaneria y plomeria/Tubo_cpvc.webp",
@@ -2102,7 +2102,7 @@
   {
     "id": 176,
     "nombre": "Tubo de cobre",
-    "categoria": "",
+    "categoria": "Fontaneria y plomeria",
     "descripcion": "Producto de ferretería: Tubo de cobre.",
     "precio": 2400000,
     "imagen": "imagenes pagina ferreteria/Fontaneria y plomeria/Tubo_de_cobre.jpg",
@@ -2114,7 +2114,7 @@
   {
     "id": 177,
     "nombre": "Tubo pex",
-    "categoria": "",
+    "categoria": "Fontaneria y plomeria",
     "descripcion": "Producto de ferretería: Tubo pex.",
     "precio": 2800000,
     "imagen": "imagenes pagina ferreteria/Fontaneria y plomeria/Tubo_pex.webp",
@@ -2126,7 +2126,7 @@
   {
     "id": 178,
     "nombre": "Tubo pvc",
-    "categoria": "",
+    "categoria": "Fontaneria y plomeria",
     "descripcion": "Producto de ferretería: Tubo pvc.",
     "precio": 1500000,
     "imagen": "imagenes pagina ferreteria/Fontaneria y plomeria/Tubo_pvc.jpeg",
@@ -2138,7 +2138,7 @@
   {
     "id": 179,
     "nombre": "Uniones universales",
-    "categoria": "",
+    "categoria": "Fontaneria y plomeria",
     "descripcion": "Producto de ferretería: Uniones universales.",
     "precio": 3000000,
     "imagen": "imagenes pagina ferreteria/Fontaneria y plomeria/Uniones_universales.jpg",
@@ -2150,7 +2150,7 @@
   {
     "id": 180,
     "nombre": "Valvula de control",
-    "categoria": "",
+    "categoria": "Fontaneria y plomeria",
     "descripcion": "Producto de ferretería: Valvula de control.",
     "precio": 5000000,
     "imagen": "imagenes pagina ferreteria/Fontaneria y plomeria/Valvula_de_control.jpg",
@@ -2258,7 +2258,7 @@
   {
     "id": 189,
     "nombre": "Kit de colgado espejos",
-    "categoria": "",
+    "categoria": "Accesorios para el hogar",
     "descripcion": "Producto de ferretería: Kit de colgado espejos.",
     "precio": 4200000,
     "imagen": "imagenes pagina ferreteria/Accesorios para el hogar/Kit_de_colgado_espejos.webp",
@@ -2270,7 +2270,7 @@
   {
     "id": 190,
     "nombre": "Kit de colgado ganchos",
-    "categoria": "",
+    "categoria": "Accesorios para el hogar",
     "descripcion": "Producto de ferretería: Kit de colgado ganchos.",
     "precio": 5000000,
     "imagen": "imagenes pagina ferreteria/Accesorios para el hogar/Kit_de_colgado_ganchos.webp",
@@ -2282,7 +2282,7 @@
   {
     "id": 191,
     "nombre": "Organizador de herramientas",
-    "categoria": "",
+    "categoria": "Accesorios para el hogar",
     "descripcion": "Producto de ferretería: Organizador de herramientas.",
     "precio": 9500000,
     "imagen": "imagenes pagina ferreteria/Accesorios para el hogar/Organizador_de_herramientas.webp",
@@ -2294,7 +2294,7 @@
   {
     "id": 192,
     "nombre": "Soporte para TV",
-    "categoria": "",
+    "categoria": "Accesorios para el hogar",
     "descripcion": "Producto de ferretería: Soporte para TV.",
     "precio": 2500000,
     "imagen": "imagenes pagina ferreteria/Accesorios para el hogar/Soporte_para_TV.jpg",
