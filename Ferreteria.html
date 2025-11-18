@@ -14,119 +14,97 @@
 
     </head>
     <body>
-        <nav class="navbar bg-dark navbar-dark fixed-top">
-            <div class="container-fluid">
-                <a class="navbar-brand d-flex align-items-center"
-                    href="./Inicio.html">
-                    <img
-                        src="imagenes pagina ferreteria/Imagen de fondo inicio y logo/Logo.jpeg"
-                        alt="Logo FerrePro"
-                        class="me-2 rounded"
-                        style="height: 40px; width: auto; object-fit: contain;">
-                    FerrePro
-                </a>
+        <nav class="navbar navbar-dark bg-dark fixed-top shadow">
+    <div class="container-fluid">
 
-                <div class="d-flex align-items-center">
-                    <a href="carrito.html"
-                        class="btn btn-outline-light me-2">🛒</a>
+        <!-- Logo -->
+        <a class="navbar-brand d-flex align-items-center" href="./Inicio.html">
+            <img src="imagenes pagina ferreteria/Imagen de fondo inicio y logo/Logo.jpeg"
+                 alt="Logo FerrePro"
+                 class="me-2 rounded"
+                 style="height: 40px; width: auto; object-fit: contain;">
+            FerrePro
+        </a>
 
-                    <button class="navbar-toggler" type="button"
-                        data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasNavbar"
-                        aria-controls="offcanvasNavbar"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </div>
+        <!-- Carrito + Botón -->
+        <div class="d-flex align-items-center">
+            <a href="carrito.html" class="btn btn-outline-light me-2">🛒</a>
 
-                <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1"
-                    id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title"
-                            id="offcanvasNavbarLabel">Menú</h5>
-                        <button type="button" class="btn-close btn-close-white"
-                            data-bs-dismiss="offcanvas"
-                            aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <ul
-                            class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                            <li class="nav-item"><a class="nav-link"
-                                    href="#herramientas-electricas">Herramientas
-                                    eléctricas</a></li>
-                            <li class="nav-item"><a class="nav-link"
-                                    href="#herramientas-manuales">Herramientas
-                                    manuales</a></li>
+            <button class="navbar-toggler" type="button"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar"
+                    aria-controls="offcanvasNavbar"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
 
-                            <!-- Ferretería general -->
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#"
-                                    data-bs-toggle="dropdown">Ferretería
-                                    general</a>
-                                <ul class="dropdown-menu dropdown-menu-dark">
-                                    <li><a class="dropdown-item"
-                                            href="#adhesivos">Adhesivos</a></li>
-                                    <li><a class="dropdown-item"
-                                            href="#bisagras">Bisagras y
-                                            pasadores</a></li>
-                                    <li><a class="dropdown-item"
-                                            href="#manijas">Manijas y
-                                            cerraduras</a></li>
-                                    <li><a class="dropdown-item"
-                                            href="#rodachines">Rodachines y
-                                            ruedas</a></li>
-                                    <li><a class="dropdown-item"
-                                            href="#tornilleria">Tornillería</a></li>
-                                </ul>
-                            </li>
+        <!-- Offcanvas -->
+        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1"
+             id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
 
-                            <!-- Electricidad -->
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#"
-                                    data-bs-toggle="dropdown">Electricidad</a>
-                                <ul class="dropdown-menu dropdown-menu-dark">
-                                    <li><a class="dropdown-item"
-                                            href="#cajas">Cajas
-                                            eléctricas</a></li>
-                                    <li><a class="dropdown-item"
-                                            href="#canaletas">Canaletas y tubos
-                                            conduit</a></li>
-                                    <li><a class="dropdown-item"
-                                            href="#conductores">Conductores</a></li>
-                                    <li><a class="dropdown-item"
-                                            href="#interruptores">Interruptores
-                                            y tomacorrientes</a></li>
-                                    <li><a class="dropdown-item"
-                                            href="#luminarias">Luminarias y
-                                            reflectores</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="nav-item"><a class="nav-link"
-                                    href="#pinturas-y-revestimientos">Pinturas y
-                                    revestimientos</a></li>
-                            <li class="nav-item"><a class="nav-link"
-                                    href="#medicion-y-nivelacion">Medición y
-                                    nivelación</a></li>
-                            <li class="nav-item"><a class="nav-link"
-                                    href="#construccion-y-obra">Construcción y
-                                    obra</a></li>
-                            <li class="nav-item"><a class="nav-link"
-                                    href="#fontaneria-y-plomeria">Fontanería y
-                                    plomería</a></li>
-                            <li class="nav-item"><a class="nav-link"
-                                    href="#seguridad-industrial">Seguridad
-                                    industrial</a></li>
-                            <li class="nav-item"><a class="nav-link"
-                                    href="#accesorios-para-el-hogar">Accesorios
-                                    para el hogar</a></li>
-                            <li class="nav-item"><a class="nav-link"
-                                    href="contacto.html">Contacto</a></li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Categorías</h5>
+                <button type="button" class="btn-close btn-close-white"
+                        data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
             </div>
-        </nav>
+
+            <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+
+                    <!-- Categorías principales -->
+                    <li class="nav-item"><a class="nav-link" href="#electrica">Herramientas eléctricas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#manuales">Herramientas manuales</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#medicion">Medición</a></li>
+
+                    <!-- Ferretería general -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            Ferretería general
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="#adhesivos">Adhesivos</a></li>
+                            <li><a class="dropdown-item" href="#bisagras">Bisagras y pasadores</a></li>
+                            <li><a class="dropdown-item" href="#cerraduras">Cerraduras y manijas</a></li>
+                            <li><a class="dropdown-item" href="#ruedas">Rodachines y ruedas</a></li>
+                            <li><a class="dropdown-item" href="#tornilleria">Tornillería</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Electricidad -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            Electricidad
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="#cajas">Cajas eléctricas</a></li>
+                            <li><a class="dropdown-item" href="#pvc">Canaletas y tuberías</a></li>
+                            <li><a class="dropdown-item" href="#conductores">Conductores</a></li>
+                            <li><a class="dropdown-item" href="#interruptores">Interruptores</a></li>
+                            <li><a class="dropdown-item" href="#iluminacion">Luminarias</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Construcción -->
+                    <li class="nav-item"><a class="nav-link" href="#construccion">Construcción y obra</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pintura">Pinturas y revestimientos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#fontaneria">Fontanería y plomería</a></li>
+
+                    <!-- Seguridad -->
+                    <li class="nav-item"><a class="nav-link" href="#seguridad">Seguridad industrial</a></li>
+
+                    <!-- Hogar -->
+                    <li class="nav-item"><a class="nav-link" href="#hogar">Accesorios para el hogar</a></li>
+
+                    <!-- Contacto -->
+                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
 
         <div class="container py-3">
 
@@ -239,6 +217,9 @@
         </section>
 
         <section id="productos-ferreteria">
+
+            
+
             <!--
             <section id="herramientas-electricas"
                 class="container py-5 articulo" data-modalidad="electrica">

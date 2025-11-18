@@ -1,10 +1,22 @@
 [
   {
+    "id": 1.1,
+    "nombre": "Amoladora",
+    "categoria": "Herramientas electricas",
+    "descripcion": "Producto de ferretería: Amoladora.",
+    "precio": 65000.00,
+    "imagen": "imagenes pagina ferreteria/Herramientas electricas/Amoladora.webp",
+    "alt": "Amoladora",
+    "data": {
+      "categoria": "electrica"
+    }
+  },
+  {
     "id": 1,
     "nombre": "Lijadora de banda",
     "categoria": "Herramientas electricas",
     "descripcion": "Producto de ferretería: Lijadora de banda.",
-    "precio": 8000000,
+    "precio": 80000.00,
     "imagen": "imagenes pagina ferreteria/Herramientas electricas/Lijadora_de_banda.jpg",
     "alt": "Lijadora_de_banda",
     "data": {
@@ -16,7 +28,7 @@
     "nombre": "Lijadora orbital",
     "categoria": "Herramientas electricas",
     "descripcion": "Producto de ferretería: Lijadora orbital.",
-    "precio": 7200000,
+    "precio": 72000.00,
     "imagen": "imagenes pagina ferreteria/Herramientas electricas/Lijadora_orbital.webp",
     "alt": "Lijadora_orbital",
     "data": {
@@ -40,7 +52,7 @@
     "nombre": "Pistola de calor",
     "categoria": "Herramientas electricas",
     "descripcion": "Producto de ferretería: Pistola de calor.",
-    "precio": 6000000,
+    "precio": 60000.00,
     "imagen": "imagenes pagina ferreteria/Herramientas electricas/Pistola_de_calor.jpg",
     "alt": "Pistola_de_calor",
     "data": {
@@ -52,7 +64,7 @@
     "nombre": "Sierra circular",
     "categoria": "Herramientas electricas",
     "descripcion": "Producto de ferretería: Sierra circular.",
-    "precio": 6800000,
+    "precio": 68000.00,
     "imagen": "imagenes pagina ferreteria/Herramientas electricas/Sierra-circular.jpg",
     "alt": "Sierra-circular",
     "data": {
@@ -64,7 +76,7 @@
     "nombre": "Sierra caladora",
     "categoria": "Herramientas electricas",
     "descripcion": "Producto de ferretería: Sierra caladora.",
-    "precio": 6000000,
+    "precio": 60000.00,
     "imagen": "imagenes pagina ferreteria/Herramientas electricas/Sierra_caladora.webp",
     "alt": "Sierra_caladora",
     "data": {
@@ -76,7 +88,7 @@
     "nombre": "Sierra de mesa",
     "categoria": "Herramientas electricas",
     "descripcion": "Producto de ferretería: Sierra de mesa.",
-    "precio": 13000000,
+    "precio": 1300000,
     "imagen": "imagenes pagina ferreteria/Herramientas electricas/Sierra_de_mesa.jpg",
     "alt": "Sierra_de_mesa",
     "data": {
