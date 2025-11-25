@@ -1,6 +1,9 @@
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import data from './productos.json';
+
+console.log(data);
 
 function App() {
     return (
@@ -113,10 +116,167 @@ function App() {
 
             {/* Contenido principal */}
             <main style={{ paddingTop: "80px", minHeight: "60vh" }}>
-                <div className="container">
-                    <h1>Bienvenido a FerrePro</h1>
-                    <p>Aquí va el contenido de tu página</p>
+                
+
+            <div className="container py-3">
+                    <div id="carouselExampleInterval" className="carousel slide" data-bs-ride="carousel">
+                        <div className="carousel-inner">
+                            <div className="carousel-item active" data-bs-interval="5000">
+                                <img
+                                    src="/imagenes pagina ferreteria/Imagenes carrusel/Imagen_1.png"
+                                    className="d-block w-100" 
+                                    alt="Imagen1"
+                                />
+                            </div>
+                            <div className="carousel-item" data-bs-interval="5000">
+                                <img
+                                    src="/imagenes pagina ferreteria/Imagenes carrusel/Imagen_2.png"
+                                    className="d-block w-100" 
+                                    alt="Imagen2"
+                                />
+                            </div>
+                            <div className="carousel-item" data-bs-interval="5000">
+                                <img
+                                    src="/imagenes pagina ferreteria/Imagenes carrusel/Imagen_3.png"
+                                    className="d-block w-100" 
+                                    alt="Imagen3"
+                                />
+                            </div>
+                        </div>
+                        <button 
+                            className="carousel-control-prev" 
+                            type="button"
+                            data-bs-target="#carouselExampleInterval"
+                            data-bs-slide="prev"
+                        >
+                            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span className="visually-hidden">Previous</span>
+                        </button>
+                        <button 
+                            className="carousel-control-next" 
+                            type="button"
+                            data-bs-target="#carouselExampleInterval"
+                            data-bs-slide="next"
+                        >
+                            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span className="visually-hidden">Next</span>
+                        </button>
+                    </div>
                 </div>
+
+        <section className="productos-search">
+                    <h1>Busca el producto que necesitas</h1>
+                    <p>Explora miles de productos y herramientas que tenemos para ti.</p>
+
+                    <form id="empleos-search-form" role="search">
+                        <div className="search-bar">
+                            <svg 
+                                xmlns="http://www.w3.org/2000/svg" 
+                                width="24"
+                                height="24" 
+                                viewBox="0 0 24 24" 
+                                fill="none"
+                                stroke="currentColor" 
+                                strokeWidth="1"
+                                strokeLinecap="round" 
+                                strokeLinejoin="round"
+                                className="icon icon-tabler icons-tabler-outline icon-tabler-search"
+                            >
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+                                <path d="M21 21l-6 -6" />
+                            </svg>
+
+                            <input 
+                                name="search" 
+                                id="empleos-search-input" 
+                                required
+                                type="text"
+                                placeholder="Buscar productos, herramientas" 
+                            />
+
+                            <button type="submit">Buscar</button>
+                        </div>
+
+                        <div className="search-filters">
+                            <select name="herramientas" className="btn-filtro">
+                                <option value="">Herramientas de Construcción</option>
+                                <option value="electrica">Herramientas Eléctricas</option>
+                                <option value="manuales">Herramientas Manuales</option>
+                                <option value="medicion">Herramientas de Medición</option>
+                            </select>
+
+                            <select name="insumos" className="btn-filtro">
+                                <option value="">Insumos y Accesorios</option>
+                                <option value="adhesivos">Adhesivos</option>
+                                <option value="bisagras">Bisagras y Pasadores</option>
+                                <option value="cerraduras">Manijas y Cerraduras</option>
+                                <option value="ruedas">Rodachines y Ruedas</option>
+                                <option value="tornilleria">Tornillería</option>
+                                <option value="hogar">Accesorios para el Hogar</option>
+                                <option value="seguridad">Elementos de Seguridad</option>
+                            </select>
+
+                            <select name="construccion" className="btn-filtro">
+                                <option value="">Elementos de Construcción</option>
+                                <option value="construccion">Construcción y Obras</option>
+                                <option value="pintura">Pintura y Revestimientos</option>
+                                <option value="fontaneria">Fontanería y Plomería</option>
+                                <optgroup label="Electricidad">
+                                    <option value="cajas">Cajas eléctricas</option>
+                                    <option value="pvc">Canaletas y Tuberías</option>
+                                    <option value="conductores">Conductores</option>
+                                    <option value="interruptores">Interruptores y Tomacorrientes</option>
+                                    <option value="iluminacion">Luminarias y Reflectores</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </form>
+                </section>
+
+                {/* Paginación */}
+                <section>
+                    <nav className="pagination">
+                        <a href="#">
+                            <svg 
+                                xmlns="http://www.w3.org/2000/svg" 
+                                width="24"
+                                height="24" 
+                                viewBox="0 0 24 24" 
+                                fill="none"
+                                stroke="currentColor" 
+                                strokeWidth="2"
+                                strokeLinecap="round" 
+                                strokeLinejoin="round"
+                                className="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left"
+                            >
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M15 6l-6 6l6 6" />
+                            </svg>
+                        </a>
+                        <a className="is-active" href="#">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">
+                            <svg 
+                                xmlns="http://www.w3.org/2000/svg" 
+                                width="24"
+                                height="24" 
+                                viewBox="0 0 24 24" 
+                                fill="none"
+                                stroke="currentColor" 
+                                strokeWidth="2"
+                                strokeLinecap="round" 
+                                strokeLinejoin="round"
+                                className="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"
+                            >
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M9 6l6 6l-6 6" />
+                            </svg>
+                        </a>
+                    </nav>
+                </section>
+
             </main>
 
             {/* FOOTER */}
@@ -143,16 +303,16 @@ function App() {
                         <div className="col-12 col-md-6 col-lg-8 col-xxl-8 mt-5">
                             <div className="row mb-4">
                                 <div className="col-3">
-                                    <a href="./Inicio.html" style={{ color: "inherit", fontWeight: "400" }}>Inicio</a>
+                                    <a href="./Inicio.html" style={{ color: "inherit", fontWeight: "400", textDecoration: "none" }}>Inicio</a>
                                 </div>
                                 <div className="col-3">
-                                    <a href="./Ferreteria.html" style={{ color: "inherit", fontWeight: "400" }}>Tienda</a>
+                                    <a href="./Ferreteria.html" style={{ color: "inherit", fontWeight: "400", textDecoration: "none" }}>Tienda</a>
                                 </div>
                                 <div className="col-3">
-                                    <a href="#" style={{ color: "inherit", fontWeight: "400" }}>Servicios</a>
+                                    <a href="#" style={{ color: "inherit", fontWeight: "400", textDecoration: "none" }}>Servicios</a>
                                 </div>
                                 <div className="col-3">
-                                    <a href="contacto.html" style={{ color: "inherit", fontWeight: "400" }}>Contacto</a>
+                                    <a href="contacto.html" style={{ color: "inherit", fontWeight: "400", textDecoration: "none" }}>Contacto</a>
                                 </div>
                             </div>
 

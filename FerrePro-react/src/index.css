@@ -148,7 +148,7 @@ section h2 {
 .productos-search {
   margin: 0;
   padding: 0;
-  height: auto !important;
+  height: auto ;
   text-align: center;
 
   h1 {
