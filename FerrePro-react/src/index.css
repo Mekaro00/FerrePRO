@@ -133,7 +133,7 @@ section h2 {
     transition: all 0.3s;
   }
 
-  a:hover, a:focus {
+  a:hover {
     background-color: #f0f0f0;
   }
 
