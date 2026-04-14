@@ -5,6 +5,7 @@
 // Y en tu tailwind.config.js asegúrate de tener los colores y fuentes del diseño FerrePro.
 
 import { useState } from "react";
+import Sidebar from "../layouts/Sidebar";
 
 // ─── Datos de ejemplo ──────────────────────────────────────────────────────────
 const SUPPLIERS = [
@@ -113,75 +114,7 @@ const NAV_ITEMS = [
   { label: "Suppliers", icon: "local_shipping", path: "/proveedores", active: true },
 ];
 
-// ─── Sidebar ───────────────────────────────────────────────────────────────────
-function Sidebar() {
-  return (
-    <aside className="h-screen w-64 fixed left-0 top-0 bg-zinc-50 flex flex-col py-6 border-r border-zinc-200 z-50">
-      {/* Logo */}
-      <div className="mb-10 px-6">
-        <h1 className="text-lg font-black text-orange-600 tracking-tight" style={{ fontFamily: "Manrope, sans-serif" }}>
-          FerrePro
-        </h1>
-        <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mt-0.5">
-          Industrial Admin
-        </p>
-      </div>
 
-      {/* Nav */}
-      <nav className="flex-1 space-y-0.5">
-        {NAV_ITEMS.map((item) =>
-          item.active ? (
-            <a
-              key={item.path}
-              href={item.path}
-              className="flex items-center text-orange-600 font-bold border-r-4 border-orange-500 bg-orange-50/50 py-3 px-6 text-[11px] uppercase tracking-widest"
-              style={{ fontFamily: "Manrope, sans-serif" }}
-            >
-              <span className="material-symbols-outlined mr-3 text-[20px]">{item.icon}</span>
-              {item.label}
-            </a>
-          ) : (
-            <a
-              key={item.path}
-              href={item.path}
-              className="flex items-center text-zinc-600 py-3 px-6 hover:text-orange-500 hover:bg-zinc-100 transition-colors duration-200 text-[11px] uppercase tracking-widest"
-              style={{ fontFamily: "Manrope, sans-serif" }}
-            >
-              <span className="material-symbols-outlined mr-3 text-[20px]">{item.icon}</span>
-              {item.label}
-            </a>
-          )
-        )}
-      </nav>
-
-      {/* Bottom actions */}
-      <div className="mt-auto px-6 space-y-2">
-        <button className="w-full bg-orange-600 text-white py-3 rounded-lg font-bold text-sm flex items-center justify-center gap-2 hover:bg-orange-700 active:scale-95 transition-all shadow-sm">
-          <span className="material-symbols-outlined text-[18px]">add</span>
-          Generate Report
-        </button>
-        <div className="pt-4 border-t border-zinc-200">
-          <a
-            href="#"
-            className="flex items-center text-zinc-500 py-2 hover:text-orange-500 transition-colors text-[11px] uppercase tracking-widest"
-            style={{ fontFamily: "Manrope, sans-serif" }}
-          >
-            <span className="material-symbols-outlined mr-3 text-[16px]">help</span>
-            Help Center
-          </a>
-          <a
-            href="#"
-            className="flex items-center text-zinc-500 py-2 hover:text-orange-500 transition-colors text-[11px] uppercase tracking-widest"
-            style={{ fontFamily: "Manrope, sans-serif" }}
-          >
-            <span className="material-symbols-outlined mr-3 text-[16px]">logout</span>
-            Sign Out
-          </a>
-        </div>
-      </div>
-    </aside>
-  );
-}
 
 // ─── TopBar ────────────────────────────────────────────────────────────────────
 function TopBar({ search, onSearch }) {
@@ -312,7 +245,7 @@ export default function ProveedoresPage() {
 
   return (
     <div className="bg-zinc-50 text-zinc-900 min-h-screen" style={{ fontFamily: "Inter, sans-serif" }}>
-      <Sidebar />
+      <Sidebar onExpandChange={setSideOpen} />
       <TopBar search={search} onSearch={setSearch} />
 
       <main className="ml-64 p-8">

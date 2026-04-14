@@ -4,7 +4,8 @@
 //   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import Sidebar from "../layouts/Sidebar";
 
 // ─── Datos ─────────────────────────────────────────────────────────────────────
 
@@ -106,131 +107,6 @@ const LOW_STOCK = [
   },
 ];
 
-// ─── Sidebar ───────────────────────────────────────────────────────────────────
-// Colapsado: solo muestra íconos (w-16)
-// Expandido: muestra íconos + labels (w-64)
-// Se expande al hover O al hacer clic en el botón de flecha
-function Sidebar({ currentPath, onExpandChange }) {
-  const [expanded, setExpanded] = useState(false);
-  const [hovered, setHovered]   = useState(false);
-
-  const isOpen = expanded || hovered;
-
-  // Notifica al layout cuánto margen aplicar
-  const handleHover = (val) => {
-    setHovered(val);
-    onExpandChange?.(val || expanded);
-  };
-  const handleToggle = () => {
-    setExpanded((prev) => {
-      onExpandChange?.(!prev || hovered);
-      return !prev;
-    });
-  };
-
-  return (
-    <aside
-      onMouseEnter={() => handleHover(true)}
-      onMouseLeave={() => handleHover(false)}
-      className="h-screen fixed left-0 top-0 z-50 bg-zinc-50 flex flex-col py-6 border-r border-zinc-200 overflow-hidden transition-all duration-300 ease-in-out"
-      style={{ width: isOpen ? "16rem" : "4rem" }}
-    >
-      {/* Logo + toggle */}
-      <div className="mb-8 px-3 flex items-center justify-between min-w-0">
-        <div className={`overflow-hidden transition-all duration-300 ${isOpen ? "w-36 opacity-100" : "w-0 opacity-0"}`}>
-          <h1 className="text-lg font-black text-orange-600 whitespace-nowrap" style={{ fontFamily: "Manrope, sans-serif" }}>
-            FerrePro
-          </h1>
-          <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest whitespace-nowrap">
-            Industrial Admin
-          </p>
-        </div>
-        {/* Botón flecha — siempre visible */}
-        <button
-          onClick={handleToggle}
-          className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-zinc-100 transition-colors flex-shrink-0 ml-auto"
-          title={expanded ? "Colapsar menú" : "Expandir menú"}
-        >
-          <span
-            className="material-symbols-outlined text-zinc-400 text-[20px] transition-transform duration-300"
-            style={{ transform: isOpen ? "rotate(180deg)" : "rotate(0deg)" }}
-          >
-            chevron_right
-          </span>
-        </button>
-      </div>
-
-      {/* Nav Links */}
-      <nav className="flex-1 space-y-0.5">
-        {NAV_ITEMS.map((item) => {
-          const isActive = currentPath === item.path;
-          return (
-            <Link
-              key={item.path}
-              to={item.path}
-              title={!isOpen ? item.label : undefined}
-              className={`flex items-center py-3 transition-all duration-200 ${
-                isOpen ? "px-6 gap-3" : "px-0 justify-center"
-              } ${
-                isActive
-                  ? "text-orange-600 font-bold border-r-4 border-orange-500 bg-orange-50/50 text-[11px] uppercase tracking-widest"
-                  : "text-zinc-600 hover:text-orange-500 hover:bg-zinc-100 text-[11px] uppercase tracking-widest"
-              }`}
-              style={{ fontFamily: "Manrope, sans-serif" }}
-            >
-              <span className="material-symbols-outlined text-[20px] flex-shrink-0">{item.icon}</span>
-              <span
-                className="whitespace-nowrap overflow-hidden transition-all duration-300"
-                style={{ width: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
-              >
-                {item.label}
-              </span>
-            </Link>
-          );
-        })}
-      </nav>
-
-      {/* Bottom links */}
-      <div className={`mt-4 space-y-0.5 border-t border-zinc-200 pt-4 ${isOpen ? "px-6" : "px-0"}`}>
-        {[{ label: "Help Center", icon: "help" }, { label: "Sign Out", icon: "logout" }].map((item) => (
-          <a
-            key={item.label}
-            href="#"
-            title={!isOpen ? item.label : undefined}
-            className={`flex items-center py-2 text-xs font-medium text-zinc-500 hover:text-orange-500 transition-all duration-200 ${
-              isOpen ? "gap-3" : "justify-center"
-            }`}
-          >
-            <span className="material-symbols-outlined text-[16px] flex-shrink-0">{item.icon}</span>
-            <span
-              className="whitespace-nowrap overflow-hidden transition-all duration-300"
-              style={{ width: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
-            >
-              {item.label}
-            </span>
-          </a>
-        ))}
-      </div>
-
-      {/* CTA Button */}
-      <div className={`mt-6 transition-all duration-300 ${isOpen ? "px-6" : "px-2"}`}>
-        {isOpen ? (
-          <button className="w-full bg-orange-600 text-white py-3 px-4 rounded-lg font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-orange-700 active:scale-95 transition-all">
-            <span className="material-symbols-outlined text-[16px]">assignment</span>
-            Generate Report
-          </button>
-        ) : (
-          <button
-            title="Generate Report"
-            className="w-full bg-orange-600 text-white py-3 rounded-lg flex items-center justify-center hover:bg-orange-700 active:scale-95 transition-all"
-          >
-            <span className="material-symbols-outlined text-[16px]">assignment</span>
-          </button>
-        )}
-      </div>
-    </aside>
-  );
-}
 
 // ─── TopBar ────────────────────────────────────────────────────────────────────
 function TopBar({ sideW }) {
@@ -442,7 +318,7 @@ export default function DashboardPage() {
 
   return (
     <div className="bg-zinc-50 text-zinc-900 min-h-screen" style={{ fontFamily: "Inter, sans-serif" }}>
-      <Sidebar currentPath={location.pathname} onExpandChange={setSideOpen} />
+      <Sidebar onExpandChange={setSideOpen} />
       <TopBar sideW={sideW} />
 
       <main
