@@ -1,11 +1,16 @@
+
+import { useNavigate } from 'react-router-dom';
+
 export function Navbar ({ onCategoryFilter }) {
+const navigate = useNavigate();
+
   return (
     <nav className='navbar bg-dark navbar-dark fixed-top'>
       <div className='container-fluid'>
         {/* LOGO */}
         <a
           className='navbar-brand d-flex align-items-center'
-          href='./Inicio.html'
+          href='./'
         >
           <img
             src='/imagenes pagina ferreteria/Imagen de fondo inicio y logo/Logo.jpeg'
@@ -53,8 +58,8 @@ export function Navbar ({ onCategoryFilter }) {
             ></button>
           </div>
 
-          <div className='offcanvas-body'>
-            <ul className='navbar-nav justify-content-end flex-grow-1 pe-3'>
+          <div className='offcanvas-body d-flex flex-column' style={{height: '100%'}}> 
+            <ul className='navbar-nav pe-3'>
               {/* SECCIONES */}
               <li className='nav-item'>
                 <a
@@ -188,6 +193,23 @@ export function Navbar ({ onCategoryFilter }) {
                 </a>
               </li>
             </ul>
+
+            {/* BOTÓN INICIAR SESIÓN ABAJO */}
+            <button
+              className='nav-link btn btn-link w-100 text-start mt-auto'
+              onClick={() => navigate('/login')}
+              style={{
+                background: 'linear-gradient(to right, #ef6c00, #fb8c00)',
+                color: '#fff',
+                fontWeight: 'bold',
+                borderRadius: '6px',
+                padding: '10px 15px',
+                marginTop: '10px'
+              }}
+            >
+              Iniciar Sesión
+            </button>
+
           </div>
         </div>
       </div>

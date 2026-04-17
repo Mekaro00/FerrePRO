@@ -23,10 +23,10 @@ export function Footer() {
                         <div className="col-12 col-md-6 col-lg-8 col-xxl-8 mt-5">
                             <div className="row mb-4">
                                 <div className="col-3">
-                                    <a href="./Inicio.html" style={{ color: "inherit", fontWeight: "400", textDecoration: "none" }}>Inicio</a>
+                                    <a href="./login" style={{ color: "inherit", fontWeight: "400", textDecoration: "none" }}>Perfil</a>
                                 </div>
                                 <div className="col-3">
-                                    <a href="./Ferreteria.html" style={{ color: "inherit", fontWeight: "400", textDecoration: "none" }}>Tienda</a>
+                                    <a href="./" style={{ color: "inherit", fontWeight: "400", textDecoration: "none" }}>Tienda</a>
                                 </div>
                                 <div className="col-3">
                                     <a href="#" style={{ color: "inherit", fontWeight: "400", textDecoration: "none" }}>Servicios</a>
