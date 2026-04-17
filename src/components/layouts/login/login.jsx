@@ -17,7 +17,7 @@ export function Login() {
         // Validación simple sin base de datos
         if (email === USUARIO && password === PASSWORD) {
             setError("");
-            navigate('/admin/default'); // Redirige al dashboard admin
+            navigate('/admin'); // Redirige al dashboard admin
         } else {
             setError("Usuario o contraseña incorrectos");
         }
@@ -72,7 +72,7 @@ export function Login() {
                                             id="password"
                                             value={password}
                                             onChange={(e) => setPassword(e.target.value)}
-                                            placeholder="••••••••"
+                                            placeholder="contraseña"
                                             required
                                         />
                                     </div>
@@ -125,9 +125,9 @@ export function Login() {
                                     </button>
                                 </div>
 
-                                <hr className="my-4" />
+                                {/* <hr className="my-4" /> */}
 
-                                <div className="text-center mt-3">
+                                {/* <div className="text-center mt-3">
                                     <button
                                         type="button"
                                         className="btn btn-outline-secondary"
@@ -135,7 +135,7 @@ export function Login() {
                                     >
                                         Administrador
                                     </button>
-                                </div>
+                                </div>*/}
                             </div>
                         </div>
                     </div>

@@ -1,0 +1,199 @@
+:root {
+    --ferre-orange: #ff6600;
+    --ferre-gray-bg: #f4f7fe;
+    --ferre-sidebar-text: #a3aed0;
+    --ferre-navy: #1b2559;
+    --ferre-card-shadow: 0px 20px 53px 0px rgba(112, 144, 176, 0.08);
+}
+
+.admin-body {
+    background-color: var(--ferre-gray-bg);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ferre-navy);
+    overflow-x: hidden;
+}
+
+/* SIDEBAR FIJO */
+.sidebar-industrial {
+    background: #ffffff;
+    border-right: 1px solid #f1f1f1;
+    height: 100vh;
+    position: fixed; /* Esto lo deja fijo */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    overflow-y: auto; /* Por si el menú es muy largo */
+}
+
+/* AJUSTE DEL CONTENIDO PRINCIPAL */
+.main-content {
+    min-height: 100vh;
+    transition: all 0.3s ease;
+}
+
+/* Margen para que el contenido no quede debajo del sidebar en PC */
+@media (min-width: 768px) {
+    .main-content {
+        margin-left: 25%; /* Ancho de col-md-3 */
+    }
+}
+
+@media (min-width: 992px) {
+    .main-content {
+        margin-left: 16.666667%; /* Ancho de col-lg-2 */
+    }
+}
+
+/* MENÚ MÓVIL */
+@media (max-width: 767.98px) {
+    .sidebar-industrial {
+        left: -100%;
+        width: 280px;
+    }
+    .sidebar-industrial.show {
+        left: 0;
+        box-shadow: 10px 0 30px rgba(0,0,0,0.1);
+    }
+    .main-content {
+        margin-left: 0 !important;
+    }
+}
+
+/* ESTILOS DE ELEMENTOS */
+.nav-link-industrial {
+    color: var(--ferre-sidebar-text);
+    font-weight: 700;
+    padding: 12px 24px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+}
+
+.nav-link-industrial:hover {
+    color: var(--ferre-navy);
+    background: #f8f9ff;
+}
+
+.nav-link-industrial.active {
+    color: var(--ferre-navy);
+    background: transparent;
+}
+
+.nav-link-industrial.active svg {
+    color: var(--ferre-orange);
+}
+
+.card-stat {
+    background: white;
+    border: none;
+    border-radius: 20px;
+    box-shadow: var(--ferre-card-shadow);
+    padding: 24px;
+    height: 100%;
+}
+
+.stat-title {
+    color: var(--ferre-sidebar-text);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--ferre-navy);
+}
+
+.badge-status {
+    padding: 5px 12px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.75rem;
+}
+
+.badge-pending { background-color: #fff4e5; color: #ff8c00; }
+.badge-shipped { background-color: #e8f5e9; color: #2e7d32; }
+.badge-critical { background-color: #ffebee; color: #c62828; }
+.badge-reorder { background-color: #fff8e1; color: #f9a825; }
+
+.btn-orange {
+    background-color: var(--ferre-orange);
+    color: white;
+    border: none;
+    font-weight: 700;
+    padding: 12px 24px;
+    border-radius: 12px;
+}
+
+.btn-orange:hover {
+    background-color: #e65c00;
+    color: white;
+    transform: translateY(-2px);
+    transition: all 0.2s;
+}
+
+.search-container {
+    background: #f4f7fe;
+    border-radius: 30px;
+    padding: 8px 20px;
+    width: 100%;
+}
+
+.search-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+.floating-add {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 56px;
+    height: 56px;
+    background: var(--ferre-orange);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 20px rgba(255,102,0,0.2);
+    z-index: 1001;
+    cursor: pointer;
+}
+
+/* Responsividad para móviles */
+@media (max-width: 768px) {
+    .sidebar-industrial {
+        position: fixed;
+        left: -100%;
+        z-index: 1050;
+        width: 250px;
+    }
+    .sidebar-industrial.show {
+        left: 0;
+    }
+    .main-content {
+        margin-left: 0 !important;
+    }
+}
+
+.table thead th {
+    border: none;
+    color: var(--ferre-sidebar-text);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.table tbody td {
+    border-bottom: 1px solid #f1f1f1;
+    padding: 16px 8px;
+    font-weight: 500;
+}
