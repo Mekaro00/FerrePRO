@@ -189,7 +189,7 @@ export default function ClientesPage () {
             <IconDownload size={18} /> EXPORTAR CSV
           </button>
           <button
-            className='btn btn-dark d-flex align-items-center gap-2 fw-bold small shadow-sm'
+            className='btn btn-orange btn-sm shadow d-flex align-items-center gap-2 fw-bold small shadow-sm'
             onClick={() => setShowModal(true)}
           >
             <IconUserPlus size={18} /> NUEVO CLIENTE
