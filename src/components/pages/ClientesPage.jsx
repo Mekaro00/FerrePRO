@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from "react"
 import {
   IconUsers,
   IconUserPlus,
@@ -90,11 +90,18 @@ const FOOTER_METRICS = [
 ]
 
 export default function ClientesPage () {
-  const [clientes, setClientes] = useState(CUSTOMERS)
+  const [clientes, setClientes] = useState(() => {
+  const data = localStorage.getItem("clientes")
+  return data ? JSON.parse(data) : CUSTOMERS
+})
   const [selectedCustomer, setSelectedCustomer] = useState(CUSTOMERS[0])
   const [page, setPage] = useState(1)
 
   const [showModal, setShowModal] = useState(false)
+
+  useEffect(() => {
+    localStorage.setItem("clientes", JSON.stringify(clientes))
+  }, [clientes])
 
   const [formData, setFormData] = useState({
     name: '',
