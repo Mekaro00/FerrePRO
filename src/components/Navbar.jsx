@@ -23,10 +23,12 @@ const navigate = useNavigate();
 
         {/* ICONOS */}
         <div className='d-flex align-items-center'>
-          <a href='carrito.html' className='btn btn-outline-light me-2'>
+          <button 
+          className='btn btn-outline-light me-2' onClick={() => navigate('./carrito')}>
             🛒
-          </a>
+          </button>
 
+          
           <button
             className='navbar-toggler'
             type='button'
