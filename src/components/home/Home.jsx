@@ -7,7 +7,7 @@ import productos from '../../productos.json';
 
 const RESULT_PER_PAGE = 3;
 
-export function Home({ categoryFilters, setCategoryFilters }) {
+export function Home({ onAdd, categoryFilters, setCategoryFilters }) {
     const [textFilter, setTextFilter] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
     
@@ -84,7 +84,9 @@ export function Home({ categoryFilters, setCategoryFilters }) {
                 onTextFilter={handleTextFilter} 
                 onCategoryFilter={handleCategoryFilter} 
             />
-            <ContainerProductos productosData={pagedResults} />
+            <ContainerProductos 
+                onAgregarCarrito={onAdd}
+                productosData={pagedResults} />
             <Paginación 
                 currentPage={currentPage} 
                 totalPages={totalPages} 

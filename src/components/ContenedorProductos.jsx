@@ -28,10 +28,10 @@ export function ContainerProductos({ productosData, onAgregarCarrito }) {
         // Mostramos nuestra notificación
         setAlerta({ visible: true, productoNombre: producto.nombre });
 
-        // La ocultamos automáticamente después de 3 segundos
+        // La ocultamos automáticamente después de 2 segundos
         setTimeout(() => {
             setAlerta({ visible: false, productoNombre: '' });
-        }, 3000);
+        }, 2000);
     };
 
     const gruposProductos = productos.reduce((grupos, producto) => {

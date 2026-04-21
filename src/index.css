@@ -113,6 +113,42 @@ section h2 {
   object-fit: contain;
 }
 
+/* Scroll horizontal */
+.scroll-linea {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+}
+
+.scroll-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  backdrop-filter: blur(6px);
+  transition: all 0.3s ease;
+
+  opacity: 0.6; 
+}
+
+/* Hover flechas*/
+.scroll-btn:hover {
+  background: #fb8c00;
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* Mostrar completamente al pasar el mouse por la sección */
+.articulo:hover .scroll-btn {
+  opacity: 0.8;
+}
 
 /* paginacion */
 .pagination {

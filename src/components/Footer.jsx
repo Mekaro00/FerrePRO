@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export function Footer() {
     return(
         <footer className="bg-secondary text-white" style={{ margin: "auto" }}>
@@ -23,16 +25,20 @@ export function Footer() {
                         <div className="col-12 col-md-6 col-lg-8 col-xxl-8 mt-5">
                             <div className="row mb-4">
                                 <div className="col-3">
-                                    <a href="./login" style={{ color: "inherit", fontWeight: "400", textDecoration: "none" }}>Perfil</a>
+                                    <Link to="/login"style={{ color: "inherit", fontWeight: "400", textDecoration: "none" }}>Perfil</Link>
                                 </div>
                                 <div className="col-3">
-                                    <a href="./" style={{ color: "inherit", fontWeight: "400", textDecoration: "none" }}>Tienda</a>
+                                    <Link to="/" style={{ color: "inherit", fontWeight: "400", textDecoration: "none" }}>Tienda</Link>
                                 </div>
                                 <div className="col-3">
                                     <a href="#" style={{ color: "inherit", fontWeight: "400", textDecoration: "none" }}>Servicios</a>
                                 </div>
                                 <div className="col-3">
-                                    <a href="contacto.html" style={{ color: "inherit", fontWeight: "400", textDecoration: "none" }}>Contacto</a>
+                                    <Link 
+                                        to="/contacto" 
+                                        style={{ color: "inherit", fontWeight: "400", textDecoration: "none" }}
+                                        >Contacto
+                                    </Link>
                                 </div>
                             </div>
 

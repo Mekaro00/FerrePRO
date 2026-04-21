@@ -1,43 +1,52 @@
 
 import { useNavigate } from 'react-router-dom';
+import { IconShoppingCart, IconMenu2 } from '@tabler/icons-react';
 
-export function Navbar ({ onCategoryFilter }) {
+export function Navbar ({ onCategoryFilter, carrito }) {
 const navigate = useNavigate();
+
+const totalItems = carrito.reduce(
+  (acc, item) => acc + item.cantidad,
+  0
+);
 
   return (
     <nav className='navbar bg-dark navbar-dark fixed-top'>
       <div className='container-fluid'>
         {/* LOGO */}
-        <a
-          className='navbar-brand d-flex align-items-center'
-          href='./'
-        >
+        <a className='navbar-brand d-flex align-items-center' href='#' onClick={(e) => { e.preventDefault(); navigate('/'); }}>
           <img
             src='/imagenes pagina ferreteria/Imagen de fondo inicio y logo/Logo.jpeg'
             alt='Logo FerrePro'
             className='me-2 rounded'
             style={{ height: '40px', width: 'auto', objectFit: 'contain' }}
           />
-          FerrePro
+          <span className="fw-bold">FerrePro</span>
         </a>
 
-        {/* ICONOS */}
+        {/* ICONO DEL CARRITO */}
         <div className='d-flex align-items-center'>
           <button 
-          className='btn btn-outline-light me-2' onClick={() => navigate('./carrito')}>
-            🛒
+            onClick={() => navigate('/carrito')} 
+            className='btn btn-outline-light me-3 position-relative border-0'
+          >
+            <IconShoppingCart size={24} />
+               <span 
+                className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                style={{ fontSize: '0.6rem' }}
+              >
+                {totalItems}
+              </span>
+            
           </button>
 
-          
           <button
-            className='navbar-toggler'
+            className='navbar-toggler border-0'
             type='button'
             data-bs-toggle='offcanvas'
             data-bs-target='#offcanvasNavbar'
-            aria-controls='offcanvasNavbar'
-            aria-label='Toggle navigation'
           >
-            <span className='navbar-toggler-icon'></span>
+            <IconMenu2 size={28} />
           </button>
         </div>
 

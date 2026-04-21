@@ -1,6 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 export function Carrito({ items, onRemove }) {
+
+  
+
+  const navigate = useNavigate();
+
+   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   // Estado para manejar el método de pago seleccionado
   const [metodoPago, setMetodoPago] = useState('');
 
@@ -11,7 +23,7 @@ export function Carrito({ items, onRemove }) {
   );
 
   const handlePagar = () => {
-    alert(`💳 Procesando pago por $${total.toLocaleString("es-CO")} vía ${metodoPago.toUpperCase()}...\n\n¡Gracias por tu compra en FerrePRO!`);
+    alert(`💳 Procesando pago por $${(item.precio || 0).toLocaleString("es-CO")} vía ${metodoPago.toUpperCase()}...\n\n¡Gracias por tu compra en FerrePRO!`);
     // Aquí podrías añadir la lógica para limpiar el carrito tras la compra
   };
 
@@ -41,7 +53,7 @@ export function Carrito({ items, onRemove }) {
                       />
                       <div>
                         <strong className="d-block fs-5">{item.nombre}</strong>
-                        <span className="text-muted">{item.cantidad} x ${item.precio.toLocaleString("es-CO")}</span>
+                        <span className="text-muted">{item.cantidad} x ${(item.precio || 0).toLocaleString("es-CO")}</span>
                       </div>
                     </div>
                     <button 
@@ -139,3 +151,4 @@ export function Carrito({ items, onRemove }) {
     </div>
   );
 }
+
