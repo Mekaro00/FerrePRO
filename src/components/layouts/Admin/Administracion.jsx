@@ -13,7 +13,8 @@ import {
   IconSettings,
   IconPlus,
   IconMenu2,
-  IconX
+  IconX,
+  IconAlertTriangle
 } from '@tabler/icons-react'
 import {
   Chart as ChartJS,
@@ -199,6 +200,10 @@ function MenuItem ({ to, label, icon, active }) {
 function DashboardView () {
   const storedProducts = JSON.parse(localStorage.getItem('products')) || []
   const lowStockProducts = storedProducts.filter(p => p.stock <= 10)
+  const [showReponer, setShowReponer] = useState(false)
+  const [productoSeleccionado, setProductoSeleccionado] = useState(null)
+  const [cantidad, setCantidad] = useState('')
+  const [alertaOrden, setAlertaOrden] = useState(null)
 
   // Configuración de Chart.js para Rendimiento Semanal
   const barData = {
@@ -260,6 +265,25 @@ function DashboardView () {
 
   return (
     <>
+      {/*ALERTA GLOBAL ARRIBA */}
+      {alertaOrden && (
+        <div
+          className='position-fixed top-0 start-50 translate-middle-x mt-3 shadow-lg d-flex align-items-center gap-2'
+          style={{
+            zIndex: 9999,
+            background: '#413f3e',
+            color: 'white',
+            padding: '12px 18px',
+            borderRadius: '10px',
+            fontWeight: 'bold',
+            minWidth: '320px'
+          }}
+        >
+          <IconAlertTriangle size={20} />
+          {alertaOrden}
+        </div>
+      )}
+
       <div className='d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-end mb-4 gap-3'>
         <div>
           <h2 className='fw-bold mb-1'>Resumen de Inventario</h2>
@@ -370,9 +394,6 @@ function DashboardView () {
       <div className='card card-stat'>
         <div className='d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center mb-4 gap-3'>
           <h5 className='fw-bold mb-0'>Alertas de Inventario</h5>
-          <button className='btn btn-orange btn-sm shadow'>
-            Reponer Stock
-          </button>
         </div>
         <div className='table-responsive'>
           <table className='table align-middle'>
@@ -389,19 +410,86 @@ function DashboardView () {
               {lowStockProducts.map(p => (
                 <AlertRow
                   key={p.id}
-                  img='/imagenes pagina ferreteria/default.jpg'
                   name={p.name}
                   cat={p.category}
                   sku={p.sku}
                   stock={`${p.stock} u.`}
                   status={p.stock === 0 ? 'CRÍTICO' : 'REORDENAR'}
                   badge={p.stock === 0 ? 'badge-critical' : 'badge-reorder'}
+                  onReponer={() => {
+                    setProductoSeleccionado(p)
+                    setShowReponer(true)
+                  }}
                 />
               ))}
             </tbody>
           </table>
         </div>
       </div>
+      {showReponer && productoSeleccionado && (
+        <div
+          className='position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center'
+          style={{
+            background: 'rgba(0,0,0,0.4)',
+            backdropFilter: 'blur(6px)',
+            zIndex: 9999
+          }}
+        >
+          <div className='card p-4 shadow-lg' style={{ width: '420px' }}>
+            <h5 className='fw-bold mb-3'>Orden de Reposición</h5>
+
+            <div className='mb-3 p-3 bg-light rounded'>
+              <div className='fw-bold'>{productoSeleccionado.name}</div>
+              <div className='text-muted small'>
+                SKU: {productoSeleccionado.sku}
+              </div>
+              <div className='text-danger small fw-bold'>
+                Stock actual: {productoSeleccionado.stock}
+              </div>
+            </div>
+
+            <label className='small fw-bold'>Cantidad a solicitar</label>
+            <input
+              className='form-control mb-3'
+              type='number'
+              placeholder='Ej: 50'
+              value={cantidad}
+              onChange={e => setCantidad(e.target.value)}
+            />
+
+            <div className='d-flex justify-content-end gap-2'>
+              <button
+                className='btn btn-light'
+                onClick={() => {
+                  setShowReponer(false)
+                  setProductoSeleccionado(null)
+                  setCantidad('')
+                }}
+              >
+                Cancelar
+              </button>
+
+              <button
+                className='btn btn-orange'
+                onClick={() => {
+                  if (!productoSeleccionado) return
+
+                  setAlertaOrden(
+                    `Orden activa creada para: ${productoSeleccionado.name} (${productoSeleccionado.sku})`
+                  )
+
+                  setShowReponer(false)
+                  setProductoSeleccionado(null)
+
+                  setTimeout(() => setAlertaOrden(null), 4000)
+                }}
+              >
+                Crear orden
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   )
 }
@@ -446,7 +534,7 @@ function OrderItem ({ id, client, total, status }) {
   )
 }
 
-function AlertRow ({ name, cat, sku, stock, status, badge }) {
+function AlertRow ({ name, cat, sku, stock, status, badge, onReponer }) {
   return (
     <tr>
       <td>
@@ -454,11 +542,20 @@ function AlertRow ({ name, cat, sku, stock, status, badge }) {
           <span className='fw-bold small text-nowrap'>{name}</span>
         </div>
       </td>
+
       <td className='small text-muted'>{cat}</td>
       <td className='small font-monospace'>{sku}</td>
       <td className='fw-bold small'>{stock}</td>
+
       <td>
         <span className={'badge-status ' + badge}>{status}</span>
+      </td>
+
+      {/*BOTÓN*/}
+      <td>
+        <button className='btn btn-sm btn-orange' onClick={onReponer}>
+          Reponer
+        </button>
       </td>
     </tr>
   )
