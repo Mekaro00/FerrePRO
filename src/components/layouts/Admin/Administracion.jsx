@@ -28,6 +28,11 @@ import {
 } from 'chart.js';
 import { Bar, Line } from 'react-chartjs-2';
 import './AdminStyle.css';
+import InventarioPage from '../../pages/InventarioPage.jsx';
+import OrdenesPage from '../../pages/OrdenesPage.jsx';
+import ClientesPage from '../../pages/ClientesPage.jsx';
+import ProveedoresPage from '../../pages/ProveedoresPage.jsx';
+
 
 // Registrar componentes de Chart.js
 ChartJS.register(
@@ -113,10 +118,10 @@ export default function Administracion() {
                     <div className="p-3 p-md-5">
                         <Routes>
                             <Route path="/" element={<DashboardView />} />
-                            <Route path="/inventario" element={<Placeholder title="Inventario" />} />
-                            <Route path="/ordenes" element={<Placeholder title="Órdenes" />} />
-                            <Route path="/clientes" element={<Placeholder title="Clientes" />} />
-                            <Route path="/proveedores" element={<Placeholder title="Proveedores" />} />
+                            <Route path="/inventario" element={<InventarioPage />} />
+                            <Route path="/ordenes" element={<OrdenesPage />} />
+                            <Route path="/clientes" element={<ClientesPage />} />
+                            <Route path="/proveedores" element={<ProveedoresPage />} />
                         </Routes>
                     </div>
                 </main>
@@ -318,3 +323,4 @@ function AlertRow({ img, name, cat, sku, stock, status, badge }) {
 function Placeholder({ title }) {
     return <div className="p-5 text-center bg-white rounded-4 shadow-sm"><h3>{title}</h3><p>Próximamente...</p></div>;
 }
+

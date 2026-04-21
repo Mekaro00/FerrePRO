@@ -8,6 +8,7 @@ import { Home } from './components/home/Home.jsx';
 import { Footer } from './components/Footer.jsx';
 import { Login } from './components/layouts/login/login.jsx';
 import Administracion from './components/layouts/Admin/Administracion.jsx';
+import { Registro } from './Registro.jsx';
 
 function App() {
     const [categoryFilters, setCategoryFilters] = useState({
@@ -44,7 +45,7 @@ function App() {
                                 } 
                             />
                             <Route path="/login" element={<Login />} />
-                            <Route path="/registro" element={<div style={{paddingTop: "80px", minHeight: "60vh", textAlign: "center"}}>Página de Registro (por crear)</div>} />
+                            <Route path="/registro" element={<Registro />} />
                         </Routes>
                         <Footer />
                     </>

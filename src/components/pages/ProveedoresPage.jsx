@@ -1,362 +1,174 @@
-// ProveedoresPage.jsx
-// Requiere en tu index.html o index.css:
-//   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
-//   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-// Y en tu tailwind.config.js asegúrate de tener los colores y fuentes del diseño FerrePro.
+import React, { useState } from "react";
+import { 
+    IconTruckDelivery, 
+    IconPlus, 
+    IconPhone, 
+    IconMail, 
+    IconFilter, 
+    IconDownload, 
+    IconDots,
+    IconTrendingUp,
+    IconAlertTriangle,
+    IconCategory,
+    IconClock
+} from '@tabler/icons-react';
 
-import { useState } from "react";
-
-// ─── Datos de ejemplo ──────────────────────────────────────────────────────────
+// --- Datos de ejemplo ---
 const SUPPLIERS = [
-  {
-    id: "PROV-1029",
-    name: "Industrial Aceros S.A.",
-    icon: "build",
-    iconBg: "bg-zinc-900",
-    iconColor: "text-white",
-    category: "Tornillería",
-    categoryStyle: "bg-orange-100 text-orange-800",
-    contact: "Ing. Roberto Méndez",
-    role: "Gerente de Cuentas",
-    phone: "+52 555 123 4567",
-    status: "Activo",
-    statusDot: "bg-orange-600",
-  },
-  {
-    id: "PROV-2055",
-    name: "Cementos del Norte",
-    icon: "layers",
-    iconBg: "bg-orange-100",
-    iconColor: "text-orange-600",
-    category: "Cemento",
-    categoryStyle: "bg-zinc-100 text-zinc-700",
-    contact: "Alicia Vargas",
-    role: "Logística",
-    phone: "+52 812 987 6543",
-    status: "Activo",
-    statusDot: "bg-orange-600",
-  },
-  {
-    id: "PROV-0988",
-    name: "Pinturas Estructurales",
-    icon: "format_paint",
-    iconBg: "bg-orange-600",
-    iconColor: "text-white",
-    category: "Acabados",
-    categoryStyle: "bg-zinc-100 text-zinc-700",
-    contact: "Marcos Ruiz",
-    role: "Ventas Senior",
-    phone: "+52 333 444 5555",
-    status: "En Revisión",
-    statusDot: "bg-zinc-400",
-  },
-  {
-    id: "PROV-3310",
-    name: "Electricidad Global",
-    icon: "electric_bolt",
-    iconBg: "bg-zinc-400",
-    iconColor: "text-white",
-    category: "Eléctrico",
-    categoryStyle: "bg-zinc-100 text-zinc-700",
-    contact: "Samuel Torres",
-    role: "Distribución",
-    phone: "+52 555 999 0011",
-    status: "Inactivo",
-    statusDot: "bg-red-600",
-  },
+    { id: "PROV-1029", name: "Industrial Aceros S.A.", category: "Tornillería", contact: "Ing. Roberto Méndez", role: "Gerente", phone: "+57 310 123 4567", status: "ACTIVO", badge: "bg-success" },
+    { id: "PROV-2055", name: "Cementos del Norte", category: "Cemento", contact: "Alicia Vargas", role: "Logística", phone: "+57 320 987 6543", status: "ACTIVO", badge: "bg-success" },
+    { id: "PROV-0988", name: "Pinturas Estructurales", category: "Acabados", contact: "Marcos Ruiz", role: "Ventas", phone: "+57 315 444 5555", status: "REVISIÓN", badge: "bg-warning text-dark" },
+    { id: "PROV-3310", name: "Electricidad Global", category: "Eléctrico", contact: "Samuel Torres", role: "Distribución", phone: "+57 300 999 0011", status: "INACTIVO", badge: "bg-danger" },
 ];
 
-// ─── Métricas ──────────────────────────────────────────────────────────────────
-const METRICS = [
-  {
-    label: "Total Proveedores",
-    value: "42",
-    accent: "bg-orange-600",
-    sub: "+3 este trimestre",
-    subIcon: "trending_up",
-    subColor: "text-orange-600",
-  },
-  {
-    label: "Órdenes Pendientes",
-    value: "12",
-    accent: "bg-zinc-400",
-    sub: "8 críticas",
-    subIcon: "pending_actions",
-    subColor: "text-zinc-500",
-    subIconColor: "text-orange-500",
-  },
-  {
-    label: "Categorías Activas",
-    value: "14",
-    accent: "bg-orange-200",
-    sub: "Suministro constante",
-    subIcon: "category",
-    subColor: "text-zinc-500",
-    subIconColor: "text-orange-500",
-  },
-  {
-    label: "Contratos por Vencer",
-    value: "03",
-    accent: "bg-red-600",
-    sub: "Renovación requerida",
-    subIcon: "warning",
-    subColor: "text-red-600",
-  },
-];
-
-// ─── NavItems ──────────────────────────────────────────────────────────────────
-const NAV_ITEMS = [
-  { label: "Dashboard", icon: "dashboard", path: "/" },
-  { label: "Inventory", icon: "inventory_2", path: "/inventario" },
-  { label: "Orders", icon: "shopping_cart", path: "/ordenes" },
-  { label: "Customers", icon: "group", path: "/clientes" },
-  { label: "Suppliers", icon: "local_shipping", path: "/proveedores", active: true },
-];
-
-
-
-// ─── MetricCard ────────────────────────────────────────────────────────────────
-function MetricCard({ label, value, accent, sub, subIcon, subColor, subIconColor }) {
-  return (
-    <div className="bg-white p-6 rounded-xl border border-zinc-200 relative overflow-hidden">
-      <div className={`absolute left-0 top-0 bottom-0 w-1.5 ${accent}`} />
-      <p className="text-[10px] font-bold text-zinc-400 tracking-widest uppercase mb-2">
-        {label}
-      </p>
-      <h3 className="text-4xl font-black text-zinc-900" style={{ fontFamily: "Manrope, sans-serif" }}>
-        {value}
-      </h3>
-      <div className={`mt-4 flex items-center text-xs font-semibold ${subColor}`}>
-        <span className={`material-symbols-outlined text-[16px] mr-1 ${subIconColor || subColor}`}>
-          {subIcon}
-        </span>
-        {sub}
-      </div>
-    </div>
-  );
-}
-
-// ─── SupplierRow ───────────────────────────────────────────────────────────────
-function SupplierRow({ supplier }) {
-  return (
-    <tr className="hover:bg-orange-50/30 transition-colors group">
-      {/* Nombre */}
-      <td className="px-6 py-5">
-        <div className="flex items-center gap-3">
-          <div className={`w-10 h-10 rounded flex items-center justify-center ${supplier.iconBg}`}>
-            <span className={`material-symbols-outlined text-[18px] ${supplier.iconColor}`}>
-              {supplier.icon}
-            </span>
-          </div>
-          <div>
-            <p className="font-bold text-zinc-900 text-sm">{supplier.name}</p>
-            <p className="text-xs text-zinc-500" style={{ fontFamily: "Manrope, sans-serif" }}>
-              ID: {supplier.id}
-            </p>
-          </div>
-        </div>
-      </td>
-      {/* Categoría */}
-      <td className="px-6 py-5">
-        <span
-          className={`px-3 py-1 rounded-md text-[11px] font-bold uppercase tracking-tight ${supplier.categoryStyle}`}
-        >
-          {supplier.category}
-        </span>
-      </td>
-      {/* Contacto */}
-      <td className="px-6 py-5">
-        <p className="text-sm font-medium text-zinc-900">{supplier.contact}</p>
-        <p className="text-xs text-zinc-500">{supplier.role}</p>
-      </td>
-      {/* Teléfono */}
-      <td className="px-6 py-5 text-sm font-mono text-zinc-600">{supplier.phone}</td>
-      {/* Estado */}
-      <td className="px-6 py-5">
-        <div className="flex items-center gap-2">
-          <div className={`w-2 h-2 rounded-full ${supplier.statusDot}`} />
-          <span className="text-xs font-bold uppercase tracking-tight text-zinc-900">
-            {supplier.status}
-          </span>
-        </div>
-      </td>
-      {/* Acciones */}
-      <td className="px-6 py-5">
-        <button className="text-zinc-400 hover:text-orange-600 transition-colors">
-          <span className="material-symbols-outlined">more_horiz</span>
-        </button>
-      </td>
-    </tr>
-  );
-}
-
-// ─── ProveedoresPage ───────────────────────────────────────────────────────────
 export default function ProveedoresPage() {
-  const [search, setSearch] = useState("");
-  const [page, setPage] = useState(1);
+    const [search, setSearch] = useState("");
 
-  const filtered = SUPPLIERS.filter(
-    (s) =>
-      s.name.toLowerCase().includes(search.toLowerCase()) ||
-      s.category.toLowerCase().includes(search.toLowerCase())
-  );
+    const filtered = SUPPLIERS.filter(
+        (s) => s.name.toLowerCase().includes(search.toLowerCase()) || s.category.toLowerCase().includes(search.toLowerCase())
+    );
 
-  return (
-    <div className="p-8">
-      <div className="mb-8 flex items-center justify-between">
-        <div>
-          <h2
-            className="text-3xl font-extrabold tracking-tight text-zinc-900"
-            style={{ fontFamily: "Manrope, sans-serif" }}
-          >
-            Gestión de Proveedores
-          </h2>
-          <p className="text-zinc-500 mt-1">
-            Control de suministros y relaciones comerciales industriales FerrePro.
-          </p>
+    return (
+        <div className="container-fluid">
+            {/* Header */}
+            <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4 gap-3">
+                <div>
+                    <h2 className="fw-bold mb-1">Gestión de Proveedores</h2>
+                    <p className="text-muted small">Control de suministros y relaciones comerciales FerrePro.</p>
+                </div>
+                <button className="btn btn-orange shadow-sm d-flex align-items-center gap-2 fw-bold py-2 px-4">
+                    <IconPlus size={20} /> REGISTRAR NUEVO PROVEEDOR
+                </button>
+            </div>
+
+            {/* Métricas */}
+            <div className="row g-4 mb-5">
+                <StatCard title="TOTAL PROVEEDORES" value="42" sub="+3 este mes" icon={<IconTrendingUp size={20}/>} color="#ff6600" />
+                <StatCard title="ÓRDENES PENDIENTES" value="12" sub="8 críticas" icon={<IconClock size={20}/>} color="#64748b" />
+                <StatCard title="CATEGORÍAS" value="14" sub="Suministro constante" icon={<IconCategory size={20}/>} color="#ffb380" />
+                <StatCard title="POR VENCER" value="03" sub="Renovación requerida" icon={<IconAlertTriangle size={20}/>} color="#dc3545" />
+            </div>
+
+            {/* Tabla de Proveedores */}
+            <div className="card card-stat border-0 shadow-sm overflow-hidden">
+                <div className="p-4 border-bottom d-flex justify-content-between align-items-center bg-white">
+                    <h5 className="fw-bold mb-0">Directorio Detallado</h5>
+                    <div className="d-flex gap-2">
+                        <div className="input-group input-group-sm" style={{width: '250px'}}>
+                            <input 
+                                type="text" 
+                                className="form-control" 
+                                placeholder="Buscar proveedor..." 
+                                value={search}
+                                onChange={(e) => setSearch(e.target.value)}
+                            />
+                        </div>
+                        <button className="btn btn-sm btn-light border"><IconFilter size={18}/></button>
+                        <button className="btn btn-sm btn-light border"><IconDownload size={18}/></button>
+                    </div>
+                </div>
+
+                <div className="table-responsive">
+                    <table className="table table-hover align-middle mb-0">
+                        <thead className="bg-light">
+                            <tr className="small text-muted text-uppercase">
+                                <th className="ps-4">Nombre de la Empresa</th>
+                                <th>Categoría</th>
+                                <th>Contacto Principal</th>
+                                <th>Teléfono</th>
+                                <th>Estado</th>
+                                <th className="text-end pe-4">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {filtered.map((s) => (
+                                <tr key={s.id}>
+                                    <td className="ps-4">
+                                        <div className="d-flex align-items-center gap-3">
+                                            <div className="bg-light p-2 rounded text-dark border">
+                                                <IconTruckDelivery size={20} />
+                                            </div>
+                                            <div>
+                                                <div className="fw-bold small">{s.name}</div>
+                                                <div className="text-muted" style={{fontSize: '0.7rem'}}>ID: {s.id}</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span className="badge bg-warning-subtle text-dark border border-warning-subtle px-3" style={{fontSize: '0.65rem'}}>
+                                            {s.category}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div className="fw-bold small">{s.contact}</div>
+                                        <div className="text-muted small">{s.role}</div>
+                                    </td>
+                                    <td className="small font-monospace text-muted">{s.phone}</td>
+                                    <td>
+                                        <span className={`badge ${s.badge} rounded-pill`} style={{fontSize: '0.6rem'}}>
+                                            {s.status}
+                                        </span>
+                                    </td>
+                                    <td className="text-end pe-4">
+                                        <button className="btn btn-sm btn-light border me-1"><IconPhone size={16}/></button>
+                                        <button className="btn btn-sm btn-outline-dark"><IconDots size={16}/></button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div className="p-3 bg-light border-top d-flex justify-content-between align-items-center">
+                    <small className="text-muted">Mostrando {filtered.length} de 42 proveedores</small>
+                    <div className="btn-group">
+                        <button className="btn btn-sm btn-outline-secondary px-3">Anterior</button>
+                        <button className="btn btn-sm btn-orange px-3">Siguiente</button>
+                    </div>
+                </div>
+            </div>
+
+            {/* Banner Inferior */}
+            <div className="row g-4 mt-2 mb-5">
+                <div className="col-lg-8">
+                    <div className="card text-white border-0 shadow-lg position-relative overflow-hidden" style={{minHeight: '200px', background: 'linear-gradient(45deg, #1a1a1a, #4a4a4a)'}}>
+                        <div className="card-body p-5 position-relative" style={{zIndex: 2}}>
+                            <span className="badge bg-orange mb-3">DESTACADO DEL MES</span>
+                            <h3 className="fw-black">Acero Vanguardia: Nuevo Acuerdo</h3>
+                            <p className="opacity-75 w-75">Precios preferenciales FerrePro en toda la línea de perfiles estructurales vigentes hasta diciembre.</p>
+                        </div>
+                        <IconTruckDelivery size={150} className="position-absolute end-0 bottom-0 opacity-10 m-n4" />
+                    </div>
+                </div>
+                <div className="col-lg-4">
+                    <div className="card h-100 border-0 shadow-sm p-4 bg-orange-subtle border-start border-orange border-4">
+                        <h6 className="text-orange fw-bold small mb-3">SOPORTE ESTRATÉGICO</h6>
+                        <h5 className="fw-bold">¿Necesitas ayuda con un nuevo alta?</h5>
+                        <p className="text-muted small">Nuestro equipo de adquisiciones revisa las solicitudes en menos de 24 horas hábiles.</p>
+                        <a href="#" className="text-orange fw-bold small text-decoration-none mt-auto">Manual de proveedores →</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <button className="bg-orange-600 text-white px-6 py-3 rounded-lg font-bold flex items-center gap-2 hover:bg-orange-700 transition-all active:scale-[0.98] shadow-md shadow-orange-600/20">
-          <span className="material-symbols-outlined">person_add</span>
-          Registrar Nuevo Proveedor
-        </button>
-      </div>
+    );
+}
 
-      {/* ── Métricas ── */}
-        <div className="grid grid-cols-4 gap-6 mb-8">
-          {METRICS.map((m) => (
-            <MetricCard key={m.label} {...m} />
-          ))}
+// Componente para las tarjetas de métricas
+function StatCard({ title, value, sub, icon, color }) {
+    return (
+        <div className="col-12 col-sm-6 col-xl-3">
+            <div className="card card-stat border-0 shadow-sm" style={{borderLeft: `5px solid ${color}`}}>
+                <div className="d-flex justify-content-between align-items-start">
+                    <div>
+                        <p className="text-muted fw-bold mb-1" style={{fontSize: '0.65rem'}}>{title}</p>
+                        <h3 className="fw-black mb-1">{value}</h3>
+                        <small className="text-muted fw-bold" style={{fontSize: '0.7rem'}}>{sub}</small>
+                    </div>
+                    <div className="p-2 rounded-3" style={{backgroundColor: `${color}15`, color: color}}>
+                        {icon}
+                    </div>
+                </div>
+            </div>
         </div>
-
-        {/* ── Tabla ── */}
-        <div className="bg-white rounded-xl overflow-hidden border border-zinc-200 shadow-sm">
-          {/* Tabla header */}
-          <div className="p-6 flex items-center justify-between border-b border-zinc-100">
-            <h3
-              className="font-bold text-lg text-zinc-900"
-              style={{ fontFamily: "Manrope, sans-serif" }}
-            >
-              Directorio Detallado
-            </h3>
-            <div className="flex items-center gap-2">
-              <button className="p-2 rounded-lg hover:bg-zinc-100 transition-colors">
-                <span className="material-symbols-outlined text-zinc-500">filter_list</span>
-              </button>
-              <button className="p-2 rounded-lg hover:bg-zinc-100 transition-colors">
-                <span className="material-symbols-outlined text-zinc-500">file_download</span>
-              </button>
-            </div>
-          </div>
-
-          <table className="w-full text-left border-collapse">
-            <thead>
-              <tr className="bg-zinc-50">
-                {[
-                  "Nombre de la Empresa",
-                  "Categoría",
-                  "Contacto Principal",
-                  "Teléfono",
-                  "Estado",
-                  "Acciones",
-                ].map((col) => (
-                  <th
-                    key={col}
-                    className="px-6 py-4 text-[10px] font-bold text-zinc-500 uppercase tracking-widest"
-                  >
-                    {col}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-zinc-100">
-              {filtered.length > 0 ? (
-                filtered.map((s) => <SupplierRow key={s.id} supplier={s} />)
-              ) : (
-                <tr>
-                  <td colSpan={6} className="px-6 py-12 text-center text-zinc-400 text-sm">
-                    No se encontraron proveedores para "{search}"
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-
-          {/* Paginación */}
-          <div className="p-6 bg-zinc-50 flex justify-between items-center border-t border-zinc-100">
-            <span className="text-xs text-zinc-500 font-medium">
-              Mostrando {filtered.length} de 42 proveedores registrados
-            </span>
-            <div className="flex gap-2">
-              <button
-                onClick={() => setPage((p) => Math.max(1, p - 1))}
-                disabled={page === 1}
-                className="px-4 py-2 text-xs font-bold border border-zinc-300 rounded hover:bg-white transition-colors text-zinc-700 disabled:opacity-40"
-              >
-                Anterior
-              </button>
-              <button
-                onClick={() => setPage((p) => p + 1)}
-                className="px-4 py-2 text-xs font-bold bg-orange-600 text-white rounded hover:bg-orange-700 transition-colors"
-              >
-                Siguiente
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* ── Tarjetas inferiores ── */}
-        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Featured card */}
-          <div className="md:col-span-2 relative h-72 rounded-xl overflow-hidden group shadow-lg">
-            {/* Fondo de imagen (reemplaza el src con el tuyo) */}
-            <div className="absolute inset-0 bg-zinc-800 group-hover:scale-105 transition-transform duration-1000">
-              {/* Puedes poner aquí un <img> con tu imagen real */}
-              <div className="w-full h-full bg-gradient-to-br from-zinc-900 via-zinc-700 to-orange-900 opacity-80" />
-            </div>
-            <div className="absolute inset-0 bg-gradient-to-r from-zinc-900/90 via-zinc-900/40 to-transparent flex flex-col justify-center p-10">
-              <span className="bg-orange-600 text-white px-3 py-1 rounded-md text-[10px] font-black uppercase tracking-widest w-fit mb-4 shadow-sm">
-                Destacado del Mes
-              </span>
-              <h4
-                className="text-2xl font-black text-white max-w-sm leading-tight"
-                style={{ fontFamily: "Manrope, sans-serif" }}
-              >
-                Acero Vanguardia: Nuevo acuerdo de distribución exclusiva
-              </h4>
-              <p className="text-zinc-200 mt-2 max-w-xs text-sm">
-                Precios preferenciales FerrePro en toda la línea de perfiles estructurales
-                vigentes hasta diciembre.
-              </p>
-            </div>
-          </div>
-
-          {/* Support card */}
-          <div className="bg-orange-50 rounded-xl p-8 flex flex-col justify-between border border-orange-100 shadow-sm">
-            <div>
-              <h5 className="text-xs font-bold text-orange-600 tracking-widest uppercase mb-4">
-                Soporte Estratégico
-              </h5>
-              <p
-                className="font-bold text-zinc-900 text-lg"
-                style={{ fontFamily: "Manrope, sans-serif" }}
-              >
-                ¿Necesitas ayuda con un nuevo alta?
-              </p>
-              <p className="text-sm text-zinc-600 mt-3 leading-relaxed">
-                Nuestro equipo de adquisiciones revisa las solicitudes en menos de 24 horas hábiles.
-              </p>
-            </div>
-            <a
-              href="#"
-              className="inline-flex items-center text-orange-600 font-bold text-sm gap-1 group mt-6"
-            >
-              Manual de proveedores
-              <span className="material-symbols-outlined text-[16px] transition-transform group-hover:translate-x-1">
-                arrow_forward
-              </span>
-            </a>
-          </div>
-        </div>
-    </div>
-  );
+    );
 }

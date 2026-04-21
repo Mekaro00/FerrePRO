@@ -1,25 +1,41 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-
 export function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
-    // Credenciales válidas hardcodeadas
-    const USUARIO = "admin@ferrepro.com";
-    const PASSWORD = "1234";
+    // Credenciales de Administrador Maestro
+    const ADMIN_USER = "admin@ferrepro.com";
+    const ADMIN_PASS = "1234";
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Validación simple sin base de datos
-        if (email === USUARIO && password === PASSWORD) {
+        
+        const usuariosRegistrados = JSON.parse(localStorage.getItem("usuarios_ferrepro")) || [];
+        const usuarioEncontrado = usuariosRegistrados.find(
+            (u) => u.email === email && u.password === password
+        );
+
+        // 1. CASO: ES EL ADMINISTRADOR
+        if (email === ADMIN_USER && password === ADMIN_PASS) {
             setError("");
-            navigate('/admin'); // Redirige al dashboard admin
-        } else {
-            setError("Usuario o contraseña incorrectos");
+            localStorage.setItem("sesion_activa", JSON.stringify({ nombres: "Admin", role: "admin" }));
+            // Lo mandamos a la gestión de la ferretería
+            navigate('/admin'); 
+        } 
+        // 2. CASO: ES UN USUARIO REGISTRADO (CLIENTE)
+        else if (usuarioEncontrado) {
+            setError("");
+            localStorage.setItem("sesion_activa", JSON.stringify({ ...usuarioEncontrado, role: "cliente" }));
+            // Lo mandamos a la tienda principal (Home)
+            navigate('/'); 
+        } 
+        // 3. CASO: ERROR
+        else {
+            setError("Correo o contraseña incorrectos.");
         }
     };
 
@@ -28,114 +44,62 @@ export function Login() {
             <div className="container py-5">
                 <div className="row justify-content-center">
                     <div className="col-md-6 col-lg-5">
-                        <div className="card shadow-lg border-0">
+                        <div className="card shadow-lg border-0 rounded-4">
                             <div className="card-body p-5">
                                 <div className="text-center mb-4">
                                     <img
                                         src="/imagenes pagina ferreteria/Imagen de fondo inicio y logo/Logo.jpeg"
                                         alt="Logo FerrePro"
                                         className="mb-3"
-                                        style={{ height: "80px", width: "auto", objectFit: "contain" }}
+                                        style={{ height: "80px", width: "auto" }}
                                     />
                                     <h2 className="fw-bold" style={{ color: "#e65100" }}>Iniciar Sesión</h2>
-                                    <p className="text-muted">Bienvenido a FerrePro</p>
+                                    <p className="text-muted small">Ingresa tus credenciales</p>
                                 </div>
 
                                 <form onSubmit={handleSubmit}>
-                                    {error && (
-                                        <div className="alert alert-danger" role="alert">
-                                            {error}
-                                        </div>
-                                    )}
+                                    {error && <div className="alert alert-danger py-2 small">{error}</div>}
+                                    
                                     <div className="mb-3">
-                                        <label htmlFor="email" className="form-label fw-bold">
-                                            Correo Electrónico
-                                        </label>
+                                        <label className="form-label fw-bold small">Correo Electrónico</label>
                                         <input
                                             type="email"
                                             className="form-control"
-                                            id="email"
                                             value={email}
                                             onChange={(e) => setEmail(e.target.value)}
-                                            placeholder="tu@email.com"
                                             required
                                         />
                                     </div>
 
-                                    <div className="mb-3">
-                                        <label htmlFor="password" className="form-label fw-bold">
-                                            Contraseña
-                                        </label>
+                                    <div className="mb-4">
+                                        <label className="form-label fw-bold small">Contraseña</label>
                                         <input
                                             type="password"
                                             className="form-control"
-                                            id="password"
                                             value={password}
                                             onChange={(e) => setPassword(e.target.value)}
-                                            placeholder="contraseña"
                                             required
                                         />
-                                    </div>
-
-                                    <div className="mb-3 form-check">
-                                        <input
-                                            type="checkbox"
-                                            className="form-check-input"
-                                            id="remember"
-                                        />
-                                        <label className="form-check-label" htmlFor="remember">
-                                            Recordarme
-                                        </label>
                                     </div>
 
                                     <button
                                         type="submit"
-                                        className="btn btn-primary w-100 py-2 fw-bold"
+                                        className="btn w-100 py-3 fw-bold text-white shadow-sm"
+                                        style={{ backgroundColor: "#e65100" }}
                                     >
-                                        Iniciar Sesión
+                                        INGRESAR
                                     </button>
                                 </form>
 
                                 <div className="text-center mt-4">
-                                    <a href="#" className="text-decoration-none" style={{ color: "#e65100" }}>
-                                        ¿Olvidaste tu contraseña?
-                                    </a>
-                                </div>
-
-                                <hr className="my-4" />
-
-                                <div className="text-center">
-                                    <p className="mb-2">¿No tienes cuenta?</p>
+                                    <p className="mb-0 small text-muted">¿No tienes cuenta?</p>
                                     <button
-                                        type="button"
-                                        className="btn btn-outline-primary"
+                                        className="btn btn-link text-warning fw-bold text-decoration-none"
                                         onClick={() => navigate('/registro')}
                                     >
-                                        Crear cuenta nueva
+                                        Regístrate aquí
                                     </button>
                                 </div>
-
-                                <div className="text-center mt-3">
-                                    <button
-                                        type="button"
-                                        className="btn btn-link text-muted"
-                                        onClick={() => navigate('/')}
-                                    >
-                                        ← Volver al inicio
-                                    </button>
-                                </div>
-
-                                {/* <hr className="my-4" /> */}
-
-                                {/* <div className="text-center mt-3">
-                                    <button
-                                        type="button"
-                                        className="btn btn-outline-secondary"
-                                        onClick={() => navigate('/admin')}
-                                    >
-                                        Administrador
-                                    </button>
-                                </div>*/}
                             </div>
                         </div>
                     </div>

@@ -1,339 +1,193 @@
-// OrdenesPage.jsx
-// Requiere en tu index.html:
-//   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
-//   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+import React, { useState } from "react";
+import { 
+    IconShoppingCart, 
+    IconPlus, 
+    IconDownload, 
+    IconFilter, 
+    IconCreditCard, 
+    IconBuildingBank, 
+    IconCash, 
+    IconDotsVertical, 
+    IconChevronLeft, 
+    IconChevronRight,
+    IconBolt,
+    IconDeviceAnalytics
+} from '@tabler/icons-react';
 
-import { useState } from "react";
-
-// ─── Datos ─────────────────────────────────────────────────────────────────────
-
-const NAV_ITEMS = [
-  { label: "Dashboard",  icon: "dashboard",      path: "/"            },
-  { label: "Inventory",  icon: "inventory_2",    path: "/inventario"  },
-  { label: "Orders",     icon: "shopping_cart",  path: "/ordenes"     },
-  { label: "Customers",  icon: "group",          path: "/clientes"    },
-  { label: "Suppliers",  icon: "local_shipping", path: "/proveedores" },
-];
-
+// --- Datos de Ejemplo ---
 const METRICS = [
-  { label: "Total Pendientes", value: "124",     accent: "bg-orange-600", badge: "+12%",  badgeColor: "text-red-600"    },
-  { label: "En Camino",        value: "42",      accent: "bg-zinc-300",   badge: "Normal",badgeColor: "text-orange-600" },
-  { label: "Pagados Hoy",      value: "$14,200", accent: "bg-orange-500", badge: "Peak",  badgeColor: "text-orange-600" },
-  { label: "Tiempo Promedio",  value: "1.4d",    accent: "bg-zinc-800",   badge: "-0.2d", badgeColor: "text-orange-600" },
+    { label: "Total Pendientes", value: "124", accent: "#ff6600", badge: "+12%", badgeClass: "text-danger" },
+    { label: "En Camino", value: "42", accent: "#64748b", badge: "Normal", badgeClass: "text-orange" },
+    { label: "Pagados Hoy", value: "$14,200", accent: "#ffb380", badge: "Peak", badgeClass: "text-orange" },
+    { label: "Tiempo Promedio", value: "1.4d", accent: "#1a1a1a", badge: "-0.2d", badgeClass: "text-success" },
 ];
 
 const ORDERS = [
-  {
-    id: "#PS-88291",
-    clientInitials: "JS",
-    clientName: "Jorge Sánchez",
-    clientType: "person",
-    date: "12 Oct 2023",
-    total: "$1,450.00",
-    status: "Pagado",
-    statusStyle: "bg-green-100 text-green-700",
-    methodIcon: "credit_card",
-    method: "Visa **42",
-  },
-  {
-    id: "#PS-88292",
-    clientInitials: null,
-    clientIcon: "corporate_fare",
-    clientName: "Constructora Sigma",
-    clientType: "company",
-    date: "12 Oct 2023",
-    total: "$8,900.50",
-    status: "Pendiente",
-    statusStyle: "bg-orange-100 text-orange-700",
-    methodIcon: "account_balance",
-    method: "Transferencia",
-  },
-  {
-    id: "#PS-88293",
-    clientInitials: "ML",
-    clientName: "Marta López",
-    clientType: "person",
-    date: "11 Oct 2023",
-    total: "$320.10",
-    status: "Enviado",
-    statusStyle: "bg-blue-100 text-blue-700",
-    methodIcon: "payments",
-    method: "Efectivo",
-  },
+    { id: "#PS-88291", client: "Jorge Sánchez", type: "person", initials: "JS", date: "12 Oct 2023", total: "$1,450.00", status: "PAGADO", statusClass: "bg-success-subtle text-success", method: "Visa **42", icon: <IconCreditCard size={16}/> },
+    { id: "#PS-88292", client: "Constructora Sigma", type: "company", initials: null, date: "12 Oct 2023", total: "$8,900.50", status: "PENDIENTE", statusClass: "bg-orange-subtle text-orange", method: "Transferencia", icon: <IconBuildingBank size={16}/> },
+    { id: "#PS-88293", client: "Marta López", type: "person", initials: "ML", date: "11 Oct 2023", total: "$320.10", status: "ENVIADO", statusClass: "bg-info-subtle text-info", method: "Efectivo", icon: <IconCash size={16}/> },
 ];
 
 const FILTERS = ["Todos", "Pendiente", "Pagado", "Enviado"];
 
-const ACTIVITY_BARS = [
-  { h: "50%", opacity: "bg-orange-600/20" },
-  { h: "75%", opacity: "bg-orange-600/20" },
-  { h: "66%", opacity: "bg-orange-600/40" },
-  { h: "100%",opacity: "bg-orange-600/20" },
-  { h: "50%", opacity: "bg-orange-600/60" },
-  { h: "83%", opacity: "bg-orange-600"    },
-  { h: "25%", opacity: "bg-orange-600/30" },
-];
-
-
-
-// ─── MetricCard ────────────────────────────────────────────────────────────────
-function MetricCard({ label, value, accent, badge, badgeColor }) {
-  return (
-    <div className="bg-white p-5 rounded-xl flex flex-col justify-between relative overflow-hidden border border-zinc-200">
-      <div className={`absolute left-0 top-0 bottom-0 w-1 ${accent}`} />
-      <span className="text-xs font-bold text-zinc-500 uppercase tracking-wider">{label}</span>
-      <div className="flex items-baseline gap-2 mt-2">
-        <span className="text-2xl font-black text-zinc-900" style={{ fontFamily: "Manrope, sans-serif" }}>{value}</span>
-        <span className={`text-xs font-bold ${badgeColor}`}>{badge}</span>
-      </div>
-    </div>
-  );
-}
-
-// ─── OrderRow ──────────────────────────────────────────────────────────────────
-function OrderRow({ order }) {
-  return (
-    <tr className="hover:bg-zinc-50 transition-colors group">
-      <td className="px-6 py-5">
-        <span className="font-bold text-orange-600 text-sm">{order.id}</span>
-      </td>
-      <td className="px-6 py-5">
-        <div className="flex items-center gap-3">
-          {order.clientType === "company" ? (
-            <div className="w-8 h-8 rounded-lg bg-orange-100 flex items-center justify-center text-orange-700 flex-shrink-0">
-              <span className="material-symbols-outlined text-[18px]">{order.clientIcon}</span>
-            </div>
-          ) : (
-            <div className="w-8 h-8 rounded-full bg-zinc-200 flex items-center justify-center text-zinc-900 text-xs font-bold flex-shrink-0">
-              {order.clientInitials}
-            </div>
-          )}
-          <span className="text-sm font-semibold text-zinc-900">{order.clientName}</span>
-        </div>
-      </td>
-      <td className="px-6 py-5 text-sm text-zinc-500">{order.date}</td>
-      <td className="px-6 py-5 text-sm font-bold text-zinc-900">{order.total}</td>
-      <td className="px-6 py-5">
-        <span className={`px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-tighter ${order.statusStyle}`}>
-          {order.status}
-        </span>
-      </td>
-      <td className="px-6 py-5">
-        <div className="flex items-center gap-2 text-xs text-zinc-500 font-medium">
-          <span className="material-symbols-outlined text-[18px]">{order.methodIcon}</span>
-          {order.method}
-        </div>
-      </td>
-      <td className="px-6 py-5 text-right">
-        <button className="p-1 hover:bg-zinc-200 rounded-md transition-colors">
-          <span className="material-symbols-outlined text-zinc-400">more_vert</span>
-        </button>
-      </td>
-    </tr>
-  );
-}
-
-// ─── ActivityCard ──────────────────────────────────────────────────────────────
-function ActivityCard() {
-  return (
-    <div className="lg:col-span-2 bg-white p-6 rounded-xl border border-zinc-200">
-      <div className="flex items-center justify-between mb-6">
-        <h3 className="text-lg font-black tracking-tight text-zinc-900" style={{ fontFamily: "Manrope, sans-serif" }}>
-          Actividad de Pedidos (Últimas 24h)
-        </h3>
-        <span className="text-xs font-bold text-orange-600 flex items-center gap-1">
-          <span className="w-2 h-2 rounded-full bg-orange-600 animate-pulse inline-block" />
-          En Vivo
-        </span>
-      </div>
-      {/* Mini chart */}
-      <div className="h-32 w-full bg-zinc-50 rounded-lg flex items-end px-4 py-2 gap-2">
-        {ACTIVITY_BARS.map((bar, i) => (
-          <div key={i} className={`flex-1 rounded-t ${bar.opacity}`} style={{ height: bar.h }} />
-        ))}
-      </div>
-      <div className="mt-4 grid grid-cols-3 text-center">
-        {[{ label: "Mañana", val: "28" }, { label: "Tarde", val: "54" }, { label: "Noche", val: "12" }].map((s) => (
-          <div key={s.label}>
-            <p className="text-[10px] uppercase font-bold text-zinc-500">{s.label}</p>
-            <p className="text-sm font-black text-zinc-900">{s.val}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-// ─── SuggestionCard ────────────────────────────────────────────────────────────
-function SuggestionCard() {
-  return (
-    <div className="bg-orange-600 text-white p-6 rounded-xl shadow-xl shadow-orange-600/20 flex flex-col justify-between">
-      <div>
-        <span className="material-symbols-outlined text-[32px] mb-4 block">bolt</span>
-        <h3 className="text-xl font-bold mb-2" style={{ fontFamily: "Manrope, sans-serif" }}>
-          Sugerencia de Inventario
-        </h3>
-        <p className="text-sm text-orange-50 leading-relaxed opacity-90">
-          Detectamos un aumento del 15% en pedidos de "Válvulas Industriales". ¿Deseas automatizar un pedido a proveedor?
-        </p>
-      </div>
-      <button className="mt-6 w-full bg-white text-orange-600 py-2.5 rounded-lg font-bold text-sm hover:bg-orange-50 transition-colors active:scale-95">
-        Revisar Stock
-      </button>
-    </div>
-  );
-}
-
-// ─── OrdenesPage ───────────────────────────────────────────────────────────────
 export default function OrdenesPage() {
-  const [search, setSearch]     = useState("");
-  const [activeFilter, setActiveFilter] = useState("Todos");
-  const [sortBy, setSortBy]     = useState("Fecha (Reciente)");
-  const [page, setPage]         = useState(1);
+    const [activeFilter, setActiveFilter] = useState("Todos");
+    const [search, setSearch] = useState("");
 
-  // Filtrar pedidos
-  const filtered = ORDERS.filter((o) => {
-    const matchFilter = activeFilter === "Todos" || o.status === activeFilter;
-    const matchSearch = search === "" ||
-      o.id.toLowerCase().includes(search.toLowerCase()) ||
-      o.clientName.toLowerCase().includes(search.toLowerCase());
-    return matchFilter && matchSearch;
-  });
+    const filtered = ORDERS.filter((o) => {
+        const matchFilter = activeFilter === "Todos" || o.status.toLowerCase() === activeFilter.toLowerCase();
+        const matchSearch = o.id.toLowerCase().includes(search.toLowerCase()) || o.client.toLowerCase().includes(search.toLowerCase());
+        return matchFilter && matchSearch;
+    });
 
-  return (
-    <div className="pt-8 px-8 pb-12">
-
-          {/* ── Header ── */}
-          <div className="flex flex-wrap justify-between items-end mb-8 gap-4">
-            <div>
-              <h2 className="text-3xl font-black text-zinc-900 tracking-tight mb-2" style={{ fontFamily: "Manrope, sans-serif" }}>
-                Gestión de Pedidos
-              </h2>
-              <p className="text-zinc-500 font-medium">Visualización y control de flujo de órdenes activas.</p>
-            </div>
-            <div className="flex gap-3">
-              <button className="flex items-center gap-2 bg-white text-zinc-900 px-4 py-2.5 rounded-lg border border-zinc-200 hover:bg-zinc-100 transition-colors font-semibold text-sm">
-                <span className="material-symbols-outlined text-[18px]">file_download</span>
-                Exportar
-              </button>
-              <button className="flex items-center gap-2 bg-orange-600 text-white px-5 py-2.5 rounded-lg hover:bg-orange-700 transition-colors font-bold text-sm shadow-lg shadow-orange-600/20 active:scale-95">
-                <span className="material-symbols-outlined text-[18px]">add_shopping_cart</span>
-                Nuevo Pedido
-              </button>
-            </div>
-          </div>
-
-          {/* ── Métricas ── */}
-          <div className="grid grid-cols-2 xl:grid-cols-4 gap-4 mb-8">
-            {METRICS.map((m) => <MetricCard key={m.label} {...m} />)}
-          </div>
-
-          {/* ── Tabla Card ── */}
-          <section className="bg-white rounded-xl overflow-hidden border border-zinc-200 shadow-sm">
-
-            {/* Filter Bar */}
-            <div className="p-4 bg-zinc-50/50 flex flex-wrap items-center justify-between gap-4">
-              <div className="flex gap-2 flex-wrap">
-                {FILTERS.map((f) => (
-                  <button
-                    key={f}
-                    onClick={() => { setActiveFilter(f); setPage(1); }}
-                    className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
-                      activeFilter === f
-                        ? "bg-orange-600 text-white"
-                        : "bg-white text-zinc-600 border border-zinc-200 hover:border-orange-500"
-                    }`}
-                  >
-                    {f}
-                  </button>
-                ))}
-              </div>
-              <div className="flex items-center text-xs font-bold text-zinc-500 uppercase tracking-tighter gap-1">
-                <span className="material-symbols-outlined text-[16px]">sort</span>
-                Ordenar por:
-                <select
-                  value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value)}
-                  className="bg-transparent border-none focus:outline-none text-xs font-bold text-zinc-900 ml-1 cursor-pointer"
-                >
-                  <option>Fecha (Reciente)</option>
-                  <option>Total (Mayor)</option>
-                  <option>Cliente</option>
-                </select>
-              </div>
-            </div>
-
-            {/* Table */}
-            <div className="overflow-x-auto">
-              <table className="w-full text-left border-collapse">
-                <thead>
-                  <tr className="bg-zinc-50/30">
-                    {["ID Pedido", "Cliente", "Fecha", "Total", "Estado", "Método", "Acciones"].map((col) => (
-                      <th
-                        key={col}
-                        className={`px-6 py-4 text-[10px] font-bold text-zinc-500 uppercase tracking-widest ${col === "Acciones" ? "text-right" : ""}`}
-                      >
-                        {col}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-zinc-200">
-                  {filtered.length > 0 ? (
-                    filtered.map((order) => <OrderRow key={order.id} order={order} />)
-                  ) : (
-                    <tr>
-                      <td colSpan={7} className="px-6 py-16 text-center text-zinc-400 text-sm">
-                        No se encontraron pedidos con los filtros aplicados.
-                      </td>
-                    </tr>
-                  )}
-                </tbody>
-              </table>
-            </div>
-
-            {/* Pagination */}
-            <div className="px-6 py-4 bg-zinc-50/20 flex items-center justify-between border-t border-zinc-200">
-              <span className="text-xs text-zinc-500 font-medium">
-                Mostrando {filtered.length} de 1,240 resultados
-              </span>
-              <div className="flex gap-2 items-center">
-                <button
-                  onClick={() => setPage((p) => Math.max(1, p - 1))}
-                  disabled={page === 1}
-                  className="p-2 rounded-lg bg-white border border-zinc-200 hover:bg-zinc-100 transition-colors disabled:opacity-30"
-                >
-                  <span className="material-symbols-outlined text-[18px]">chevron_left</span>
-                </button>
-                <div className="flex items-center gap-1">
-                  {[1, 2, 3].map((p) => (
-                    <button
-                      key={p}
-                      onClick={() => setPage(p)}
-                      className={`w-8 h-8 rounded-lg text-xs font-bold transition-colors ${page === p ? "bg-orange-600 text-white" : "hover:bg-zinc-100 text-zinc-600"}`}
-                    >
-                      {p}
-                    </button>
-                  ))}
+    return (
+        <div className="container-fluid pb-5">
+            {/* Header */}
+            <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4 gap-3">
+                <div>
+                    <h2 className="fw-bold mb-1">Gestión de Pedidos</h2>
+                    <p className="text-muted small">Visualización y control de flujo de órdenes activas.</p>
                 </div>
-                <button
-                  onClick={() => setPage((p) => p + 1)}
-                  disabled={page === 3}
-                  className="p-2 rounded-lg bg-white border border-zinc-200 hover:bg-zinc-100 transition-colors disabled:opacity-30"
-                >
-                  <span className="material-symbols-outlined text-[18px]">chevron_right</span>
-                </button>
-              </div>
+                <div className="d-flex gap-2">
+                    <button className="btn btn-light border d-flex align-items-center gap-2 fw-bold">
+                        <IconDownload size={18} /> EXPORTAR
+                    </button>
+                    <button className="btn btn-orange shadow-sm d-flex align-items-center gap-2 fw-bold">
+                        <IconPlus size={18} /> NUEVO PEDIDO
+                    </button>
+                </div>
             </div>
-          </section>
 
-          {/* ── Bottom Cards ── */}
-          <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <ActivityCard />
-            <SuggestionCard />
-          </div>
+            {/* Métricas */}
+            <div className="row g-4 mb-4">
+                {METRICS.map((m, i) => (
+                    <div className="col-md-3" key={i}>
+                        <div className="card card-stat border-0 shadow-sm" style={{borderLeft: `4px solid ${m.accent}`}}>
+                            <span className="text-muted fw-bold small text-uppercase" style={{fontSize: '0.6rem'}}>{m.label}</span>
+                            <div className="d-flex align-items-center gap-2 mt-1">
+                                <h3 className="fw-black mb-0">{m.value}</h3>
+                                <small className={`${m.badgeClass} fw-bold`}>{m.badge}</small>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
 
+            {/* Tabla de Pedidos */}
+            <div className="card border-0 shadow-sm overflow-hidden">
+                <div className="card-header bg-white p-3 border-bottom d-flex justify-content-between align-items-center">
+                    <div className="d-flex gap-2">
+                        {FILTERS.map(f => (
+                            <button 
+                                key={f} 
+                                onClick={() => setActiveFilter(f)}
+                                className={`btn btn-sm rounded-pill px-3 fw-bold ${activeFilter === f ? 'btn-orange' : 'btn-light border'}`}
+                                style={{fontSize: '0.7rem'}}
+                            >
+                                {f.toUpperCase()}
+                            </button>
+                        ))}
+                    </div>
+                    <div className="input-group input-group-sm" style={{width: '200px'}}>
+                        <input 
+                            type="text" 
+                            className="form-control" 
+                            placeholder="Buscar pedido..." 
+                            onChange={(e) => setSearch(e.target.value)}
+                        />
+                    </div>
+                </div>
+
+                <div className="table-responsive">
+                    <table className="table table-hover align-middle mb-0">
+                        <thead className="bg-light">
+                            <tr className="small text-muted text-uppercase">
+                                <th className="ps-4">ID Pedido</th>
+                                <th>Cliente</th>
+                                <th>Fecha</th>
+                                <th>Total</th>
+                                <th>Estado</th>
+                                <th>Método</th>
+                                <th className="text-end pe-4">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {filtered.map((order) => (
+                                <tr key={order.id}>
+                                    <td className="ps-4 fw-bold text-orange small">{order.id}</td>
+                                    <td>
+                                        <div className="d-flex align-items-center gap-2">
+                                            <div className={`rounded-circle bg-light d-flex align-items-center justify-content-center fw-bold text-muted`} style={{width: '32px', height: '32px', fontSize: '0.7rem', border: '1px solid #eee'}}>
+                                                {order.initials || "C"}
+                                            </div>
+                                            <span className="small fw-bold">{order.client}</span>
+                                        </div>
+                                    </td>
+                                    <td className="small text-muted">{order.date}</td>
+                                    <td className="small fw-black">{order.total}</td>
+                                    <td>
+                                        <span className={`badge ${order.statusClass} rounded-pill`} style={{fontSize: '0.6rem'}}>
+                                            {order.status}
+                                        </span>
+                                    </td>
+                                    <td className="small text-muted">
+                                        <div className="d-flex align-items-center gap-1">
+                                            {order.icon} {order.method}
+                                        </div>
+                                    </td>
+                                    <td className="text-end pe-4">
+                                        <button className="btn btn-sm btn-light border"><IconDotsVertical size={16}/></button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div className="card-footer bg-light p-3 d-flex justify-content-between align-items-center">
+                    <small className="text-muted">Mostrando {filtered.length} resultados</small>
+                    <nav>
+                        <ul className="pagination pagination-sm mb-0">
+                            <li className="page-item disabled"><a className="page-link" href="#"><IconChevronLeft size={14}/></a></li>
+                            <li className="page-item active"><a className="page-link" href="#">1</a></li>
+                            <li className="page-item"><a className="page-link" href="#">2</a></li>
+                            <li className="page-item"><a className="page-link" href="#"><IconChevronRight size={14}/></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            {/* Bottom Cards */}
+            <div className="row g-4 mt-2">
+                <div className="col-lg-8">
+                    <div className="card border-0 shadow-sm p-4">
+                        <div className="d-flex justify-content-between align-items-center mb-4">
+                            <h6 className="fw-bold mb-0 d-flex align-items-center gap-2">
+                                <IconDeviceAnalytics className="text-orange" /> Actividad de Pedidos (Últimas 24h)
+                            </h6>
+                            <span className="badge bg-orange-subtle text-orange small animate-pulse">● EN VIVO</span>
+                        </div>
+                        <div className="bg-light rounded d-flex align-items-end justify-content-between px-4 py-2" style={{height: '100px'}}>
+                            {[40, 70, 50, 90, 60, 100, 30].map((h, i) => (
+                                <div key={i} className="bg-orange" style={{height: `${h}%`, width: '10%', borderRadius: '4px 4px 0 0', opacity: (h/100)}}></div>
+                            ))}
+                        </div>
+                        <div className="row text-center mt-3">
+                            <div className="col-4"><small className="text-muted d-block">Mañana</small><strong>28</strong></div>
+                            <div className="col-4"><small className="text-muted d-block">Tarde</small><strong>54</strong></div>
+                            <div className="col-4"><small className="text-muted d-block">Noche</small><strong>12</strong></div>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-lg-4">
+                    <div className="card bg-orange text-white border-0 shadow p-4 h-100">
+                        <IconBolt size={32} className="mb-3" />
+                        <h5 className="fw-bold">Sugerencia de Inventario</h5>
+                        <p className="small opacity-75">Detectamos un aumento del 15% en pedidos de "Válvulas Industriales". ¿Deseas automatizar un pedido?</p>
+                        <button className="btn btn-light text-orange fw-bold btn-sm mt-auto">REVISAR STOCK</button>
+                    </div>
+                </div>
+            </div>
         </div>
-
-  );
+    );
 }

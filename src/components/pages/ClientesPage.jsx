@@ -1,342 +1,217 @@
-// ClientesPage.jsx
-// Requiere en tu index.html:
-//   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
-//   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+import React, { useState } from "react";
+import { 
+    IconUsers, 
+    IconUserPlus, 
+    IconDownload, 
+    IconFilter, 
+    IconMail, 
+    IconPhone, 
+    IconMapPin, 
+    IconBolt, 
+    IconTrendingUp, 
+    IconDeviceAnalytics,
+    IconAlertCircle,
+    IconChevronRight,
+    IconShoppingBag,
+    IconHeadset
+} from '@tabler/icons-react';
 
-import { useState } from "react";
-
-// ─── Datos ─────────────────────────────────────────────────────────────────────
-
-const NAV_ITEMS = [
-  { label: "Dashboard",  icon: "dashboard",      path: "/"            },
-  { label: "Inventory",  icon: "inventory_2",    path: "/inventario"  },
-  { label: "Orders",     icon: "shopping_cart",  path: "/ordenes"     },
-  { label: "Customers",  icon: "group",          path: "/clientes"    },
-  { label: "Suppliers",  icon: "local_shipping", path: "/proveedores" },
-];
-
+// --- Datos de Ejemplo ---
 const CUSTOMERS = [
-  {
-    id: "CUST-9921",
-    initials: "SM",
-    name: "Steel Manufacturing Co.",
-    email: "alvaro.s@steelmfg.com",
-    phone: "+34 912 345 678",
-    total: "€45,230.00",
-    badge: "High Value",
-    badgeBg: "bg-orange-50 text-orange-700 border border-orange-100",
-    lastPurchase: "24 Oct, 2023",
-  },
-  {
-    id: "CUST-8843",
-    initials: "HL",
-    name: "Heavy Lift Logistics",
-    email: "m.garcia@heavylift.es",
-    phone: "+34 931 002 991",
-    total: "€12,150.50",
-    badge: "Active",
-    badgeBg: "bg-zinc-100 text-zinc-700",
-    lastPurchase: "15 Nov, 2023",
-  },
-  {
-    id: "CUST-7720",
-    initials: "BC",
-    name: "BuildCorp Solutions",
-    email: "compras@buildcorp.com",
-    phone: "+34 955 882 110",
-    total: "€8,420.00",
-    badge: "Standard",
-    badgeBg: "bg-zinc-100 text-zinc-500",
-    lastPurchase: "02 Nov, 2023",
-  },
+    { id: "CUST-9921", initials: "SM", name: "Steel Manufacturing Co.", email: "alvaro.s@steelmfg.com", phone: "+34 912 345 678", total: "$45,230.00", badge: "HIGH VALUE", badgeClass: "bg-orange-subtle text-orange", lastPurchase: "24 Oct, 2023" },
+    { id: "CUST-8843", initials: "HL", name: "Heavy Lift Logistics", email: "m.garcia@heavylift.es", phone: "+34 931 002 991", total: "$12,150.50", badge: "ACTIVE", badgeClass: "bg-zinc-100 text-zinc-700", lastPurchase: "15 Nov, 2023" },
+    { id: "CUST-7720", initials: "BC", name: "BuildCorp Solutions", email: "compras@buildcorp.com", phone: "+34 955 882 110", total: "$8,420.00", badge: "STANDARD", badgeClass: "bg-light text-muted", lastPurchase: "02 Nov, 2023" },
 ];
 
 const FOOTER_METRICS = [
-  {
-    label: "Total Active Clients",
-    value: "1,452",
-    accent: "border-orange-600",
-    sub: "+12% this quarter",
-    subIcon: "trending_up",
-    subColor: "text-orange-600",
-  },
-  {
-    label: "Avg. Order Value",
-    value: "€3,840",
-    accent: "border-zinc-900",
-    sub: "Steady growth",
-    subIcon: "analytics",
-    subColor: "text-zinc-600",
-  },
-  {
-    label: "Retention Rate",
-    value: "94.2%",
-    accent: "border-zinc-400",
-    sub: "Elite tier benchmark",
-    subIcon: null,
-    subColor: "text-zinc-500",
-  },
-  {
-    label: "Pending Invoices",
-    value: "24",
-    accent: "border-orange-200",
-    sub: "Action required",
-    subIcon: "priority_high",
-    subColor: "text-orange-700",
-  },
+    { label: "Clientes Activos", value: "1,452", border: "#ff6600", sub: "+12% este trimestre", icon: <IconTrendingUp size={14}/>, subClass: "text-orange" },
+    { label: "Valor Promedio", value: "$3,840", border: "#1a1a1a", sub: "Crecimiento constante", icon: <IconDeviceAnalytics size={14}/>, subClass: "text-muted" },
+    { label: "Tasa Retención", value: "94.2%", border: "#cbd5e1", sub: "Nivel Élite", icon: null, subClass: "text-muted" },
+    { label: "Facturas Pendientes", value: "24", border: "#ffb380", sub: "Acción requerida", icon: <IconAlertCircle size={14}/>, subClass: "text-danger" },
 ];
 
-const TIMELINE = [
-  {
-    icon: "shopping_bag",
-    iconColor: "text-orange-600",
-    accent: "border-orange-600",
-    title: "New Order #8821",
-    sub: "2 hours ago • €4,200.00",
-  },
-  {
-    icon: "support_agent",
-    iconColor: "text-zinc-600",
-    accent: "border-zinc-400",
-    title: "Ticket Resolved",
-    sub: "Yesterday • Logistics Query",
-  },
-];
-
-
-
-// ─── CustomerRow ───────────────────────────────────────────────────────────────
-function CustomerRow({ customer, onSelect, isSelected }) {
-  return (
-    <tr
-      onClick={() => onSelect(customer)}
-      className={`hover:bg-zinc-50/50 transition-colors group cursor-pointer ${isSelected ? "bg-orange-50/30" : ""}`}
-    >
-      <td className="px-6 py-5">
-        <div className="flex items-center gap-4">
-          <div className="w-10 h-10 rounded-lg bg-orange-100 flex items-center justify-center text-orange-700 font-bold text-sm flex-shrink-0">
-            {customer.initials}
-          </div>
-          <div>
-            <p className="font-bold text-sm text-zinc-900">{customer.name}</p>
-            <p className="text-xs text-zinc-500">ID: #{customer.id}</p>
-          </div>
-        </div>
-      </td>
-      <td className="px-6 py-5">
-        <p className="text-sm text-zinc-900 font-medium">{customer.email}</p>
-        <p className="text-xs text-zinc-500">{customer.phone}</p>
-      </td>
-      <td className="px-6 py-5">
-        <p className="text-sm font-extrabold text-zinc-900">{customer.total}</p>
-        <span className={`text-[10px] font-bold inline-block px-1.5 py-0.5 rounded mt-0.5 ${customer.badgeBg}`}>
-          {customer.badge}
-        </span>
-      </td>
-      <td className="px-6 py-5 text-sm text-zinc-900">{customer.lastPurchase}</td>
-      <td className="px-6 py-5 text-right">
-        <button className="opacity-0 group-hover:opacity-100 p-2 text-zinc-400 hover:text-orange-600 transition-all">
-          <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
-        </button>
-      </td>
-    </tr>
-  );
-}
-
-// ─── KeyAccountCard ────────────────────────────────────────────────────────────
-function KeyAccountCard() {
-  return (
-    <div className="bg-zinc-900 text-white rounded-xl p-8 relative overflow-hidden shadow-2xl">
-      <div className="relative z-10">
-        <span className="text-[10px] font-black uppercase tracking-widest bg-orange-600 px-2 py-1 rounded-sm mb-4 inline-block">
-          Key Account Focus
-        </span>
-        <div className="flex items-start justify-between mb-8">
-          <h3 className="text-3xl font-black leading-tight" style={{ fontFamily: "Manrope, sans-serif" }}>
-            Advanced<br />Robotics S.A.
-          </h3>
-          <div className="w-14 h-14 rounded-full bg-orange-600 flex items-center justify-center shadow-lg shadow-orange-600/30 flex-shrink-0">
-            <span className="material-symbols-outlined text-white">bolt</span>
-          </div>
-        </div>
-        <div className="space-y-4">
-          <div className="flex justify-between border-b border-white/10 pb-2">
-            <span className="text-zinc-400 text-xs">Total Compras</span>
-            <span className="font-extrabold">€124,500.00</span>
-          </div>
-          <div className="flex justify-between border-b border-white/10 pb-2">
-            <span className="text-zinc-400 text-xs">Crédito Disponible</span>
-            <span className="font-extrabold text-orange-400">€50,000.00</span>
-          </div>
-        </div>
-        <button className="mt-8 w-full bg-white text-zinc-900 py-3 rounded-lg font-bold text-sm hover:bg-zinc-100 transition-colors">
-          Ver Perfil Detallado
-        </button>
-      </div>
-      {/* Glow decorativo */}
-      <div className="absolute -right-10 -bottom-10 w-64 h-64 bg-orange-600/10 rounded-full blur-3xl pointer-events-none" />
-    </div>
-  );
-}
-
-// ─── ContactDetails ────────────────────────────────────────────────────────────
-function ContactDetails() {
-  const items = [
-    { icon: "alternate_email", label: "Primary Email", value: "orders@adv-robotics.com" },
-    { icon: "call",            label: "Phone",         value: "+34 934 112 000"          },
-    { icon: "location_on",     label: "Office",        value: "Barcelona, Tech Hub"       },
-  ];
-  return (
-    <div className="bg-white rounded-xl p-6 shadow-sm border border-zinc-200">
-      <h4 className="text-xs font-black text-zinc-500 uppercase tracking-widest mb-6">Contact Details</h4>
-      <div className="space-y-6">
-        {items.map((item) => (
-          <div key={item.label} className="flex gap-4">
-            <div className="w-10 h-10 rounded-lg bg-zinc-50 border border-zinc-100 flex items-center justify-center flex-shrink-0">
-              <span className="material-symbols-outlined text-zinc-900 text-[18px]">{item.icon}</span>
-            </div>
-            <div>
-              <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-tighter">{item.label}</p>
-              <p className="text-sm font-semibold">{item.value}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-// ─── ActivityTimeline ──────────────────────────────────────────────────────────
-function ActivityTimeline() {
-  return (
-    <div className="bg-zinc-100/50 border border-zinc-200 rounded-xl p-6">
-      <h4 className="text-xs font-black text-zinc-500 uppercase tracking-widest mb-4">Activity Timeline</h4>
-      <div className="space-y-3">
-        {TIMELINE.map((item) => (
-          <div key={item.title} className={`p-3 bg-white rounded-lg border-l-4 ${item.accent} shadow-sm flex items-center gap-3`}>
-            <span className={`material-symbols-outlined text-[18px] ${item.iconColor}`}>{item.icon}</span>
-            <div className="text-xs">
-              <p className="font-bold">{item.title}</p>
-              <p className="text-zinc-500">{item.sub}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-// ─── FooterMetricCard ──────────────────────────────────────────────────────────
-function FooterMetricCard({ label, value, accent, sub, subIcon, subColor }) {
-  return (
-    <div className={`bg-white p-6 rounded-xl border border-zinc-200 border-l-4 ${accent} shadow-sm`}>
-      <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-1">{label}</p>
-      <p className="text-3xl font-extrabold" style={{ fontFamily: "Manrope, sans-serif" }}>{value}</p>
-      <p className={`text-[10px] font-bold mt-2 flex items-center gap-1 ${subColor}`}>
-        {subIcon && <span className="material-symbols-outlined text-[12px]">{subIcon}</span>}
-        {sub}
-      </p>
-    </div>
-  );
-}
-
-// ─── ClientesPage ──────────────────────────────────────────────────────────────
 export default function ClientesPage() {
-  const [page, setPage]               = useState(1);
-  const [selectedCustomer, setSelectedCustomer] = useState(null);
+    const [page, setPage] = useState(1);
+    const [selectedCustomer, setSelectedCustomer] = useState(CUSTOMERS[0]);
 
-  return (
-    <div className="p-8">
-
-          {/* ── Page Header ── */}
-          <div className="flex flex-wrap justify-between items-end mb-10 gap-4">
-            <div>
-              {/* Breadcrumb */}
-              <nav className="flex gap-2 text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-2 items-center">
-                <span>Directory</span>
-                <span className="material-symbols-outlined text-[12px] leading-none">chevron_right</span>
-                <span className="text-orange-600">Customers</span>
-              </nav>
-              <h2 className="text-4xl font-extrabold tracking-tighter text-zinc-900" style={{ fontFamily: "Manrope, sans-serif" }}>
-                Client Directory
-              </h2>
-              <p className="text-zinc-500 mt-1">Manage industrial accounts and order history analytics.</p>
-            </div>
-            <div className="flex gap-3">
-              <button className="px-6 py-3 bg-zinc-100 text-zinc-900 font-bold rounded-lg hover:bg-zinc-200 transition-all flex items-center gap-2 text-sm border border-zinc-200">
-                <span className="material-symbols-outlined text-[18px]">download</span> Export CSV
-              </button>
-              <button className="px-6 py-3 bg-zinc-900 text-white font-bold rounded-lg hover:bg-black active:scale-95 transition-all flex items-center gap-2 text-sm shadow-xl shadow-zinc-900/10">
-                <span className="material-symbols-outlined">person_add</span> New Customer
-              </button>
-            </div>
-          </div>
-
-          {/* ── Layout principal ── */}
-          <div className="grid grid-cols-1 xl:grid-cols-12 gap-8">
-
-            {/* ── Tabla 8 cols ── */}
-            <div className="xl:col-span-8 bg-white rounded-xl overflow-hidden shadow-sm border border-zinc-200">
-              <div className="p-6 flex justify-between items-center bg-zinc-50/50">
-                <h3 className="font-bold text-lg tracking-tight" style={{ fontFamily: "Manrope, sans-serif" }}>Active Accounts</h3>
-                <button className="p-2 rounded-lg bg-white border border-zinc-200 hover:bg-zinc-50 transition-colors">
-                  <span className="material-symbols-outlined text-[18px]">filter_list</span>
-                </button>
-              </div>
-              <div className="overflow-x-auto">
-                <table className="w-full text-left border-collapse">
-                  <thead>
-                    <tr className="bg-zinc-50 border-b border-zinc-100">
-                      {["Cliente", "Contacto", "Total Compras", "Última Compra", ""].map((col) => (
-                        <th key={col} className="px-6 py-4 text-[10px] font-bold uppercase tracking-wider text-zinc-500">{col}</th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-zinc-100">
-                    {CUSTOMERS.map((c) => (
-                      <CustomerRow
-                        key={c.id}
-                        customer={c}
-                        onSelect={setSelectedCustomer}
-                        isSelected={selectedCustomer?.id === c.id}
-                      />
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              {/* Paginación */}
-              <div className="p-6 flex justify-between items-center border-t border-zinc-100">
-                <p className="text-xs text-zinc-500 font-medium">Mostrando 1-3 de 156 clientes</p>
-                <div className="flex gap-1">
-                  {[1, 2, 3].map((p) => (
-                    <button
-                      key={p}
-                      onClick={() => setPage(p)}
-                      className={`w-8 h-8 rounded flex items-center justify-center text-xs font-bold transition-colors ${page === p ? "bg-orange-600 text-white shadow-sm" : "hover:bg-zinc-100 text-zinc-500"}`}
-                    >
-                      {p}
-                    </button>
-                  ))}
+    return (
+        <div className="container-fluid pb-5">
+            {/* Header con Breadcrumb */}
+            <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4 gap-3">
+                <div>
+                    <nav className="small text-uppercase fw-black mb-1" style={{ fontSize: '0.65rem', letterSpacing: '1px' }}>
+                        <span className="text-muted">Directorio</span>
+                        <IconChevronRight size={10} className="mx-1 text-muted" />
+                        <span className="text-orange">Clientes</span>
+                    </nav>
+                    <h2 className="fw-black tracking-tighter mb-0">Directorio de Clientes</h2>
+                    <p className="text-muted small">Gestión de cuentas industriales y análisis de historial.</p>
                 </div>
-              </div>
+                <div className="d-flex gap-2">
+                    <button className="btn btn-light border d-flex align-items-center gap-2 fw-bold small">
+                        <IconDownload size={18} /> EXPORTAR CSV
+                    </button>
+                    <button className="btn btn-dark d-flex align-items-center gap-2 fw-bold small shadow-sm">
+                        <IconUserPlus size={18} /> NUEVO CLIENTE
+                    </button>
+                </div>
             </div>
 
-            {/* ── Panel derecho 4 cols ── */}
-            <div className="xl:col-span-4 space-y-6">
-              <KeyAccountCard />
-              <ContactDetails />
-              <ActivityTimeline />
+            <div className="row g-4">
+                {/* Tabla de Clientes (8 cols) */}
+                <div className="col-xl-8">
+                    <div className="card border-0 shadow-sm h-100">
+                        <div className="card-header bg-white p-3 d-flex justify-content-between align-items-center border-bottom">
+                            <h6 className="fw-bold mb-0">Cuentas Activas</h6>
+                            <button className="btn btn-sm btn-light border"><IconFilter size={16}/></button>
+                        </div>
+                        <div className="table-responsive">
+                            <table className="table table-hover align-middle mb-0">
+                                <thead className="bg-light">
+                                    <tr className="small text-muted text-uppercase" style={{ fontSize: '0.65rem' }}>
+                                        <th className="ps-4">Cliente</th>
+                                        <th>Contacto</th>
+                                        <th>Total Compras</th>
+                                        <th>Última Compra</th>
+                                        <th className="text-end pe-4">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {CUSTOMERS.map((c) => (
+                                        <tr 
+                                            key={c.id} 
+                                            onClick={() => setSelectedCustomer(c)}
+                                            style={{ cursor: 'pointer' }}
+                                            className={selectedCustomer?.id === c.id ? "table-active" : ""}
+                                        >
+                                            <td className="ps-4">
+                                                <div className="d-flex align-items-center gap-3">
+                                                    <div className="bg-orange-subtle text-orange rounded fw-bold d-flex align-items-center justify-content-center" style={{ width: '38px', height: '38px' }}>
+                                                        {c.initials}
+                                                    </div>
+                                                    <div>
+                                                        <div className="small fw-bold text-dark">{c.name}</div>
+                                                        <div className="text-muted" style={{ fontSize: '0.7rem' }}>#{c.id}</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className="small fw-medium text-dark">{c.email}</div>
+                                                <div className="text-muted small">{c.phone}</div>
+                                            </td>
+                                            <td>
+                                                <div className="small fw-black">{c.total}</div>
+                                                <span className={`badge ${c.badgeClass}`} style={{ fontSize: '0.6rem' }}>{c.badge}</span>
+                                            </td>
+                                            <td className="small text-dark">{c.lastPurchase}</td>
+                                            <td className="text-end pe-4">
+                                                <IconChevronRight size={18} className="text-muted opacity-50" />
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div className="card-footer bg-white p-3 d-flex justify-content-between align-items-center border-top">
+                            <small className="text-muted">Mostrando 1-3 de 156 clientes</small>
+                            <div className="btn-group btn-group-sm">
+                                {[1, 2, 3].map(p => (
+                                    <button key={p} className={`btn ${page === p ? 'btn-orange' : 'btn-light border'}`} onClick={() => setPage(p)}>{p}</button>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Panel Derecho - Detalle (4 cols) */}
+                <div className="col-xl-4">
+                    <div className="card bg-dark text-white border-0 shadow mb-4 p-4 overflow-hidden position-relative">
+                        <div className="position-relative z-index-1">
+                            <span className="badge bg-orange text-white mb-3" style={{ fontSize: '0.6rem' }}>ENFOQUE CUENTA CLAVE</span>
+                            <div className="d-flex justify-content-between align-items-start mb-4">
+                                <h3 className="fw-black">Advanced<br />Robotics S.A.</h3>
+                                <div className="bg-orange p-3 rounded-circle shadow">
+                                    <IconBolt size={24} />
+                                </div>
+                            </div>
+                            <div className="mb-4">
+                                <div className="d-flex justify-content-between border-bottom border-secondary pb-2 mb-2">
+                                    <small className="text-muted">Total Compras</small>
+                                    <span className="fw-bold">$124,500.00</span>
+                                </div>
+                                <div className="d-flex justify-content-between border-bottom border-secondary pb-2">
+                                    <small className="text-muted">Crédito Disponible</small>
+                                    <span className="fw-bold text-orange">$50,000.00</span>
+                                </div>
+                            </div>
+                            <button className="btn btn-white w-100 fw-bold small py-2">VER PERFIL DETALLADO</button>
+                        </div>
+                        <div className="position-absolute end-0 bottom-0 bg-orange opacity-10 rounded-circle" style={{ width: '150px', height: '150px', transform: 'translate(20%, 20%)', filter: 'blur(50px)' }}></div>
+                    </div>
+
+                    <div className="card border-0 shadow-sm p-4 mb-4">
+                        <h6 className="small fw-black text-muted text-uppercase mb-4">Detalles de Contacto</h6>
+                        <div className="d-flex flex-column gap-3">
+                            <div className="d-flex align-items-center gap-3">
+                                <div className="bg-light border p-2 rounded"><IconMail size={18}/></div>
+                                <div>
+                                    <div className="text-muted fw-bold" style={{ fontSize: '0.65rem' }}>EMAIL PRINCIPAL</div>
+                                    <div className="small fw-bold">orders@adv-robotics.com</div>
+                                </div>
+                            </div>
+                            <div className="d-flex align-items-center gap-3">
+                                <div className="bg-light border p-2 rounded"><IconPhone size={18}/></div>
+                                <div>
+                                    <div className="text-muted fw-bold" style={{ fontSize: '0.65rem' }}>TELÉFONO</div>
+                                    <div className="small fw-bold">+34 934 112 000</div>
+                                </div>
+                            </div>
+                            <div className="d-flex align-items-center gap-3">
+                                <div className="bg-light border p-2 rounded"><IconMapPin size={18}/></div>
+                                <div>
+                                    <div className="text-muted fw-bold" style={{ fontSize: '0.65rem' }}>OFICINA</div>
+                                    <div className="small fw-bold">Bogotá, Zona Industrial</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="card bg-light border-0 p-4">
+                        <h6 className="small fw-black text-muted text-uppercase mb-3">Línea de Tiempo</h6>
+                        <div className="d-flex flex-column gap-2">
+                            <div className="bg-white p-2 rounded border-start border-orange border-4 shadow-sm d-flex align-items-center gap-2">
+                                <IconShoppingBag size={16} className="text-orange" />
+                                <div style={{ fontSize: '0.75rem' }}>
+                                    <div className="fw-bold">Nuevo Pedido #8821</div>
+                                    <div className="text-muted">Hace 2 horas • $4,200.00</div>
+                                </div>
+                            </div>
+                            <div className="bg-white p-2 rounded border-start border-secondary border-4 shadow-sm d-flex align-items-center gap-2">
+                                <IconHeadset size={16} className="text-muted" />
+                                <div style={{ fontSize: '0.75rem' }}>
+                                    <div className="fw-bold">Ticket Resuelto</div>
+                                    <div className="text-muted">Ayer • Consulta Logística</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
 
-          {/* ── Footer Metrics ── */}
-          <div className="grid grid-cols-2 xl:grid-cols-4 gap-6 mt-10">
-            {FOOTER_METRICS.map((m) => (
-              <FooterMetricCard key={m.label} {...m} />
-            ))}
-          </div>
-
+            {/* Footer Metrics */}
+            <div className="row g-4 mt-2">
+                {FOOTER_METRICS.map((m, i) => (
+                    <div className="col-md-3" key={i}>
+                        <div className="card border-0 shadow-sm p-4" style={{ borderLeft: `4px solid ${m.border}` }}>
+                            <small className="text-muted text-uppercase fw-bold" style={{ fontSize: '0.6rem' }}>{m.label}</small>
+                            <h3 className="fw-black my-1">{m.value}</h3>
+                            <div className={`d-flex align-items-center gap-1 small fw-bold ${m.subClass}`}>
+                                {m.icon} {m.sub}
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
-
-  );
+    );
 }
