@@ -1,7 +1,7 @@
 import { SeccionCategoria } from './TarjetaProductos.jsx';
 import { useState, useEffect } from 'react';
 
-export function ContainerProductos({ productosData, onAgregarCarrito }) {
+export function ContainerProductos({ productosData, onAdd }) {
     const [productos, setProductos] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -23,12 +23,12 @@ export function ContainerProductos({ productosData, onAgregarCarrito }) {
     // FUNCIÓN INTERNA PARA MOSTRAR LA ALERTA
     const handleAgregarConNotificacion = (producto) => {
         // Ejecutamos la función original que viene por props
-        onAgregarCarrito(producto);
+        onAdd(producto);
 
-        // Mostramos nuestra notificación
+        // Mostrar notificación
         setAlerta({ visible: true, productoNombre: producto.nombre });
 
-        // La ocultamos automáticamente después de 2 segundos
+        // Se oculta automáticamente después de 2 segundos
         setTimeout(() => {
             setAlerta({ visible: false, productoNombre: '' });
         }, 2000);
@@ -61,6 +61,8 @@ export function ContainerProductos({ productosData, onAgregarCarrito }) {
         );
     }
 
+
+
     return (
         <div id="productos-ferreteria" className="position-relative">
             
@@ -89,8 +91,7 @@ export function ContainerProductos({ productosData, onAgregarCarrito }) {
                     key={categoria}
                     categoria={categoria}
                     productos={gruposProductos[categoria]}
-                    // IMPORTANTE: Cambiamos onAgregarCarrito por nuestra nueva función
-                    onAgregarCarrito={handleAgregarConNotificacion} 
+                    onAdd={handleAgregarConNotificacion} 
                 />
             ))}
         </div>

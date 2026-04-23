@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { IconChevronLeft, IconChevronRight } from '@tabler/icons-react'
 
 // Componente individual de producto
-export function TarjetaProducto ({ producto, onAgregarCarrito }) {
+export function TarjetaProducto ({ producto, onAdd }) {
   return (
     <div className='producto' style={{ minWidth: '250px', flex: '0 0 auto' }}>
       <div className='card mb-4 shadow-sm'>
@@ -18,7 +18,7 @@ export function TarjetaProducto ({ producto, onAgregarCarrito }) {
           </p>
           <button
             className='btn btn-primary w-100'
-            onClick={() => onAgregarCarrito(producto)}
+            onClick={() => onAdd && onAdd(producto)}
           >
             Agregar al carrito
           </button>
@@ -29,13 +29,13 @@ export function TarjetaProducto ({ producto, onAgregarCarrito }) {
 }
 
 // Componente de sección de categoría
-export function SeccionCategoria({ categoria, productos, onAgregarCarrito }) {
+export function SeccionCategoria({ categoria, productos, onAdd }) {
   const idCategoria = categoria.toLowerCase().replace(/ /g, '-');
   const scrollRef = useRef(null);
 
   const scroll = (dir) => {
     const container = scrollRef.current;
-    if (!container) return; // 🔥 protección
+    if (!container) return; //protección
 
     const scrollAmount = 300;
 
@@ -60,13 +60,13 @@ export function SeccionCategoria({ categoria, productos, onAgregarCarrito }) {
         <IconChevronLeft size={28} stroke={2} />
       </button>
 
-      {/* CONTENEDOR SCROLL (🔥 ESTO FALTABA) */}
+      {/* CONTENEDOR SCROLL */}
       <div ref={scrollRef} className="scroll-linea px-5">
         {productos.map((producto, index) => (
           <TarjetaProducto
             key={index}
             producto={producto}
-            onAgregarCarrito={onAgregarCarrito}
+            onAdd={onAdd}
           />
         ))}
       </div>

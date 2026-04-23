@@ -1,94 +1,176 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+import { useState, useEffect } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import { Navbar } from './components/Navbar.jsx'
-import { Home } from './components/home/Home.jsx';
-import { Footer } from './components/Footer.jsx';
-import { Login } from './components/layouts/login/login.jsx';
-import Administracion from './components/layouts/Admin/Administracion.jsx';
-import { Registro } from './Registro.jsx';
-import { Carrito } from './Carrito.jsx';
-import Contacto from './components/Contacto.jsx';
+import { Home } from './components/home/Home.jsx'
+import { Footer } from './components/Footer.jsx'
+import { Login } from './components/layouts/login/login.jsx'
+import Administracion from './components/layouts/Admin/Administracion.jsx'
+import { Registro } from './Registro.jsx'
+import { Carrito } from './Carrito.jsx'
+import Contacto from './components/Contacto.jsx'
+import { PerfilPage } from './components/pages/PerfilPage.jsx'
 
-function App() {
- 
+function App () {
+  const [carrito, setCarrito] = useState([])
+  const [usuario, setUsuario] = useState(null)
 
-    const [carrito, setCarrito] = useState([]);
-    
-        const agregarAlCarrito = (producto) => {
-            console.log("AGREGANDO AL CARRITO:", producto);
-    
-            setCarrito(prev => {
-                const existe = prev.find(item => item.id === producto.id);
-    
-                if (existe) {
-                    return prev.map(item =>
-                        item.id === producto.id
-                            ? { ...item, cantidad: item.cantidad + 1 }
-                            : item
-                    );
-                }
-    
-                return [...prev, { ...producto, cantidad: 1 }];
-            });
-        };
-    
-        const eliminarDelCarrito = (id) => {
-            setCarrito(prev => prev.filter(item => item.id !== id));
-        };
+  //Cargar carrito según usuario
+  useEffect(() => {
+    if (usuario) {
+      const data = localStorage.getItem(`carrito_${usuario.id}`)
+      if (data) {
+        setCarrito(JSON.parse(data))
+      } else {
+        setCarrito([])
+      }
+    }
+  }, [usuario])
 
-    const [categoryFilters, setCategoryFilters] = useState({
-        herramientas: "",
-        insumos: "",
-        construccion: ""
-    });
+  //Guardar carrito automáticamente
+  useEffect(() => {
+    if (usuario) {
+      localStorage.setItem(`carrito_${usuario.id}`, JSON.stringify(carrito))
+    }
+  }, [carrito, usuario])
 
-    const handleCategoryFilter = (filterName, categoryValue) => {
-        const nuevos = {
-            herramientas: "",
-            insumos: "",
-            construccion: ""
-        };
-        nuevos[filterName] = categoryValue;
-        setCategoryFilters(nuevos);
-    };
+  useEffect(() => {
+    if (usuario) {
+      const data = localStorage.getItem(`carrito_${usuario.id}`)
+      if (data) setCarrito(JSON.parse(data))
+    }
+  }, [usuario])
 
-    return (
-        <BrowserRouter>
-            <Routes>
-                {/* RUTA PÚBLICA (Con Navbar y Footer de la tienda) */}
-                <Route path="/*" element={
-                    <>
-                        <Navbar 
-                        carrito={carrito}
-                        onCategoryFilter={handleCategoryFilter} />
-                        <Routes>
-                            <Route 
-                                path="/" 
-                                element={
-                                    <Home
-                                        onAdd={agregarAlCarrito} 
-                                        categoryFilters={categoryFilters} 
-                                        setCategoryFilters={setCategoryFilters} 
-                                    />
-                                } 
-                            />
-                            <Route path="/login" element={<Login />} />
-                            <Route path="/carrito" element={<Carrito items={carrito} onRemove={eliminarDelCarrito} />} />
-                            <Route path="/registro" element={<Registro />} />
-                            <Route path="/contacto" element={<Contacto />} />
-                        </Routes>
-                        <Footer />
-                    </>
-                } />
+  useEffect(() => {
+    if (usuario) {
+      localStorage.setItem(`carrito_${usuario.id}`, JSON.stringify(carrito))
+    }
+  }, [carrito, usuario])
 
-                {/* RUTA DE ADMINISTRACIÓN (Limpia, sin Navbar de tienda) */}
-                <Route path="/admin/*" element={<Administracion />} />
-            </Routes>
-        </BrowserRouter>
-    );
+  const agregarAlCarrito = producto => {
+    console.log('AGREGANDO AL CARRITO:', producto)
+
+    setCarrito(prev => {
+      const existe = prev.find(item => item.id === producto.id)
+
+      if (existe) {
+        return prev.map(item =>
+          item.id === producto.id
+            ? { ...item, cantidad: item.cantidad + 1 }
+            : item
+        )
+      }
+
+      return [...prev, { ...producto, cantidad: 1 }]
+    })
+  }
+
+  const eliminarDelCarrito = id => {
+    setCarrito(prev => prev.filter(item => item.id !== id))
+  }
+
+  const [categoryFilters, setCategoryFilters] = useState({
+    herramientas: '',
+    insumos: '',
+    construccion: ''
+  })
+
+  useEffect(() => {
+    const sesion = localStorage.getItem('sesion_activa')
+    if (sesion) {
+      setUsuario(JSON.parse(sesion))
+    }
+  }, [])
+
+  const handleCategoryFilter = (filterName, categoryValue) => {
+    const nuevos = {
+      herramientas: '',
+      insumos: '',
+      construccion: ''
+    }
+    nuevos[filterName] = categoryValue
+    setCategoryFilters(nuevos)
+  }
+
+  const cerrarSesion = () => {
+    localStorage.removeItem('sesion_activa')
+    setUsuario(null)
+  }
+
+  return (
+    <BrowserRouter>
+      <Routes>
+        {/* RUTA PÚBLICA (Con Navbar y Footer de la tienda) */}
+        <Route
+          path='/*'
+          element={
+            <>
+              <Navbar
+                carrito={carrito}
+                onCategoryFilter={handleCategoryFilter}
+                usuario={usuario}
+                cerrarSesion={cerrarSesion}
+              />
+              <Routes>
+                <Route
+                  path='/'
+                  element={
+                    <Home
+                      onAdd={agregarAlCarrito}
+                      categoryFilters={categoryFilters}
+                      setCategoryFilters={setCategoryFilters}
+                    />
+                  }
+                />
+                <Route
+                  path='/login'
+                  element={
+                    usuario ? (
+                      <Home
+                        onAdd={agregarAlCarrito}
+                        categoryFilters={categoryFilters}
+                        setCategoryFilters={setCategoryFilters}
+                      />
+                    ) : (
+                      <Login setUsuario={setUsuario} />
+                    )
+                  }
+                />
+                <Route
+                  path='/carrito'
+                  element={
+                    <Carrito items={carrito} onRemove={eliminarDelCarrito} />
+                  }
+                />
+                <Route path='/registro' element={<Registro />} />
+                <Route
+                  path='/perfil'
+                  element={
+                    usuario ? (
+                      <PerfilPage
+                        usuario={usuario}
+                        setUsuario={setUsuario}
+                        cerrarSesion={cerrarSesion}
+                      />
+                    ) : (
+                      <Login />
+                    )
+                  }
+                />
+                <Route path='/contacto' element={<Contacto />} />
+              </Routes>
+              <Footer />
+            </>
+          }
+        />
+
+        {/* RUTA DE ADMINISTRACIÓN (Limpia, sin Navbar de tienda) */}
+        <Route path='/admin/*' element={<Administracion />} />
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App

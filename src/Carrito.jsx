@@ -23,7 +23,7 @@ export function Carrito({ items, onRemove }) {
   );
 
   const handlePagar = () => {
-    alert(`💳 Procesando pago por $${(item.precio || 0).toLocaleString("es-CO")} vía ${metodoPago.toUpperCase()}...\n\n¡Gracias por tu compra en FerrePRO!`);
+    alert(`💳 Procesando pago por $${total.toLocaleString("es-CO")} vía ${metodoPago.toUpperCase()}...\n\n¡Gracias por tu compra en FerrePRO!`);
     // Aquí podrías añadir la lógica para limpiar el carrito tras la compra
   };
 
