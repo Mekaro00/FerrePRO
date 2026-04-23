@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { IconEye, IconEyeOff } from '@tabler/icons-react'
 
 export const Registro = () => {
+  const [mostrarPassword, setMostrarPassword] = useState(false)
+  const [mostrarConfirmPassword, setMostrarConfirmPassword] = useState(false)
+
   // 1. Definimos los estados para capturar la información
   const [formData, setFormData] = useState({
     nombres: '',
@@ -32,7 +36,17 @@ export const Registro = () => {
       return
     }
 
-    // Guardamos en el localStorage (Persistencia temporal para tu proyecto ADSO)
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&._-])[A-Za-z\d@$!%*?&._-]{8,}$/
+
+    if (!passwordRegex.test(formData.password)) {
+      alert(
+        'La contraseña debe tener mínimo 8 caracteres, incluir mayúscula, minúscula, número y un carácter especial.'
+      )
+      return
+    }
+
+    // Guardamos en el localStorage
     // Usamos el email como llave para poder registrar varios usuarios si quieres
     const usuariosExistentes =
       JSON.parse(localStorage.getItem('usuarios_ferrepro')) || []
@@ -49,7 +63,7 @@ export const Registro = () => {
       apellidos: formData.apellidos,
       telefono: formData.telefono,
       email: formData.email,
-      password: formData.password,
+      password: btoa(formData.password),
       foto: '',
       role: 'cliente'
     }
@@ -148,28 +162,65 @@ export const Registro = () => {
                   />
                 </div>
                 <div className='row'>
-                  <div className='col-md-6 mb-3'>
+                  <div className='col-md-6 mb-4'>
                     <label className='form-label fw-semibold'>Contraseña</label>
-                    <input
-                      type='password'
-                      name='password'
-                      className='form-control form-control-lg fs-6'
-                      placeholder='••••••••'
-                      required
-                      onChange={handleChange}
-                    />
+
+                    <div className='position-relative'>
+                      <input
+                        type={mostrarPassword ? 'text' : 'password'}
+                        name='password'
+                        className='form-control form-control-lg fs-6 pe-5'
+                        placeholder='••••••••'
+                        required
+                        onChange={handleChange}
+                        value={formData.password}
+                      />
+
+                      <span
+                        onClick={() => setMostrarPassword(!mostrarPassword)}
+                        className='position-absolute top-50 end-0 translate-middle-y me-3 d-flex align-items-center'
+                        style={{ cursor: 'pointer', color: '#6c757d' }}
+                      >
+                        {mostrarPassword ? (
+                          <IconEyeOff size={20} />
+                        ) : (
+                          <IconEye size={20} />
+                        )}
+                      </span>
+                    </div>
                   </div>
                   <div className='col-md-6 mb-4'>
                     <label className='form-label fw-semibold'>Confirmar</label>
-                    <input
-                      type='password'
-                      name='confirmPassword'
-                      className='form-control form-control-lg fs-6'
-                      placeholder='••••••••'
-                      required
-                      onChange={handleChange}
-                    />
+
+                    <div className='position-relative'>
+                      <input
+                        type={mostrarConfirmPassword ? 'text' : 'password'}
+                        name='confirmPassword'
+                        className='form-control form-control-lg fs-6 pe-5'
+                        placeholder='••••••••'
+                        required
+                        onChange={handleChange}
+                        value={formData.confirmPassword}
+                      />
+
+                      <span
+                        onClick={() =>
+                          setMostrarConfirmPassword(!mostrarConfirmPassword)
+                        }
+                        className='position-absolute top-50 end-0 translate-middle-y me-3 d-flex align-items-center'
+                        style={{ cursor: 'pointer', color: '#6c757d' }}
+                      >
+                        {mostrarConfirmPassword ? (
+                          <IconEyeOff size={20} />
+                        ) : (
+                          <IconEye size={20} />
+                        )}
+                      </span>
+                    </div>
                   </div>
+                  <small className='text-muted mb-5 px-3'>
+                    Debe tener mínimo 8 caracteres, mayúscula, número y símbolo.
+                  </small>
                 </div>
                 <div className='mb-4 form-check'>
                   <input

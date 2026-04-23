@@ -16,8 +16,10 @@ export function Login ({ setUsuario }) {
 
     const usuariosRegistrados =
       JSON.parse(localStorage.getItem('usuarios_ferrepro')) || []
+    const passwordHash = btoa(password)
+
     const usuarioEncontrado = usuariosRegistrados.find(
-      u => u.email === email && u.password === password
+      u => u.email === email && u.password === passwordHash
     )
 
     // 1. CASO: ES EL ADMINISTRADOR
