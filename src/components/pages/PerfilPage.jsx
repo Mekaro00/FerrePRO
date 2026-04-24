@@ -68,7 +68,8 @@ export function PerfilPage ({ usuario, setUsuario, cerrarSesion }) {
     nombres: usuario.nombres || '',
     apellidos: usuario.apellidos || '',
     email: usuario.email || '',
-    telefono: usuario.telefono || ''
+    telefono: usuario.telefono || '',
+    direccion: usuario.direccion || ''
   })
 
   const handleChange = e => {
@@ -76,6 +77,71 @@ export function PerfilPage ({ usuario, setUsuario, cerrarSesion }) {
       ...formData,
       [e.target.name]: e.target.value
     })
+  }
+
+  // Estado para manejo de contraseñas
+  const [mostrarModalPassword, setMostrarModalPassword] = useState(false)
+  const [passwordData, setPasswordData] = useState({
+    actual: '',
+    nueva: '',
+    confirmar: ''
+  })
+
+  const handlePasswordChange = e => {
+    setPasswordData({
+      ...passwordData,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const handleCambiarPassword = () => {
+    const passwordActualHash = btoa(passwordData.actual)
+
+    // validar contraseña actual
+    if (usuario.password !== passwordActualHash) {
+      alert('La contraseña actual es incorrecta')
+      return
+    }
+
+    // validar nueva contraseña
+    if (passwordData.nueva !== passwordData.confirmar) {
+      alert('Las nuevas contraseñas no coinciden')
+      return
+    }
+
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&._-])[A-Za-z\d@$!%*?&._-]{8,}$/
+
+    if (!passwordRegex.test(passwordData.nueva)) {
+      alert('La nueva contraseña no cumple los requisitos')
+      return
+    }
+
+    const actualizado = {
+      ...usuario,
+      password: btoa(passwordData.nueva)
+    }
+
+    const usuarios = JSON.parse(localStorage.getItem('usuarios_ferrepro')) || []
+
+    const nuevosUsuarios = usuarios.map(u =>
+      u.id === usuario.id ? actualizado : u
+    )
+
+    localStorage.setItem('usuarios_ferrepro', JSON.stringify(nuevosUsuarios))
+    localStorage.setItem('sesion_activa', JSON.stringify(actualizado))
+
+    setUsuario(actualizado)
+
+    alert('Contraseña actualizada correctamente')
+
+    // limpiar campos
+    setPasswordData({
+      actual: '',
+      nueva: '',
+      confirmar: ''
+    })
+    setMostrarModalPassword(false)
   }
 
   return (
@@ -237,13 +303,24 @@ export function PerfilPage ({ usuario, setUsuario, cerrarSesion }) {
                 </h5>
                 <form className='row g-3'>
                   <div className='col-md-6'>
-                    <label className='form-label small fw-bold'>
-                      Nombre Completo
-                    </label>
+                    <label className='form-label small fw-bold'>Nombres</label>
                     <input
                       name='nombres'
                       type='text'
                       value={formData.nombres}
+                      onChange={handleChange}
+                      className='form-control'
+                    />
+                  </div>
+
+                  <div className='col-md-6'>
+                    <label className='form-label small fw-bold'>
+                      Apellidos
+                    </label>
+                    <input
+                      name='apellidos'
+                      type='text'
+                      value={formData.apellidos}
                       onChange={handleChange}
                       className='form-control'
                     />
@@ -272,8 +349,20 @@ export function PerfilPage ({ usuario, setUsuario, cerrarSesion }) {
                       onChange={handleChange}
                     />
                   </div>
-                  <div className='col-12 mt-4 text-end'>
-                    <button onClick={handleGuardar} className='btn btn-orange'>
+                  <div className='col-12 d-flex justify-content-between align-items-center mt-4'>
+                    <button
+                      type='button'
+                      onClick={() => setMostrarModalPassword(true)}
+                      className='btn btn-outline-dark'
+                    >
+                      Cambiar Contraseña
+                    </button>
+
+                    <button
+                      type='button'
+                      onClick={handleGuardar}
+                      className='btn btn-orange'
+                    >
                       Guardar Cambios
                     </button>
                   </div>
@@ -283,6 +372,67 @@ export function PerfilPage ({ usuario, setUsuario, cerrarSesion }) {
           </div>
         </div>
       </div>
+      {mostrarModalPassword && (
+        <div
+          className='position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center'
+          style={{
+            background: 'rgba(0,0,0,0.4)',
+            backdropFilter: 'blur(5px)',
+            zIndex: 9999
+          }}
+        >
+          <div
+            className='bg-white p-4 rounded-4 shadow'
+            style={{ width: '100%', maxWidth: '400px' }}
+          >
+            <h5 className='fw-bold mb-3'>Cambiar Contraseña</h5>
+
+            <input
+              type='password'
+              name='actual'
+              placeholder='Contraseña actual'
+              className='form-control mb-3'
+              value={passwordData.actual}
+              onChange={handlePasswordChange}
+            />
+
+            <input
+              type='password'
+              name='nueva'
+              placeholder='Nueva contraseña'
+              className='form-control mb-3'
+              value={passwordData.nueva}
+              onChange={handlePasswordChange}
+            />
+
+            <input
+              type='password'
+              name='confirmar'
+              placeholder='Confirmar contraseña'
+              className='form-control mb-4'
+              value={passwordData.confirmar}
+              onChange={handlePasswordChange}
+            />
+
+            <div className='d-flex justify-content-end gap-2'>
+              <button
+                onClick={() => setMostrarModalPassword(false)}
+                className='btn btn-light'
+              >
+                Cancelar
+              </button>
+
+              <button
+                type='button'
+                onClick={handleCambiarPassword}
+                className='btn btn-orange'
+              >
+                Guardar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

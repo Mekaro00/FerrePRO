@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
-import { IconShoppingCart, IconMenu2, IconUser } from '@tabler/icons-react'
+import { IconShoppingCart, IconMenu2, IconUser, IconSettings } from '@tabler/icons-react'
 
-export function Navbar({ onCategoryFilter, carrito, usuario, cerrarSesion }) {
+export function Navbar ({ onCategoryFilter, carrito, usuario, cerrarSesion }) {
   const navigate = useNavigate()
 
   const totalItems = carrito.reduce((acc, item) => acc + item.cantidad, 0)
@@ -39,7 +39,7 @@ export function Navbar({ onCategoryFilter, carrito, usuario, cerrarSesion }) {
         <div className='d-flex align-items-center'>
           <button
             onClick={() => navigate('/carrito')}
-            className='btn btn-outline-light me-3 position-relative border-0'
+            className='btn btn-outline-light me-2 position-relative border-0'
             title='Mi Carrito'
           >
             <IconShoppingCart size={24} />
@@ -52,6 +52,17 @@ export function Navbar({ onCategoryFilter, carrito, usuario, cerrarSesion }) {
               </span>
             )}
           </button>
+
+          {/* BOTÓN ADMIN */}
+          {usuario?.role === 'admin' && (
+            <button
+              onClick={() => navigate('/admin')}
+              className='btn btn-outline-light me-2 border-0'
+              title='Panel de Administración'
+            >
+              <IconSettings size={18} />
+            </button>
+          )}
 
           {/* BOTÓN PERFIL */}
           <button
@@ -388,7 +399,6 @@ export function Navbar({ onCategoryFilter, carrito, usuario, cerrarSesion }) {
                 Iniciar Sesión
               </button>
             )}
-            
           </div>
         </div>
       </div>

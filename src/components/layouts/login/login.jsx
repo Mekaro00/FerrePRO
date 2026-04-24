@@ -25,7 +25,7 @@ export function Login ({ setUsuario }) {
     // 1. CASO: ES EL ADMINISTRADOR
     if (email === ADMIN_USER && password === ADMIN_PASS) {
       setError('')
-      const adminData = { nombres: 'Administrador', role: 'Administrador' }
+      const adminData = { nombres: 'Administrador', role: 'admin' }
 
       localStorage.setItem('sesion_activa', JSON.stringify(adminData))
       setUsuario(adminData)
